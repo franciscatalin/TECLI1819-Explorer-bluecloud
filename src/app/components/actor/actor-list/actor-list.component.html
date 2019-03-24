@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Surname</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Address</th>
+    <th scope="col">Role</th>
+    <th scope="col">preferredLanguage</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let actor of actors; let i = index">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ actor.name }}</td>
+    <td>{{ actor.surname }}</td>
+    <td>{{ actor.email }}</td>
+    <td>{{ actor.address }}</td>
+    <td>{{ actor.phone }}</td>
+    <td>{{ actor.role }}</td>
+    <td>{{ actor.preferredLanguage }}</td>
+    
+  </tr>
+  </tbody>
+</table>
