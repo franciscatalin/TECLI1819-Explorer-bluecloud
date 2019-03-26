@@ -6,12 +6,14 @@ import { ActorListComponent } from './components/actor/actor-list/actor-list.com
 import { TripListComponent } from './components/trip/trip-list/trip-list.component';
 
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/security/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActorListComponent,
-    TripListComponent
+    TripListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
