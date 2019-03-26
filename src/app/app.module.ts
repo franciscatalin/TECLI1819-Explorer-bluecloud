@@ -7,13 +7,15 @@ import { TripListComponent } from './components/trip/trip-list/trip-list.compone
 
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/security/register/register.component';
+import { LoginComponent } from './components/security/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActorListComponent,
     TripListComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
