@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/security/register/register.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { HeaderComponent } from './components/master/header/header.component';
+import { MessageComponent } from './components/master/message/message.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderComponent } from './components/master/header/header.component';
     TripListComponent,
     RegisterComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
