@@ -8,6 +8,7 @@ import { TripListComponent } from './components/trip/trip-list/trip-list.compone
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/security/register/register.component';
 import { LoginComponent } from './components/security/login/login.component';
+import { HeaderComponent } from './components/master/header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginComponent } from './components/security/login/login.component';
     ActorListComponent,
     TripListComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
