@@ -1,10 +1,17 @@
 <app-header></app-header>
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+ 
 </div>
-<app-login></app-login>
+<!----<app-login></app-login>-->
+<h1></h1>
+<nav>
+  
+  <a routerLink="/register" routerLinkActive=" ">Register</a>
+</nav>
+<nav>
+  
+  <a routerLink="/login" routerLinkActive=" ">Login</a>
+</nav>
 
-<!--<app-register></app-register>--->
 
+<router-outlet></router-outlet>
