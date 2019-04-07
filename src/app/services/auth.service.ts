@@ -36,23 +36,29 @@ export class AuthService {
         .then(data => {
         // Mensaje si todo ha ido correctamente
         this.messageService.notifyMessage('errorMessages.', 'messages.auth.login.correct');
+        // Si todo ha ido bien hacemos el resolve
         resolve();
         // Si firebase devuelve algún error lo capturamos
         }).catch(error => {
-          this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+        // Para la primera entrega no es necesario implementar los mensajes
+        // this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
         reject(error);
         });
       });
   }
 
   logout() {
+    // La función devuelve de nuevo una promesa ya que Firebase también devuelve una promesa
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
+          // Si todo ha ido bien hacemos el resolve
           resolve();
+      // Si firebase devuelve algún error lo capturamos
       }).catch(error => {
         reject(error);
-        this.messageService.notifyMessage(error.code, 'Error on Logout.');
+        // Para la primera entrega no es necesario implementar los mensajes
+        // this.messageService.notifyMessage(error.code, 'Error on Logout.');
       });
     });
 }
