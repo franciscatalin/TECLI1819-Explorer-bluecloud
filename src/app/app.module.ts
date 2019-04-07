@@ -13,6 +13,9 @@ import { MessageComponent } from './components/master/message/message.component'
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuth} from 'angularfire2/auth';
+import { config } from 'rxjs';
+import { routes } from './app.routes';
+
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -25,6 +28,8 @@ import {AngularFireAuth} from 'angularfire2/auth';
     messagingSenderId: '1001254469097'
   };
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +41,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
     MessageComponent
   ],
   imports: [
+    routes,
     BrowserModule,
     FormsModule
   ],
