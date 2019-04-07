@@ -16,6 +16,11 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import { config } from 'rxjs';
 import { routes } from './app.routes';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslatableComponent } from './components/shared/translatable/translatable.component';
+
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -29,6 +34,10 @@ import { routes } from './app.routes';
   };
 
 
+  // Esta función nos permite crear un nuevo loader que usaremos para hacer las traducciones
+  export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+  }
 
 @NgModule({
   declarations: [
@@ -38,12 +47,21 @@ import { routes } from './app.routes';
     RegisterComponent,
     LoginComponent,
     HeaderComponent,
-    MessageComponent
+    MessageComponent,
+    TranslatableComponent
   ],
   imports: [
     routes,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]
