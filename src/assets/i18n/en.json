@@ -1,0 +1,21 @@
+{
+    
+ "actor" : {
+
+    "name": "Name",
+    "surname": "Surname",
+    "email": "Email",
+    "password": "Password",    
+    "phone":  "Phone",
+    "address": "Address",
+    "role": "Role",
+    "register": "Register",
+    "update": "Update",
+    "register.title": "Register new actor"
+ },
+
+ "security": {
+     "login": "Login",
+     "logout": "Logout"
+ }
+}
