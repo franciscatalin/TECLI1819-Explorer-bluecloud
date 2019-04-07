@@ -29,11 +29,15 @@ export class AuthService {
   }
 
   login (email: string, password: string) {
+    // La función devuelve una promesa ya que Firebase también devuelve una promesa
     return new Promise<any>((resolve, reject) => {
+      // Le pasamos el email y el passsword a Firebase
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
         .then(data => {
+        // Mensaje si todo ha ido correctamente
         this.messageService.notifyMessage('errorMessages.', 'messages.auth.login.correct');
         resolve();
+        // Si firebase devuelve algún error lo capturamos
         }).catch(error => {
           this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
         reject(error);
