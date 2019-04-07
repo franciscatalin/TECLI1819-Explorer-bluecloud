@@ -1,0 +1,21 @@
+{
+    
+    "actor" : {
+   
+       "email": "Correo electrónico",
+       "password": "Contraseña",
+       "name": "Nombre",
+       "surname": "Apellido",
+       "phone":  "Teléfono",
+       "address": "Dirección",
+       "role": "Rol",
+       "register": "Registrar",
+       "update": "Actualizar",
+       "register.title": "Registro de actor"
+    },
+   
+    "security": {
+        "login": "Entrar",
+        "logout": "Salir"
+    }
+   }
