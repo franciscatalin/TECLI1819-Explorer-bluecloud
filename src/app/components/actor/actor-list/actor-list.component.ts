@@ -14,9 +14,10 @@ export class ActorListComponent implements OnInit {
 
   ngOnInit() {
     this.actors = new Array<Actor>();
-    let actor = new Actor();
+    const actor = new Actor();
     actor.name = 'Miguel';
     actor.surname = 'Sanchez';
+    actor.email = 'yerllichanell@gmail.com';
     actor.email = 'miguel.sanchez@microsoft.com';
     actor.phone = '633755886';
     actor.address = 'C/Alvarado';
