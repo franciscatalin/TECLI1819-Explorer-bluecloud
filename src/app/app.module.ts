@@ -20,7 +20,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslatableComponent } from './components/shared/translatable/translatable.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -55,6 +55,7 @@ import { TranslatableComponent } from './components/shared/translatable/translat
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
