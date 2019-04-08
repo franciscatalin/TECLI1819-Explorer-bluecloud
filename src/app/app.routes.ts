@@ -3,9 +3,15 @@ import { RegisterComponent } from './components/security/register/register.compo
 import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/security/login/login.component';
+import { HomeComponent } from './components/shared/home/home.component';
 
 
   const appRoutes: Routes = [
+    {path: 'home', component: HomeComponent},
+    { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
     {path: 'login', component: LoginComponent},
     { path: '',
     redirectTo: '/login',

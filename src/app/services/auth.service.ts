@@ -35,13 +35,13 @@ export class AuthService {
         const body = JSON.stringify(actor);
       this.http.post (url, body).toPromise()
         .then (res => {
-          this.messageService.notifyMessage('404', 'messages.auth.registration.correct');
+          // this.messageService.notifyMessage('404', 'messages.auth.registration.correct');
           resolve (res);
-        }, err => {this.messageService.notifyMessage('404', 'errorMessage.auth.registration.failed');
+        }, err => {// this.messageService.notifyMessage('404', 'errorMessage.auth.registration.failed');
       reject (err);
       });
       }).catch (error => {
-        this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+        // this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
         reject(error);
       });
       });

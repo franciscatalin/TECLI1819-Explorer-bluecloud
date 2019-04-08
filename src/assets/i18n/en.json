@@ -1,5 +1,4 @@
 {
-    
  "actor" : {
 
     "name": "Name",
@@ -17,5 +16,34 @@
  "security": {
      "login": "Login",
      "logout": "Logout"
- }
+ },
+
+ "footer": {
+    "terms": "Terms and conditions",
+    "visitors": "Visitors",
+    "about": "About",
+    "about.content": "About us"
+},
+
+"category": {
+    "list": "List categories",
+    "create": "Create new category"
+},
+
+"order" :{
+    "list-mine": "List my trips"
+},
+
+"administrator": {
+    "dasboard" : "Display dashboard",
+    "warehouse" : "Configure warehouse",
+    "mpcap": "Display MCAP cube",
+    "title": "ADMINISTRATION"
+},
+
+"cleck": {
+    "list": "List clerks"
+}
+
+
 }
