@@ -17,5 +17,36 @@
     "security": {
         "login": "Entrar",
         "logout": "Salir"
-    }
+    },
+
+    "footer": {
+       "terms": "Términos y condiciones",
+       "visitors": "Visitantes",
+       "about": "A cerca de ",
+       "about.content": "Sobre la empresa"
+   },
+
+   "category": {
+       "list": "List categories",
+       "create": "Create new category"
+   },
+   
+   "order" :{
+        "list-mine": "Listar mis pedidos"
+   },
+   
+   "administrator": {
+       "dasboard" : "Mostrar panel de control",
+       "warehouse" : "Configurar almacén",
+       "mpcap": "Mostrar cubo MCAP",
+       "title": "ADMINISTRACIÓN"
+   },
+   
+   "cleck": {
+       "list": "Listar empleados"
+   }
+   
+
+
+
    }
