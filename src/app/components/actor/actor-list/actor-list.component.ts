@@ -21,8 +21,8 @@ export class ActorListComponent implements OnInit {
     actor.email = 'yerllichanell@gmail.com';
     actor.phone = '633755886';
     actor.address = 'C/Alvarado';
-    actor.role = 'Explorer';
-    actor.preferredLanguage = 'es';
+ //   actor.role = 'Explorer';
+  // actor.preferredLanguage = 'es';
     this.actors.push(actor);
   }
 
