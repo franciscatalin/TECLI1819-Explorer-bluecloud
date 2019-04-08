@@ -1,51 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {registerLocaleData} from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import locales from '@angular/common/locales/es';
-
 import { AppComponent } from './app.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
 import { TripListComponent } from './components/trip/trip-list/trip-list.component';
-
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/security/register/register.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { HeaderComponent } from './components/master/header/header.component';
 import { MessageComponent } from './components/master/message/message.component';
-
-import {AngularFireModule} from 'angularfire2';
-import {AngularFireAuth} from 'angularfire2/auth';
-import { config } from 'rxjs';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { routes } from './app.routes';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslatableComponent } from './components/shared/translatable/translatable.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { v } from '@angular/core/src/render3';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { MessageService } from './services/message.service';
+import * as firebase from 'firebase';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { TripEditComponent } from './components/trip/trip-edit/trip-edit.component';
 
-  // Initialize Firebase
-  export const firebaseConfig = {
-    apiKey: 'AIzaSyBnfa4AS5RbsdbzQNcwojO2NEHUGQ4BMyY',
-    authDomain: 'login-cbea5.firebaseapp.com',
-    databaseURL: 'https://login-cbea5.firebaseio.com',
-    projectId: 'login-cbea5',
-    // tslint:disable-next-line:quotemark
-    storageBucket: "login-cbea5.appspot.com",
-    messagingSenderId: '1001254469097'
-  };
+// Initialize Firebase
+export const firebaseConfig = {
+  apiKey: 'AIzaSyAAaFX9STVzcDkmbr9_GE920p6H-aeqnR4',
+  authDomain: 'bluecloud-client-2018.firebaseapp.com',
+  databaseURL: 'https://bluecloud-client-2018.firebaseio.com',
+  projectId: 'bluecloud-client-2018',
 
-  registerLocaleData(locales, 'es');
-  // Esta función nos permite crear un nuevo loader que usaremos para hacer las traducciones
-  export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
-  }
+  storageBucket: 'bluecloud-client-2018.appspot.com',
+  messagingSenderId: '525014120497'
+};
+firebase.initializeApp(firebaseConfig);
+
+registerLocaleData(locales, 'es');
+// Esta función nos permite crear un nuevo loader que usaremos para hacer las traducciones
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -61,6 +57,7 @@ import { TripEditComponent } from './components/trip/trip-edit/trip-edit.compone
     HomeComponent,
     TripDisplayComponent,
     TripEditComponent
+
   ],
   imports: [
     routes,
@@ -68,6 +65,7 @@ import { TripEditComponent } from './components/trip/trip-edit/trip-edit.compone
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -76,7 +74,7 @@ import { TripEditComponent } from './components/trip/trip-edit/trip-edit.compone
       }
     })
   ],
-  providers: [AngularFireAuth, MessageService],
+  providers: [AngularFireAuth, MessageService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
