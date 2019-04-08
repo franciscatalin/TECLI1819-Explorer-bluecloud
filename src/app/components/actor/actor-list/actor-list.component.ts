@@ -17,8 +17,8 @@ export class ActorListComponent implements OnInit {
     const actor = new Actor();
     actor.name = 'Miguel';
     actor.surname = 'Sanchez';
+    actor.password = '123';
     actor.email = 'yerllichanell@gmail.com';
-    actor.email = 'miguel.sanchez@microsoft.com';
     actor.phone = '633755886';
     actor.address = 'C/Alvarado';
     actor.role = 'Explorer';
