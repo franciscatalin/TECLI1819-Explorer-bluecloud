@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { HomeComponent } from './components/shared/home/home.component';
-import { BodyComponent } from './components/master/body/body.component';
+import { TripListComponent } from './components/trip/trip-list/trip-list.component';
 
 
   const appRoutes: Routes = [
@@ -23,9 +23,9 @@ import { BodyComponent } from './components/master/body/body.component';
     redirectTo: '/register',
     pathMatch: 'full'
   },
-  {path: 'body', component: BodyComponent},
+  {path: 'TripList', component: TripListComponent},
   { path: '',
-  redirectTo: '/body',
+  redirectTo: '/TripList',
   pathMatch: 'full'
 }
   ];
