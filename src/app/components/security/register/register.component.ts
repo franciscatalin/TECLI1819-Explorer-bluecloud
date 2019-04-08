@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService,
     private router: Router) {
-
+      // const roleList = authService.getRole();
   }
 
 
@@ -27,12 +27,14 @@ export class RegisterComponent implements OnInit {
       ({
         name: [''],
         surname: [''],
-        mail: [''],
         password: [''],
+        mail: [''],
         phone: [''],
         address: [''],
-        role: [''],
-        validated: ['true'],
+       // role: [''],
+       // preferredLanguage: [''],
+
+
 
       });
   }
@@ -52,13 +54,17 @@ export class RegisterComponent implements OnInit {
   }*/
 
   onRegister() {
-    console.log ('hola');
+
+    this.submitted = true;
+    if (this.registerForm.invalid) {
     this.authService.registerUser(this.registerForm.value)
       .then(res => {
+
         console.log(res);
-        this.router.navigate(['/login']);
+     //   this.router.navigate(['/login']);
       }, err => { console.log(err); });
   }
+}
 }
 
 

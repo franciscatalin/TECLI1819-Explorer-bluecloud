@@ -28,6 +28,7 @@ import { v } from '@angular/core/src/render3';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { BodyComponent } from './components/master/body/body.component';
+import { MessageService } from './services/message.service';
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -74,7 +75,7 @@ import { BodyComponent } from './components/master/body/body.component';
       }
     })
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
