@@ -3,11 +3,11 @@ import {DatePipe} from '@angular/common';
 import {TranslateService} from '@ngx-translate/core';
 
 @Pipe({
-  name: 'localizedData',
+  name: 'localizedDate',
   pure: false
 })
 export class LocalizedDataPipe implements PipeTransform {
-
+  
   constructor(private translateService: TranslateService) {
   }
 
