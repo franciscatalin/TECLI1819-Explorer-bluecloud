@@ -26,6 +26,8 @@ import { TranslatableComponent } from './components/shared/translatable/translat
 import { ReactiveFormsModule } from '@angular/forms';
 import { v } from '@angular/core/src/render3';
 import { FooterComponent } from './components/master/footer/footer.component';
+import { HomeComponent } from './components/shared/home/home.component';
+import { BodyComponent } from './components/master/body/body.component';
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -54,7 +56,9 @@ import { FooterComponent } from './components/master/footer/footer.component';
     HeaderComponent,
     MessageComponent,
     TranslatableComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    BodyComponent
   ],
   imports: [
     routes,

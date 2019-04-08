@@ -18,14 +18,14 @@
                         <form class="form" (ngSubmit)="onLogin(f)" #f="ngForm">
                             <div class="form-group">
                                 <label class="text-white"
-                                for="email">Email:</label><br>
+                                for="email">{{'actor.email' | translate }}:</label><br>
                                 <input class="form-control" type="email" 
                                 id="email" name="email" placeholder="Enter email"
                                 ngModel>
                             </div>
                             <div class="form-group">
                                 <label class="text-white"
-                                for="pwd">Password:</label><br>
+                                for="pwd">{{'actor.password' | translate }}:</label><br>
                                 <input class="form-control" type="password" 
                                 id="pwd" name="password" placeholder="Enter password"
                                 ngModel>

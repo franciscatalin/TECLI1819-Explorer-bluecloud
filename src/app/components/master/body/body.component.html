@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Ticker</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let trip of trips; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ trip.title }}</td>
+      <td>{{ trip.ticker }}</td>
+      <td>{{ trip.description }}</td>
+      <td>{{ trip.price }}</td>
+    </tr>
+    </tbody>
+  </table>
