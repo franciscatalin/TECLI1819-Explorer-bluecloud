@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {registerLocaleData} from '@angular/common';
+import locales from '@angular/common/locales/es';
+
 
 import { AppComponent } from './app.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
@@ -20,7 +23,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslatableComponent } from './components/shared/translatable/translatable.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { v } from '@angular/core/src/render3';
+import { FooterComponent } from './components/master/footer/footer.component';
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -33,7 +38,7 @@ import { TranslatableComponent } from './components/shared/translatable/translat
     messagingSenderId: '1001254469097'
   };
 
-
+  registerLocaleData(locales, 'es');
   // Esta función nos permite crear un nuevo loader que usaremos para hacer las traducciones
   export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -48,13 +53,15 @@ import { TranslatableComponent } from './components/shared/translatable/translat
     LoginComponent,
     HeaderComponent,
     MessageComponent,
-    TranslatableComponent
+    TranslatableComponent,
+    FooterComponent
   ],
   imports: [
     routes,
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
