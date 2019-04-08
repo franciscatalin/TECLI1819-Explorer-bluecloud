@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,12 +11,53 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  registerForm: FormGroup;
+  submitted = false;
 
 
-  constructor() { }
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+    private router: Router) {
+
+  }
 
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group
+      ({
+        name: [''],
+        surname: [''],
+        mail: [''],
+        password: [''],
+        phone: [''],
+        address: [''],
+        role: [''],
+        validated: ['true'],
+
+      });
+  }
+
+
+  /*get f() { return this.registerForm.controls; }*/
+
+  /*onRegister() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    alert('SUCCESS!! :-)');
+  }*/
+
+  onRegister() {
+    console.log ('hola');
+    this.authService.registerUser(this.registerForm.value)
+      .then(res => {
+        console.log(res);
+        this.router.navigate(['/login']);
+      }, err => { console.log(err); });
   }
 }
 
