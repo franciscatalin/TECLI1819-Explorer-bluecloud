@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { promise } from 'protractor';
-import { resolve } from 'url';
-import { reject } from 'q';
-import { headersToString } from 'selenium-webdriver/http';
 import { Actor } from '../models/actor.model';
 import {  HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MessageService } from 'src/app/services/message.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Injectable({
@@ -17,16 +14,15 @@ import { MessageService } from 'src/app/services/message.service';
 export class AuthService {
   http: any;
 
-  constructor(private authService: AuthService,
+  constructor(private authService: AuthService, private fireAuth: AngularFireAuth,
     private messageService: MessageService) {
     }
 
    registerUser (actor: Actor) {
 
-    // tslint:disable-next-line:no-shadowed-variable
     return new Promise<any>((resolve, reject) => {
 
-     this.fireAuth.auth.createUserWithEmailAndPassword(actor.email, actor.password)
+     this.fireAuth.auth.createUserWithEmailAndPassword (actor.email, actor.password)
       .then (_ => {
 
         const headers = new HttpHeaders ();
@@ -35,20 +31,19 @@ export class AuthService {
         const body = JSON.stringify(actor);
       this.http.post (url, body).toPromise()
         .then (res => {
-          // this.messageService.notifyMessage('404', 'messages.auth.registration.correct');
+           this.messageService.notifyMessage('404', 'messages.auth.registration.correct');
           resolve (res);
-        }, err => {// this.messageService.notifyMessage('404', 'errorMessage.auth.registration.failed');
+        }, err => { this.messageService.notifyMessage('404', 'errorMessage.auth.registration.failed');
       reject (err);
       });
       }).catch (error => {
-        // this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+         this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
         reject(error);
       });
       });
     }
 
-    // tslint:disable-next-line:member-ordering
-    fireAuth: any;
+
 
   getRole(): any {
     throw new Error('Method not implemented.');
