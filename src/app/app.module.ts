@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import {registerLocaleData} from '@angular/common';
 import locales from '@angular/common/locales/es';
 
-
 import { AppComponent } from './app.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
 import { TripListComponent } from './components/trip/trip-list/trip-list.component';
@@ -27,8 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { v } from '@angular/core/src/render3';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { HomeComponent } from './components/shared/home/home.component';
-import { BodyComponent } from './components/master/body/body.component';
 import { MessageService } from './services/message.service';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { TripEditComponent } from './components/trip/trip-edit/trip-edit.component';
 
   // Initialize Firebase
   export const firebaseConfig = {
@@ -59,7 +59,8 @@ import { MessageService } from './services/message.service';
     TranslatableComponent,
     FooterComponent,
     HomeComponent,
-    BodyComponent
+    TripDisplayComponent,
+    TripEditComponent
   ],
   imports: [
     routes,
