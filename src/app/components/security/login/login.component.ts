@@ -4,8 +4,7 @@ import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 
-// import { AuthService } from '../../../services/auth.service';
-// Al cargar este servicio la ventana de login deja de funcionar.
+import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -17,11 +16,7 @@ import { MessageService } from 'src/app/services/message.service';
 export class LoginComponent extends TranslatableComponent {
   private email: string;
 
-  constructor (private translateService: TranslateService){
-    super (translateService);
-  }
-
-/*  constructor(private authService: AuthService,
+  constructor(private authService: AuthService,
       private translateService: TranslateService,
       private messageService: MessageService) {
       super (translateService);
@@ -50,5 +45,5 @@ onLogout () {
   }).catch(error => {
     console.log(error);
   });
-} */
+}
 }
