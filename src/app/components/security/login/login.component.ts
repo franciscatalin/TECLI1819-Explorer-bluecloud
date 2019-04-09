@@ -4,8 +4,7 @@ import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 
-// import { AuthService } from '../../../services/auth.service';
-// Al cargar este servicio la ventana de login deja de funcionar.
+import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
 
 @Component({
@@ -17,11 +16,7 @@ import { MessageService } from 'src/app/services/message.service';
 export class LoginComponent extends TranslatableComponent {
   private email: string;
 
-  constructor (private translateService: TranslateService){
-    super (translateService);
-  }
-
-/*  constructor(private authService: AuthService,
+  constructor(private authService: AuthService,
       private translateService: TranslateService,
       private messageService: MessageService) {
       super (translateService);
@@ -39,7 +34,9 @@ export class LoginComponent extends TranslatableComponent {
       // Si firebase me devuelve algún código de error lo capturamos
    }).catch((error) =>  {
       console.log(error);
-      this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+      // Firebase devuelve los mensajes de error con el caracter "/" y con el caracter "-" que nosotros aquí reemplazamos por "."
+      // El segundo parámetro que enviamos al método es el "cssClass" y sirve para indicar el estilo del error: info, warning, danger, etc
+      this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
    });
 }
 
@@ -50,5 +47,5 @@ onLogout () {
   }).catch(error => {
     console.log(error);
   });
-} */
+}
 }

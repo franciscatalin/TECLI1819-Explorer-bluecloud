@@ -1,10 +1,10 @@
 export class InfoMessage {
 
-    infoMessage: string;
+    code: string;
     cssClass: string;
 
-    constructor (infoMessage: string, cssClass: string) {
-        this.infoMessage = infoMessage;
+    constructor (code: string, cssClass: string) {
+        this.code = code;
         this.cssClass = cssClass;
     }
 }
