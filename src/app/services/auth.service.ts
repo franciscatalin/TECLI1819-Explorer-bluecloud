@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actor } from '../models/actor.model';
-import {  HttpHeaders, HttpClientModule } from '@angular/common/http';
+import {  HttpHeaders, HttpClientModule, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MessageService } from 'src/app/services/message.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable({
@@ -12,10 +16,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 
 export class AuthService {
-  http: any;
+
 
   constructor(private authService: AuthService, private fireAuth: AngularFireAuth,
-    private messageService: MessageService) {
+    private messageService: MessageService, private http: HttpClient) {
     }
 
    registerUser (actor: Actor) {
@@ -28,9 +32,9 @@ export class AuthService {
 
         const headers = new HttpHeaders ();
         headers.append ('Content-Type', 'application/json');
-        const url = `${environment.backendApiBaseUrl + '/actor'}`;
+        const url = `${environment.backendApiBaseUrl + '/actors'}`;
         const body = JSON.stringify(actor);
-      this.http.post (url, body).toPromise()
+      this.http.post (url, body, httpOptions).toPromise()
         .then (res => {
            this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
           resolve (res);
