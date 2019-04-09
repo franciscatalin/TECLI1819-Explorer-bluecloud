@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         email: [''],
         phone: [''],
         address: [''],
-       // role: [''],
+        role: [''],
         preferredLanguage: [''],
 
 
