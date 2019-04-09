@@ -5,6 +5,7 @@ export class Actor extends Entity {
     surname: string;
     email: string;
     password: string;
+    countrycode: string;
     phone: string;
     address: string;
     role: string;

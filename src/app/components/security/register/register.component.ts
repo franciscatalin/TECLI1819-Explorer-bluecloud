@@ -13,7 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-
+  roleList = ['Administrator', 'Manager', 'Explorer'];
 
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService,
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
         surname: [''],
         password: [''],
         email: [''],
+        countrycode: [''],
         phone: [''],
         address: [''],
         role: [''],
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
 
 
   onRegister() {
+
 
     this.submitted = true;
     if (this.registerForm.valid) {
