@@ -49,7 +49,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
 					</div>
-					<select formControlName="phone" class="custom-select" style="max-width: 120px;">
+					<select formControlName="countrycode" class="custom-select" style="max-width: 120px;">
 						<option selected="">+34</option>
 						<option value="1">+1</option>
 						<option value="2">+198</option>
@@ -62,9 +62,7 @@
 						<span  class="input-group-text"> <i class="fa fa-user"></i> </span>
 					</div>
 					<select formControlName="role" class="form-control">
-						<option>Administrator</option>
-						<option>Manager</option>
-						<option>Explorer</option>
+						<option *ngFor="let role of roleList" [value]="role">{{role}}</option>
 					</select>
 				</div> <!-- form-group end.// -->
 				<div class="form-group input-group">
