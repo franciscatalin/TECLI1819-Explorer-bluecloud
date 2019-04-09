@@ -22,6 +22,7 @@ export class AuthService {
 
     return new Promise<any>((resolve, reject) => {
 
+      // Llamamos a firebase para registrar al usuario con el email y el password
      this.fireAuth.auth.createUserWithEmailAndPassword (actor.email, actor.password)
       .then (_ => {
 
@@ -31,13 +32,13 @@ export class AuthService {
         const body = JSON.stringify(actor);
       this.http.post (url, body).toPromise()
         .then (res => {
-           this.messageService.notifyMessage('404', 'messages.auth.registration.correct');
+           this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
           resolve (res);
-        }, err => { this.messageService.notifyMessage('404', 'errorMessage.auth.registration.failed');
+        }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
       reject (err);
       });
       }).catch (error => {
-         this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+         this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
         reject(error);
       });
       });
@@ -57,13 +58,12 @@ export class AuthService {
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
         .then(data => {
         // Mensaje si todo ha ido correctamente
-        this.messageService.notifyMessage('errorMessages.', 'messages.auth.login.correct');
+        this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
         // Si todo ha ido bien hacemos el resolve
         resolve();
         // Si firebase devuelve algún error lo capturamos
         }).catch(error => {
-        // Para la primera entrega no es necesario implementar los mensajes
-        // this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+        this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
         reject(error);
         });
       });
@@ -71,7 +71,6 @@ export class AuthService {
 
   logout() {
     // La función devuelve de nuevo una promesa ya que Firebase también devuelve una promesa
-    // tslint:disable-next-line:no-shadowed-variable
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
@@ -80,8 +79,7 @@ export class AuthService {
       // Si firebase devuelve algún error lo capturamos
       }).catch(error => {
         reject(error);
-        // Para la primera entrega no es necesario implementar los mensajes
-        // this.messageService.notifyMessage(error.code, 'Error on Logout.');
+        this.messageService.notifyMessage(error.code, 'alert alert-danger');
       });
     });
 }
