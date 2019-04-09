@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
         name: [''],
         surname: [''],
         password: [''],
-        mail: [''],
+        email: [''],
         phone: [''],
         address: [''],
        // role: [''],
-       // preferredLanguage: [''],
+        preferredLanguage: [''],
 
 
 
@@ -40,29 +40,20 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  /*get f() { return this.registerForm.controls; }*/
-
-  /*onRegister() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    alert('SUCCESS!! :-)');
-  }*/
 
   onRegister() {
 
     this.submitted = true;
-    if (this.registerForm.invalid) {
+    if (this.registerForm.valid) {
+      console.log ('Hola Mundo');
+      console.log (this.registerForm.value);
     this.authService.registerUser(this.registerForm.value)
+
       .then(res => {
 
-        console.log(res);
+        console.log(res );
      //   this.router.navigate(['/login']);
-      }, err => { console.log(err); });
+      }, err => { console.log(err + 'Real error'); });
   }
 }
 }
