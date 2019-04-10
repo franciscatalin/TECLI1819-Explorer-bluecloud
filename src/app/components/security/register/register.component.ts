@@ -3,6 +3,8 @@ import { AuthService } from '../../../services/auth.service';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslatableComponent } from '../../shared/translatable/translatable.component'
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -10,15 +12,16 @@ import { BrowserModule } from '@angular/platform-browser';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent extends TranslatableComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   roleList = ['Administrator', 'Manager', 'Explorer'];
 
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+  constructor(private translateService: TranslateService,private formBuilder: FormBuilder, private authService: AuthService,
     private router: Router) {
       // const roleList = authService.getRole();
+      super(translateService);
   }
 
 
