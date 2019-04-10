@@ -44,7 +44,36 @@
    
    "cleck": {
        "list": "Listar empleados"
+   },
+
+   "messages": {
+       "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+       "auth.logout": "El usuario se ha desconectado correctamente",
+       "auth.login.correct": "El usuario ha entrado correctamente",
+       "already.registered": "¿Ya está registrado?",
+       "item.deleted": "Item eliminado correctamente",
+       "back": "Atrás",
+       "save": "Guardar",
+       "cancel": "Cancelar",
+       "delete": "Eliminar",
+       "placeHolder": "Entrar"
+   
+   },
+   
+   "errorMessages": {
+       "auth.user.not.found": "No existe un registro asociado a estos datos. El usuario puede haber sido borrado.",
+       "auth.wrong.password": "La contraseña es inválida o el usuario no tiene contraseña.",
+       "auth.argument.error": "Fallo en el login: el campo 'Correo Electrónico' debe ser una cadena válida.",
+       "auth.invalid.email": "La dirección de correo no tiene un formato correcto.",
+       "auth.weak.password": "La contraseña debería tener al menos 6 caracteres.",
+       "auth.registration.failed": "Fallo en el registro.",
+       "auth.logout.failed": "Fallo en la desconexión.",
+       "denied.access.title": "Acceso denegado.",
+       "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor.",
+       "add.category.failed": "Fallo al agregar categoría.",
+       "no.items.found": "No se encontraron productos en la categoría seleccionada."
    }
+   
    
 
 

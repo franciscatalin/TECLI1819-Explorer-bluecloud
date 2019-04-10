@@ -43,6 +43,34 @@
 
 "cleck": {
     "list": "List clerks"
+},
+
+"messages": {
+    "auth.registration.correct": "The user {{username}} has been correctly registered",
+    "auth.logout": "The user has logged out from the app",
+    "auth.login.correct": "The user has been correctly logged in",
+    "already.registered": "Already registered?",
+    "item.deleted": "Item successfully deleted",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "placeHolder": "Enter"
+
+},
+
+"errorMessages": {
+    "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
+    "auth.wrong.password": "The password is invalid or the user does not have a password.",
+    "auth.argument.error": "signInWithEmailAndPassword failed: First argument 'email' must be a valid string.",
+    "auth.invalid.email": "The email address is badly formatted.",
+    "auth.weak.password": "Password should be at least 6 characters long.",
+    "auth.registration.failed": "Registration failed.",
+    "auth.logout.failed": "Logout failed.",
+    "denied.access.title": "Denied access.",
+    "denied.access.message": "You don't have permission to access {{resource}} on this server.",
+    "add.category.failed": "Category could not be added.",
+    "no.items.found": "No items found for this category."
 }
 
 

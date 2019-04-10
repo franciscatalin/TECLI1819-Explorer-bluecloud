@@ -34,7 +34,9 @@ export class LoginComponent extends TranslatableComponent {
       // Si firebase me devuelve algún código de error lo capturamos
    }).catch((error) =>  {
       console.log(error);
-      this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'Error on Login');
+      // Firebase devuelve los mensajes de error con el caracter "/" y con el caracter "-" que nosotros aquí reemplazamos por "."
+      // El segundo parámetro que enviamos al método es el "cssClass" y sirve para indicar el estilo del error: info, warning, danger, etc
+      this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
    });
 }
 
