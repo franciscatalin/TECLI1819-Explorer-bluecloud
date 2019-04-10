@@ -11,8 +11,8 @@
 
 	<div class="card bg-light">
 		<article class="card-body mx-auto" style="max-width: 400px;">
-			<h4 class="card-title mt-3 text-center">Create Account</h4>
-			<p class="text-center">Get started with your free account</p>
+			<h4 class="card-title mt-3 text-center">{{'actor.create.account'|translate}}</h4>
+			<p class="text-center">{{'actor.started'|translate}}</p>
 			<p></p>
 			<p class="divider-text">
 				<span class="bg-light">OR</span>
@@ -23,15 +23,15 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 					</div>
-					<input formControlName="name" class="form-control" placeholder="Name" type="text">
-					<input formControlName="surname" class="form-control" placeholder="Surname" type="text">
+					<input formControlName="name" class="form-control" placeholder="{{'actor.name'|translate}}" type="text">
+					<input formControlName="surname" class="form-control" placeholder="{{'actor.surname'|translate}}" type="text">
 				</div> <!-- form-group// -->
 
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 					</div>
-					<input formControlName="email" class="form-control" placeholder="Email address" type="email">
+					<input formControlName="email" class="form-control" placeholder="{{'actor.email'|translate}}" type="email">
 
 				</div> <!-- form-group// -->
 
@@ -40,7 +40,7 @@
 						<span class="input-group-text"> <i class="fa fa-building"></i> </span>
 					</div>
 
-					<input formControlName="address" class="form-control" placeholder="Address" type="address">
+					<input formControlName="address" class="form-control" placeholder="{{'actor.address'|translate}}" type="address">
 
 				</div>
 
@@ -55,7 +55,7 @@
 						<option value="2">+198</option>
 						<option value="3">+701</option>
 					</select>
-					<input formControlName="phone" class="form-control" placeholder="Phone number" type="text">
+					<input formControlName="phone" class="form-control" placeholder="{{'actor.phone'|translate}}" type="text">
 				</div> <!-- form-group// -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
@@ -69,17 +69,17 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 					</div>
-					<input formControlName="password" class="form-control" placeholder="Create password"
+					<input formControlName="password" class="form-control" placeholder="{{'actor.create.pass'|translate}}"
 						type="password">
 				</div> <!-- form-group// -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 					</div>
-					<input class="form-control" placeholder="Repeat password" type="password">
+					<input class="form-control" placeholder="{{'actor.repeat.pass'|translate}}" type="password">
 				</div> <!-- form-group// -->
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+					<button type="submit" class="btn btn-primary btn-block"> {{'actor.create.account'|translate}} </button>
 				</div> <!-- form-group// -->
 				<!--   <p class="text-center">Have an account? <a href="">Log In</a> </p>      -->
 			</form>

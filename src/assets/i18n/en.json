@@ -10,7 +10,11 @@
     "role": "Role",
     "register": "Register",
     "update": "Update",
-    "register.title": "Register new actor"
+    "register.title": "Register new actor",
+    "create.pass": "Create password",
+    "repeat.pass": "Repeat password",
+    "create.account": "Create Account",
+    "started": "Get started with your free account"
  },
 
  "security": {
@@ -22,7 +26,11 @@
     "terms": "Terms and conditions",
     "visitors": "Visitors",
     "about": "About",
-    "about.content": "About us"
+    "about.content": "About us",
+    "contact":"CONTACT",
+    "social.networks": "Get connected with us on social networks!",
+    "empresa": "A comprehensive custom service offered by experienced professionals with a long career in the tourism sector.",
+    "information": "INFORMATION"
 },
 
 "category": {
@@ -71,6 +79,11 @@
     "denied.access.message": "You don't have permission to access {{resource}} on this server.",
     "add.category.failed": "Category could not be added.",
     "no.items.found": "No items found for this category."
+},
+"header":{
+    "search": "Search",
+    "trips": "Trips",
+    "list.trips": "List Trips"
 }
 
 
