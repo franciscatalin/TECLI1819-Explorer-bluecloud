@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { AuthService } from '../../../services/auth.service';
-//import { MessageService } from 'src/app/services/message.service';
+import { AuthService } from '../../../services/auth.service';
+import { MessageService } from 'src/app/services/message.service';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component'
 import { TranslateService } from '@ngx-translate/core';
 
@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private authservice: AuthService) {
     super(translateService);
   }
 
@@ -23,15 +23,16 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*logout() {
-    this.AuthService.logout()
-      /*.then(_ => {
+  logout() {
+    this.authservice.logout()/*
+      .then(_ => {
         this.messageService.notifyMessage('messages.auth.logout');
       })
       .catch(error => {
         this.messageService.notifyMessage('errorMessages.auth.logout.failed');
         console.log(error);
-      });
-}*/
+      });*/
+    }
+
 
 }
