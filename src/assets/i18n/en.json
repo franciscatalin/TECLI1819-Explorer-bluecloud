@@ -19,7 +19,9 @@
 
  "security": {
      "login": "Login",
-     "logout": "Logout"
+     "logout": "Logout",
+     "enter.email": "Enter email",
+     "enter.password": "Enter password"
  },
 
  "footer": {
