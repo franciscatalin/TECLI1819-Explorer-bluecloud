@@ -24,6 +24,7 @@ import { MessageService } from './services/message.service';
 import * as firebase from 'firebase';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { TripEditComponent } from './components/trip/trip-edit/trip-edit.component';
+import { LocalizedDataPipe } from './components/shared/localized-data.pipe';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -56,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     HomeComponent,
     TripDisplayComponent,
-    TripEditComponent
+    TripEditComponent,
+    LocalizedDataPipe
 
   ],
   imports: [
