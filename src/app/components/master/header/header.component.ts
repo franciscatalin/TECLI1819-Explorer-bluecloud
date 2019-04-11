@@ -12,7 +12,9 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  constructor(private translateService: TranslateService, private authservice: AuthService) {
+  constructor(private translateService: TranslateService,
+    private messageService: MessageService,
+    private authservice: AuthService) {
     super(translateService);
   }
 
@@ -24,14 +26,14 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   }
 
   logout() {
-    this.authservice.logout()/*
+    this.authservice.logout()
       .then(_ => {
-        this.messageService.notifyMessage('messages.auth.logout');
+        this.messageService.notifyMessage('messages.auth.logout', 'alert alert-success');
       })
       .catch(error => {
-        this.messageService.notifyMessage('errorMessages.auth.logout.failed');
+        this.messageService.notifyMessage('errorMessages.auth.logout.failed', 'alert alert-danger');
         console.log(error);
-      });*/
+      });
     }
 
 

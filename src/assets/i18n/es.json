@@ -20,7 +20,9 @@
    
     "security": {
         "login": "Entrar",
-        "logout": "Salir"
+        "logout": "Salir",
+        "enter.email": "Introduzca email",
+        "enter.password": "Introduzca contraseña"
     },
 
     "footer": {
