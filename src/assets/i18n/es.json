@@ -86,8 +86,14 @@
    
     "header": {
         "search": "Buscar",
-        "trips": "Viajes",
-        "list.trips": "Listar Viajes"
+        "trips": "VIAJES",
+        "list.trips": "Listar Viajes",
+        "profile": "PERFIL",
+        "edit.profile": "Editar Perfil",
+        "applications": "APLICACIONES",
+        "administration": "ADMINISTRACIÓN",
+        "dashboard": "Desplegar dashboard",
+        "warehouse": "Configurar warehouse"
     }
    
    

@@ -84,8 +84,15 @@
 },
 "header":{
     "search": "Search",
-    "trips": "Trips",
-    "list.trips": "List Trips"
+    "trips": "TRIPS",
+    "list.trips": "List Trips",
+    "profile": "PROFILE",
+    "edit.profile": "Edit Profile",
+    "applications": "APPLICATIONS",
+    "administration": "ADMINISTRATION",
+    "dashboard": "Display dashboard",
+    "warehouse": "Configure warehouse"
+    
 }
 
 
