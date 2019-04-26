@@ -1,103 +1,89 @@
 {
-    
-    "actor" : {
-   
-       "email": "Correo electrónico",
-       "password": "Contraseña",
-       "name": "Nombre",
-       "surname": "Apellido",
-       "phone":  "Teléfono",
-       "address": "Dirección",
-       "role": "Rol",
-       "register": "Registrar",
-       "update": "Actualizar",
-       "register.title": "Registro de actor",
-       "create.pass": "Crear contraseña",
-       "repeat.pass": "Repetir contraseña",
-       "create.account": "Crear Cuenta",
-       "started": "Comience con su cuenta gratuita"
+    "actor": {
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "name": "Nombre",
+        "surname": "Apellido",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "role": "Rol",
+        "register": "Registrar",
+        "update": "Actualizar",
+        "register.title": "Registro de actor",
+        "create.pass": "Crear contraseña",
+        "repeat.pass": "Repetir contraseña",
+        "create.account": "Crear Cuenta",
+        "started": "Comience con su cuenta gratuita"
     },
-   
     "security": {
         "login": "Entrar",
         "logout": "Salir",
         "enter.email": "Introduzca email",
         "enter.password": "Introduzca contraseña"
     },
-
     "footer": {
-       "terms": "Términos y condiciones",
-       "visitors": "Visitantes",
-       "about": "A cerca de ",
-       "about.content": "Sobre la empresa",
-       "contact": "CONTACTO",
+        "terms": "Términos y condiciones",
+        "visitors": "Visitantes",
+        "about": "A cerca de ",
+        "about.content": "Sobre la empresa",
+        "contact": "CONTACTO",
         "social.networks": "Conéctate con nosotros en las redes sociales!",
         "empresa": "Un servicio integral a medida ofrecido por profesionales experimientados con un largo recorrido en el sector turístico.",
         "information": "INFORMACIÓN"
-   },
-
-   "category": {
-       "list": "List categories",
-       "create": "Create new category"
-   },
-   
-   "order" :{
+    },
+    "category": {
+        "list": "List categories",
+        "create": "Create new category"
+    },
+    "order": {
         "list-mine": "Listar mis pedidos"
-   },
-   
-   "administrator": {
-       "dasboard" : "Mostrar panel de control",
-       "warehouse" : "Configurar almacén",
-       "mpcap": "Mostrar cubo MCAP",
-       "title": "ADMINISTRACIÓN"
-   },
-   
-   "cleck": {
-       "list": "Listar empleados"
-   },
-
-   "messages": {
-       "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
-       "auth.logout": "El usuario se ha desconectado correctamente",
-       "auth.login.correct": "El usuario ha entrado correctamente",
-       "already.registered": "¿Ya está registrado?",
-       "item.deleted": "Item eliminado correctamente",
-       "back": "Atrás",
-       "save": "Guardar",
-       "cancel": "Cancelar",
-       "delete": "Eliminar",
-       "placeHolder": "Entrar"
-   
-   },
-   
-   "errorMessages": {
-       "auth.user.not.found": "No existe un registro asociado a estos datos. El usuario puede haber sido borrado.",
-       "auth.wrong.password": "La contraseña es inválida o el usuario no tiene contraseña.",
-       "auth.argument.error": "Fallo en el login: el campo 'Correo Electrónico' debe ser una cadena válida.",
-       "auth.invalid.email": "La dirección de correo no tiene un formato correcto.",
-       "auth.weak.password": "La contraseña debería tener al menos 6 caracteres.",
-       "auth.registration.failed": "Fallo en el registro.",
-       "auth.logout.failed": "Fallo en la desconexión.",
-       "denied.access.title": "Acceso denegado.",
-       "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor.",
-       "add.category.failed": "Fallo al agregar categoría.",
-       "no.items.found": "No se encontraron productos en la categoría seleccionada."
-   },
-   
+    },
+    "administrator": {
+        "dasboard": "Mostrar panel de control",
+        "warehouse": "Configurar almacén",
+        "mpcap": "Mostrar cubo MCAP",
+        "title": "ADMINISTRACIÓN"
+    },
+    "cleck": {
+        "list": "Listar empleados"
+    },
+    "messages": {
+        "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+        "auth.logout": "El usuario se ha desconectado correctamente",
+        "auth.login.correct": "El usuario ha entrado correctamente",
+        "already.registered": "¿Ya está registrado?",
+        "item.deleted": "Item eliminado correctamente",
+        "back": "Atrás",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "placeHolder": "Entrar"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "No existe un registro asociado a estos datos. El usuario puede haber sido borrado.",
+        "auth.wrong.password": "La contraseña es inválida o el usuario no tiene contraseña.",
+        "auth.argument.error": "Fallo en el login: el campo 'Correo Electrónico' debe ser una cadena válida.",
+        "auth.invalid.email": "La dirección de correo no tiene un formato correcto.",
+        "auth.weak.password": "La contraseña debería tener al menos 6 caracteres.",
+        "auth.registration.failed": "Fallo en el registro.",
+        "auth.logout.failed": "Fallo en la desconexión.",
+        "denied.access.title": "Acceso denegado.",
+        "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor.",
+        "add.category.failed": "Fallo al agregar categoría.",
+        "no.items.found": "No se encontraron productos en la categoría seleccionada."
+    },
     "header": {
         "search": "Buscar",
         "trips": "VIAJES",
         "list.trips": "Listar Viajes",
+        "display.trip": "Desplegar Viaje",
         "profile": "PERFIL",
         "edit.profile": "Editar Perfil",
         "applications": "APLICACIONES",
+        "list.applications": "Listar Aplicaciones",
+        "display.application": "Desplegar Aplicación",
         "administration": "ADMINISTRACIÓN",
         "dashboard": "Desplegar dashboard",
         "warehouse": "Configurar warehouse"
     }
-   
-   
-
-
-
-   }
+}
