@@ -10,7 +10,7 @@ import { ApplicationListComponent } from './components/application/application-l
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display/application-display.component';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
-
+import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -66,7 +66,14 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/TermAndConditions',
     pathMatch: 'full'
-  }
+  },
+  { path: 'not-found', component: NotFoundComponent },
+  {
+    path: '',
+    redirectTo: '/not-found',
+    pathMatch: 'full'
+  },
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 
