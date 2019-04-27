@@ -30,6 +30,7 @@ import { ApplicationListComponent } from './components/application/application-l
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display/application-display.component';
 import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { HttpModule } from '@angular/http';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     routes,
+    HttpModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

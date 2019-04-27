@@ -61,10 +61,10 @@ const appRoutes: Routes = [
     redirectTo: '/Dashboard',
     pathMatch: 'full'
   },
-  { path: 'TermAndConditions', component: TermAndConditionsComponent },
+  { path: 'terms-and-conditions', component: TermAndConditionsComponent },
   {
     path: '',
-    redirectTo: '/TermAndConditions',
+    redirectTo: '/terms-and-conditions',
     pathMatch: 'full'
   },
   { path: 'not-found', component: NotFoundComponent },
