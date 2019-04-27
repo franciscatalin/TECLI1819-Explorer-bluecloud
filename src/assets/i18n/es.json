@@ -36,12 +36,17 @@
         "create": "Create new category"
     },
     "order": {
-        "list-mine": "Listar mis pedidos"
+        "list-mine": "Listar mis pedidos",
+        "list-unassigned": "Listar pedidos sin asignar",
+        "list-self-assigned": "Listar pedidos asignados",
+        "list-undelivered": "Listar pedidos sin entregar",
+        "list-delivered": "Listar pedidos entregados",
+        "title": "PEDIDOS"
     },
     "administrator": {
         "dasboard": "Mostrar panel de control",
         "warehouse": "Configurar almacén",
-        "mpcap": "Mostrar cubo MCAP",
+        "mcap": "Mostrar cubo MCAP",
         "title": "ADMINISTRACIÓN"
     },
     "cleck": {
