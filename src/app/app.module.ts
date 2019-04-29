@@ -25,6 +25,12 @@ import * as firebase from 'firebase';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { TripEditComponent } from './components/trip/trip-edit/trip-edit.component';
 import { LocalizedDataPipe } from './components/shared/localized-data.pipe';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { ApplicationListComponent } from './components/application/application-list/application-list/application-list.component';
+import { ApplicationDisplayComponent } from './components/application/application-display/application-display/application-display.component';
+import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
+import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { HttpModule } from '@angular/http';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -58,11 +64,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     TripDisplayComponent,
     TripEditComponent,
-    LocalizedDataPipe
+    LocalizedDataPipe,
+    DashboardComponent,
+    ApplicationListComponent,
+    ApplicationDisplayComponent,
+    TermAndConditionsComponent,
+    NotFoundComponent
 
   ],
   imports: [
     routes,
+    HttpModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

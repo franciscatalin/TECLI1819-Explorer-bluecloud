@@ -16,7 +16,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/TripList">{{'header.list.trips'|translate}}</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" routerLink="/TripDisplay">{{'display.trip'|translate}}</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -27,7 +27,8 @@
           {{'header.applications'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/TripList">{{'header.edit.profile'|translate}}</a>         
+            <a class="dropdown-item" routerLink="/ApplicationList">{{'header.list.applications'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.display.application'|translate}}</a>         
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -53,8 +54,9 @@
           {{'header.administration'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/TripList">{{'header.dashboard'|translate}}</a>  
-          <a class="dropdown-item" routerLink="/TripList">{{'header.warehouse'|translate}}</a>        
+          <a class="dropdown-item" routerLink="/Dashboard">{{'header.dashboard'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/TripList">{{'header.warehouse'|translate}}</a>
+          <a class="dropdown-item"> {{'administrator.mcap'|translate}}</a>       
         
         </div>
       </li>

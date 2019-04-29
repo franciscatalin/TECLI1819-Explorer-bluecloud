@@ -28,9 +28,9 @@ export class MessageComponent extends TranslatableComponent implements OnInit, O
         if (data) {
           this.code = data.code;
           this.cssClass = data.cssClass;
-          this.showMessage = true;
+          this.showMessage = true; // El mensaje se tiene que mostar
         } else {
-            this.showMessage = false;
+            this.showMessage = false; // El mensaje no se tiene que mostar
         }
       });
   }
