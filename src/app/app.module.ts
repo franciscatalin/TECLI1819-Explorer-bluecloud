@@ -29,6 +29,9 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
 import { ApplicationListComponent } from './components/application/application-list/application-list/application-list.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display/application-display.component';
 import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
+import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { HttpModule } from '@angular/http';
+import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -66,11 +69,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     ApplicationListComponent,
     ApplicationDisplayComponent,
-    TermAndConditionsComponent
+    TermAndConditionsComponent,
+    NotFoundComponent,
+    DeniedAccessPageComponent
 
   ],
   imports: [
     routes,
+    HttpModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,

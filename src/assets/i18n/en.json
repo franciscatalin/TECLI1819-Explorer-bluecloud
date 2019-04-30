@@ -41,13 +41,18 @@
 },
 
 "order" :{
-    "list-mine": "List my trips"
+    "list-mine": "List my orders",
+    "list-unassigned": "List unassigned orders",
+    "list-self-assigned": "List self-assigned orders",
+    "list-undelivered": "List undelivered orders",
+    "list-delivered": "List delivered orders",
+    "title": "ORDERS"
 },
 
 "administrator": {
     "dasboard" : "Display dashboard",
     "warehouse" : "Configure warehouse",
-    "mpcap": "Display MCAP cube",
+    "mcap": "Display MCAP cube",
     "title": "ADMINISTRATION"
 },
 
@@ -82,6 +87,13 @@
     "add.category.failed": "Category could not be added.",
     "no.items.found": "No items found for this category."
 },
+
+"denied-access-page": {
+    "title": "Denied access",
+    "message-start": "You don't have permission to access",
+    "message-end": "on this server"
+},
+
 "header":{
     "search": "Search",
     "trips": "TRIPS",
