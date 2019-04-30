@@ -77,6 +77,13 @@
         "add.category.failed": "Fallo al agregar categoría.",
         "no.items.found": "No se encontraron productos en la categoría seleccionada."
     },
+
+    "denied-access-page": {
+        "title": "Acceso denegado",
+        "message-start": "No tiene permisos para acceder a",
+        "message-end": "en este servidor"
+    },
+
     "header": {
         "search": "Buscar",
         "trips": "VIAJES",
