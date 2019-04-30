@@ -106,4 +106,25 @@ export class AuthService {
       });
     });
 }
+
+// Método que controla cual es el rol del actor que está actualmente logueado
+checkRole (roles: string ): boolean {
+  let result = false;
+
+  if (this.currentActor) {
+    if (roles.indexOf(this.currentActor.role.toString()) !== -1) {
+      result = true;
+    } else {
+      result = false;
+    }
+  } else {
+    if (roles.indexOf('anonymous') !== -1) {
+      result = true;
+    } else {
+      result = false;
+    }
+  }
+return result;
+}
+
 }
