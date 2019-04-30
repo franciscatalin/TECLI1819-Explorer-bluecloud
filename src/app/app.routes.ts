@@ -11,71 +11,23 @@ import { ApplicationDisplayComponent } from './components/application/applicatio
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { ActorRoleGuard } from './guards/actor-role.guard';
+import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: 'login', component: LoginComponent },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  { path: 'register', component: RegisterComponent },
-  {
-    path: '',
-    redirectTo: '/register',
-    pathMatch: 'full'
-  },
+  { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},
+  { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'admin'}},
   { path: 'TripList', component: TripListComponent },
-  {
-    path: '',
-    redirectTo: '/TripList',
-    pathMatch: 'full'
-  },
   { path: 'TripDisplay', component: TripDisplayComponent },
-  {
-    path: '',
-    redirectTo: '/TripList',
-    pathMatch: 'full'
-  },
   { path: 'ApplicationList', component: ApplicationListComponent },
-  {
-    path: '',
-    redirectTo: '/ApplicationList',
-    pathMatch: 'full'
-  },
   { path: 'ApplicationDisplay', component: ApplicationDisplayComponent },
-  {
-    path: '',
-    redirectTo: '/ApplicationDisplay',
-    pathMatch: 'full'
-  },
-  { path: 'Dashboard', component: DashboardComponent },
-  {
-    path: '',
-    redirectTo: '/Dashboard',
-    pathMatch: 'full'
-  },
+  { path: 'denied-access', component: DeniedAccessPageComponent },
   { path: 'terms-and-conditions', component: TermAndConditionsComponent },
-  {
-    path: '',
-    redirectTo: '/terms-and-conditions',
-    pathMatch: 'full'
-  },
   { path: 'not-found', component: NotFoundComponent },
-  {
-    path: '',
-    redirectTo: '/not-found',
-    pathMatch: 'full'
-  },
   { path: '**', redirectTo: '/not-found' }
 ];
-
-
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes);

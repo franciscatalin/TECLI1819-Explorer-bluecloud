@@ -1,10 +1,95 @@
 {
+  "trips": [
+    {
+      "title": "Paris",
+      "ticker": "2647AFT",
+      "description": "Precioso viaje por Paris",
+      "price": "800€"
+    },
+    {
+      "title": "Roma",
+      "ticker": "8907TRE",
+      "description": "Precioso viaje por Roma",
+      "price": "550€"
+    },
+    {
+      "title": "Londres",
+      "ticker": "1245HMA",
+      "description": "Precioso viaje por Londres",
+      "price": "475€"
+    },
+    {
+      "title": "Amsterdam",
+      "ticker": "5675PAS",
+      "description": "Precioso viaje por Amsterdam",
+      "price": "610€"
+    },
+    {
+      "title": "Madrid",
+      "ticker": "1290NBG",
+      "description": "Precioso viaje por Madrid",
+      "price": "325€"
+    },
+    {
+      "title": "Bruselas",
+      "ticker": "6781AAS",
+      "description": "Precioso viaje por Bruselas",
+      "price": "855€"
+    },
+    {
+      "title": "New York",
+      "ticker": "7812RGU",
+      "description": "Precioso viaje por New York",
+      "price": "1250€"
+    },
+    {
+      "title": "Brasil",
+      "ticker": "8906HFC",
+      "description": "Precioso viaje por Brasil",
+      "price": "1410€"
+    },
+    {
+      "title": "República Dominicana",
+      "ticker": "5678ALR",
+      "description": "Precioso viaje por la República Dominicana",
+      "price": "1299€"
+    },
+    {
+      "title": "China",
+      "ticker": "4686HYQ",
+      "description": "Precioso viaje por China",
+      "price": "1509€"
+    },
+    {
+      "title": "Japon",
+      "ticker": "4686HYQ",
+      "description": "Precioso viaje por Japon",
+      "price": "2400€"
+    },
+    {
+      "title": "Tailandia",
+      "ticker": "6933THI",
+      "description": "Precioso viaje por Tailandia",
+      "price": "2300€"
+    },
+    {
+      "title": "Chile",
+      "ticker": "6780CLI",
+      "description": "Precioso viaje por Chile",
+      "price": "1750€"
+    },
+    {
+      "title": "Dubai",
+      "ticker": "1730CLI",
+      "description": "Precioso viaje por Dubai",
+      "price": "2600€"
+    }
+  ],
+
   "actors": [
     {
       "id": "5c6852f34112510ff0a5dbb3",
-      "role": [
-        "MANAGER"
-      ],
+      "role": ["MANAGER"],
       "name": "Jose",
       "surname": "salas",
       "email": "jose.salas@gmail.com",
@@ -16,9 +101,7 @@
     },
     {
       "id": "5c6853124112510ff0a5dbb4",
-      "role": [
-        "MANAGER"
-      ],
+      "role": ["MANAGER"],
       "name": "Rosa",
       "surname": "Fernandez",
       "email": "rosa.fernandez@gmail.com",
@@ -30,9 +113,7 @@
     },
     {
       "id": "5c97f59846369ab14747016e",
-      "role": [
-        "EXPLORER"
-      ],
+      "role": ["EXPLORER"],
       "name": "Miguel",
       "surname": "Garcia",
       "email": "miguel.garcia@gmail.com",
@@ -44,9 +125,7 @@
     },
     {
       "id": "5c97f5981c827378548c5f5b",
-      "role": [
-        "EXPLORER"
-      ],
+      "role": ["EXPLORER"],
       "name": "Ana",
       "surname": "Ortega",
       "email": "ana.ortega@gmail.com",
@@ -58,9 +137,7 @@
     },
     {
       "id": "5c97f59844f142245515a0a4",
-      "role": [
-        "EXPLORER"
-      ],
+      "role": ["EXPLORER"],
       "name": "Juan",
       "surname": "Orellana",
       "email": "juan.orellana@gmail.com",
@@ -72,9 +149,7 @@
     },
     {
       "id": "5c97f598326c236060cc0591",
-      "role": [
-        "EXPLORER"
-      ],
+      "role": ["EXPLORER"],
       "name": "Maria",
       "surname": "Blanco",
       "email": "maria.blanco@gmail.com",
@@ -86,9 +161,7 @@
     },
     {
       "id": "5c97f598e9bd6b467f3c4946",
-      "role": [
-        "SPONSOR"
-      ],
+      "role": ["SPONSOR"],
       "name": "Manuel",
       "surname": "Parra",
       "email": "manuel.parra@gmail.com",
@@ -100,9 +173,7 @@
     },
     {
       "id": "5c97f598ccfef31bcac53017",
-      "role": [
-        "ADMINISTRATOR"
-      ],
+      "role": ["ADMINISTRATOR"],
       "name": "Pablo",
       "surname": "Ferrer",
       "email": "pablo.ferrer@gmail.com",
@@ -114,9 +185,7 @@
     },
     {
       "id": "5c6852f34112510ff0a5dbb9",
-      "role": [
-        "MANAGER"
-      ],
+      "role": ["MANAGER"],
       "name": "Jose",
       "surname": "salas",
       "email": "jose.salas@gmail.com",
@@ -125,17 +194,6 @@
       "address": "Júcar",
       "created": "2019-02-16T18:14:11.267+0000",
       "v": 0
-    },
-    {
-      "name": "Juany",
-      "surname": "Medina",
-      "password": "Chanell13!",
-      "email": "medina@gmail.com",
-      "phone": "555555",
-      "address": "Ulloa #6",
-      "role": "Administrator",
-      "preferredLanguage": "",
-      "id": "zod1abX"
     }
   ]
 }

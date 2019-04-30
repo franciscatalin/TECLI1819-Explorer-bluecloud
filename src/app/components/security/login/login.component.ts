@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
-
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +14,20 @@ import { MessageService } from 'src/app/services/message.service';
 
 export class LoginComponent extends TranslatableComponent {
   private email: string;
+  private returnUrl: string;
 
   constructor(private authService: AuthService,
       private translateService: TranslateService,
+      private route: ActivatedRoute,
+      private router: Router,
       private messageService: MessageService) {
       super (translateService);
+    }
+
+    // tslint:disable-next-line: use-life-cycle-interface
+    ngOnInit () {
+      // Recuperamos la ruta a la que el usuario estaba intentando acceder (si existe) o la ruta que tengamos configurada como inicio
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
     }
 
    onLogin (form: NgForm) {
@@ -31,6 +39,9 @@ export class LoginComponent extends TranslatableComponent {
       // Reseteamos el formulario
       form.reset();
       this.email = email;
+      // Una vez que el usuario ya se ha logueado correctamente, lo enviamos a lo que corresponda según la variable returUrl
+      console.log('El valor de la variable returnUrl es: ' + this.returnUrl);
+      this.router.navigateByUrl(this.returnUrl);
       // Si firebase me devuelve algún código de error lo capturamos
    }).catch((error) =>  {
       console.log(error);

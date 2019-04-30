@@ -87,6 +87,13 @@
     "add.category.failed": "Category could not be added.",
     "no.items.found": "No items found for this category."
 },
+
+"denied-access-page": {
+    "title": "Denied access",
+    "message-start": "You don't have permission to access",
+    "message-end": "on this server"
+},
+
 "header":{
     "search": "Search",
     "trips": "TRIPS",

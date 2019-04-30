@@ -31,6 +31,7 @@ import { ApplicationDisplayComponent } from './components/application/applicatio
 import { TermAndConditionsComponent } from './components/master/terms-and-conditions/term-and-conditions/term-and-conditions.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HttpModule } from '@angular/http';
+import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -69,7 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApplicationListComponent,
     ApplicationDisplayComponent,
     TermAndConditionsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DeniedAccessPageComponent
 
   ],
   imports: [
