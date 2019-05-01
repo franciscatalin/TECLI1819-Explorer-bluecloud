@@ -88,6 +88,7 @@
         "search": "Buscar",
         "trips": "VIAJES",
         "list.trips": "Listar Viajes",
+        "list.managers": "Listar Gerentes",
         "display.trip": "Desplegar Viaje",
         "profile": "PERFIL",
         "edit.profile": "Editar Perfil",
@@ -96,6 +97,21 @@
         "display.application": "Desplegar Aplicación",
         "administration": "ADMINISTRACIÓN",
         "dashboard": "Desplegar dashboard",
-        "warehouse": "Configurar warehouse"
+        "warehouse": "Configurar warehouse",
+        "new.trip": "Crear un nuevo viaje"
+    },
+
+    "dashboard": {
+        "managed.trips": "Viajes Administrados",
+        "requests.trip": "Solicitudes por Viaje",
+        "trips.prices": "Precios Viajes",
+        "ratio.app": "Proporción Aplicaciones",
+        "average": "PROMEDIO",
+        "minimum": "MÍNIMO",
+        "maximum": "MÁXIMO",
+        "standard.deviation": "DESVIACIÓN ESTÁNDAR",
+        "starts": "COMIENZO",
+        "ends": "TÉRMINO"
+
     }
 }

@@ -1,114 +1,113 @@
 {
- "actor" : {
-
-    "name": "Name",
-    "surname": "Surname",
-    "email": "Email",
-    "password": "Password",    
-    "phone":  "Phone",
-    "address": "Address",
-    "role": "Role",
-    "register": "Register",
-    "update": "Update",
-    "register.title": "Register new actor",
-    "create.pass": "Create password",
-    "repeat.pass": "Repeat password",
-    "create.account": "Create Account",
-    "started": "Get started with your free account"
- },
-
- "security": {
-     "login": "Login",
-     "logout": "Logout",
-     "enter.email": "Enter email",
-     "enter.password": "Enter password"
- },
-
- "footer": {
-    "terms": "Terms and conditions",
-    "visitors": "Visitors",
-    "about": "About",
-    "about.content": "About us",
-    "contact":"CONTACT",
-    "social.networks": "Get connected with us on social networks!",
-    "empresa": "A comprehensive custom service offered by experienced professionals with a long career in the tourism sector.",
-    "information": "INFORMATION"
-},
-
-"category": {
-    "list": "List categories",
-    "create": "Create new category"
-},
-
-"order" :{
-    "list-mine": "List my orders",
-    "list-unassigned": "List unassigned orders",
-    "list-self-assigned": "List self-assigned orders",
-    "list-undelivered": "List undelivered orders",
-    "list-delivered": "List delivered orders",
-    "title": "ORDERS"
-},
-
-"administrator": {
-    "dasboard" : "Display dashboard",
-    "warehouse" : "Configure warehouse",
-    "mcap": "Display MCAP cube",
-    "title": "ADMINISTRATION"
-},
-
-"cleck": {
-    "list": "List clerks"
-},
-
-"messages": {
-    "auth.registration.correct": "The user {{username}} has been correctly registered",
-    "auth.logout": "The user has logged out from the app",
-    "auth.login.correct": "The user has been correctly logged in",
-    "already.registered": "Already registered?",
-    "item.deleted": "Item successfully deleted",
-    "back": "Back",
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "placeHolder": "Enter"
-
-},
-
-"errorMessages": {
-    "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
-    "auth.wrong.password": "The password is invalid or the user does not have a password.",
-    "auth.argument.error": "signInWithEmailAndPassword failed: First argument 'email' must be a valid string.",
-    "auth.invalid.email": "The email address is badly formatted.",
-    "auth.weak.password": "Password should be at least 6 characters long.",
-    "auth.registration.failed": "Registration failed.",
-    "auth.logout.failed": "Logout failed.",
-    "denied.access.title": "Denied access.",
-    "denied.access.message": "You don't have permission to access {{resource}} on this server.",
-    "add.category.failed": "Category could not be added.",
-    "no.items.found": "No items found for this category."
-},
-
-"denied-access-page": {
-    "title": "Denied access",
-    "message-start": "You don't have permission to access",
-    "message-end": "on this server"
-},
-
-"header":{
-    "search": "Search",
-    "trips": "TRIPS",
-    "list.trips": "List Trips",
-    "display.trip": "Display Trips",
-    "profile": "PROFILE",
-    "edit.profile": "Edit Profile",
-    "applications": "APPLICATIONS",
-    "list.applications": "List Applications",
-    "display.application": "Display Applications",
-    "administration": "ADMINISTRATION",
-    "dashboard": "Display dashboard",
-    "warehouse": "Configure warehouse"
-    
-}
-
-
+    "actor": {
+        "name": "Name",
+        "surname": "Surname",
+        "email": "Email",
+        "password": "Password",
+        "phone": "Phone",
+        "address": "Address",
+        "role": "Role",
+        "register": "Register",
+        "update": "Update",
+        "register.title": "Register new actor",
+        "create.pass": "Create password",
+        "repeat.pass": "Repeat password",
+        "create.account": "Create Account",
+        "started": "Get started with your free account"
+    },
+    "security": {
+        "login": "Login",
+        "logout": "Logout",
+        "enter.email": "Enter email",
+        "enter.password": "Enter password"
+    },
+    "footer": {
+        "terms": "Terms and conditions",
+        "visitors": "Visitors",
+        "about": "About",
+        "about.content": "About us",
+        "contact": "CONTACT",
+        "social.networks": "Get connected with us on social networks!",
+        "empresa": "A comprehensive custom service offered by experienced professionals with a long career in the tourism sector.",
+        "information": "INFORMATION"
+    },
+    "category": {
+        "list": "List categories",
+        "create": "Create new category"
+    },
+    "order": {
+        "list-mine": "List my orders",
+        "list-unassigned": "List unassigned orders",
+        "list-self-assigned": "List self-assigned orders",
+        "list-undelivered": "List undelivered orders",
+        "list-delivered": "List delivered orders",
+        "title": "ORDERS"
+    },
+    "administrator": {
+        "dasboard": "Display dashboard",
+        "warehouse": "Configure warehouse",
+        "mcap": "Display MCAP cube",
+        "title": "ADMINISTRATION"
+    },
+    "cleck": {
+        "list": "List clerks"
+    },
+    "messages": {
+        "auth.registration.correct": "The user {{username}} has been correctly registered",
+        "auth.logout": "The user has logged out from the app",
+        "auth.login.correct": "The user has been correctly logged in",
+        "already.registered": "Already registered?",
+        "item.deleted": "Item successfully deleted",
+        "back": "Back",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "placeHolder": "Enter"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
+        "auth.wrong.password": "The password is invalid or the user does not have a password.",
+        "auth.argument.error": "signInWithEmailAndPassword failed: First argument 'email' must be a valid string.",
+        "auth.invalid.email": "The email address is badly formatted.",
+        "auth.weak.password": "Password should be at least 6 characters long.",
+        "auth.registration.failed": "Registration failed.",
+        "auth.logout.failed": "Logout failed.",
+        "denied.access.title": "Denied access.",
+        "denied.access.message": "You don't have permission to access {{resource}} on this server.",
+        "add.category.failed": "Category could not be added.",
+        "no.items.found": "No items found for this category."
+    },
+    "denied-access-page": {
+        "title": "Denied access",
+        "message-start": "You don't have permission to access",
+        "message-end": "on this server"
+    },
+    "header": {
+        "search": "Search",
+        "trips": "TRIPS",
+        "list.trips": "List Trips",
+        "list.managers": "List Managers",
+        "display.trip": "Display Trips",
+        "profile": "PROFILE",
+        "edit.profile": "Edit Profile",
+        "applications": "APPLICATIONS",
+        "list.applications": "List Applications",
+        "display.application": "Display Applications",
+        "administration": "ADMINISTRATION",
+        "dashboard": "Display dashboard",
+        "warehouse": "Configure warehouse",
+        "new.trip": "Create a new trip"
+    },
+        "dashboard": {
+        "managed.trips": "Manager Trips",
+        "requests.trip": "Requests Per Trip",
+        "trips.prices": "Trips Prices",
+        "average": "AVERAGE",
+        "minimum": "MINIMUM",
+        "maximum": "MAXIMUM",
+        "standard.deviation": "STANDARD DEVIATION",
+        "ratio.app": "Ratio Applications",
+        "starts": "STARTS",
+        "ends": "ENDS"
+    }
 }
