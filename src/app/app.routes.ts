@@ -19,12 +19,13 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},
   { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},
-  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},//admin
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator'}},
   {
     path: 'trips', children: [
-     
       { path: 'TripDisplay/:id', component: TripDisplayComponent },
-      { path: '', component: TripListComponent } ]},
+      { path: '', component: TripListComponent }
+    ]
+  },
   { path: 'ApplicationList', component: ApplicationListComponent },
   { path: 'ApplicationDisplay', component: ApplicationDisplayComponent },
   { path: 'denied-access', component: DeniedAccessPageComponent },
