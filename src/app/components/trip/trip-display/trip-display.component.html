@@ -1,3 +1,29 @@
-<p>
-  trip-display works!
-</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- details card section starts from here -->
+<section class="details-card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src="https://placeimg.com/640/480/arch?t=1556378733000" alt="">
+                        <span><h4>{{'trip.title'|translate}}</h4></span>
+                    </div>
+                    <div class="card-desc">
+                        <h3>{{'trip.title'|translate}}</h3>
+                        <h5 class="card-title">{{'trip.description '|translate}}</h5>
+                        <p>{{trip.description}}</p>
+                        <p>{{'trip.price'|translate}}</p>
+                        <p>{{trip.price}}</p>
+                            <a href="#" class="btn-card">Read</a>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- details card section starts from here -->
