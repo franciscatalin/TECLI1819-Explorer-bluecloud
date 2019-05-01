@@ -17,8 +17,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>
         
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -29,10 +28,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/ApplicationList">{{'header.list.applications'|translate}}</a>  
           <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.display.application'|translate}}</a>         
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+         
+          
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -43,9 +40,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/TripList">{{'header.edit.profile'|translate}}</a>         
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.list.managers'|translate}}</a>
+          <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.new.trip'|translate}}</a>  
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -71,21 +67,17 @@
         <button (click)="changeLanguage('en')" type="submit" class="btn-sm btn-primary mr-1">EN</button>
         <button (click)="changeLanguage('es')" type="submit" class="btn-sm btn-primary mr-1">ES</button>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" routerLink="/register">{{ 'actor.register' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" routerLink="/login">{{'security.login' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" style="cursor:pointer" (click)="logout()"> {{'security.logout' | translate}} </a>
       </li>
 
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <span class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 1.5em;"></span>
-        </a>
-      </li>
+      
     </ul>
 
   </div>
