@@ -41,4 +41,5 @@ export class TripListComponent implements OnInit {
    // this.route.navigate(['trips/new']);
   }
 
+  
 }
