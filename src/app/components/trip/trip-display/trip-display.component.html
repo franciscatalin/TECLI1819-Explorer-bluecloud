@@ -10,20 +10,28 @@
             <div class="col-md-4">
                 <div class="card-content">
                     <div class="card-img">
-                        <img src="https://placeimg.com/640/480/arch?t=1556378733000" alt="">
-                        <span><h4>{{'trip.title'|translate}}</h4></span>
+                        <img src="{{trip.picture}}" alt="">
+                       <!-- <span><h4>{{'trip.title'}}</h4></span> -->
                     </div>
                     <div class="card-desc">
-                        <h3>{{'trip.title'|translate}}</h3>
-                        <h5 class="card-title">{{'trip.description '|translate}}</h5>
+                  <!--      <h3>{{'trip.title'}}</h3> -->
+                        
                         <p>{{trip.description}}</p>
-                        <p>{{'trip.price'|translate}}</p>
+                        
                         <p>{{trip.price}}</p>
-                            <a href="#" class="btn-card">Read</a>   
+                            <a href="#" class="btn-card">Leer Más</a>  
+                            
                     </div>
+                    <div>
+                            <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+                            Commentarios!
+                            </textarea>
+                            </div>
+                            <input type="submit" value="Submit"> 
                 </div>
             </div>
         </div>
     </div>
+   
 </section>
 <!-- details card section starts from here -->

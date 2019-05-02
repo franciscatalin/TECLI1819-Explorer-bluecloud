@@ -1,37 +1,19 @@
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<!-- details card section starts from here -->
-<!-- <div *ngif="data != undefined && data.length > 0 "> -->
- <div *ngFor="let trip of data">
-        
-   
-<section class="details-card">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-content">
-                    <div class="card-img">
-                        <img src="https://placeimg.com/640/480/arch?t=1556378733000" alt="">
-                        <span><h4>{{'trip.title'|translate}}</h4></span>
+<div class="card-columns">
+  <div class="card mb-3" *ngFor="let trip of data">
+      <div class="card-img">
+    <img class="card-img-top" src={{trip.picture}} alt="Card image cap">
+    <span><h4 routerLink="/trips/TripDisplay/{{trip.id}}">Ver detalles</h4></span>
                     </div>
-                    <div class="card-desc">
-                      <!--   <h3>{{'trip.title'|translate}}</h3> -->
-                      <!--   <h5 class="card-title">{{'trip.description '|translate}}</h5>  -->
-                        <p>{{trip.description}}</p>
-                        <p>{{'trip.price'|translate}}</p>
-                        <p>{{trip.price}}</p>
-                            <a href="#" class="btn-card">Read</a>   
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+    <div class="card-body">
+      <h5 class="card-title" >{{trip.title}}</h5>
+      
+
+      <p class="card-text">
+        <p class="card-text">{{trip.description}}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-   
-</section>
-
-</div>
-<!-- details card section starts from here -->
