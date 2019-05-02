@@ -3,19 +3,20 @@ import { Trip } from '../../../models/trip.model';
 import { TripService } from 'src/app/services/trip.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 
 @Component({
   selector: 'app-trip-list',
   templateUrl: './trip-list.component.html',
   styleUrls: ['./trip-list.component.css']
 })
-export class TripListComponent implements OnInit {
+export class TripListComponent extends TranslatableComponent implements OnInit {
 
   trips: Array<Trip>;
   data: any[];
   constructor(private tripservice: TripService,
     private translateservice: TranslateService,private router: Router, private route: ActivatedRoute) {
-   
+      super (translateservice);
      }
 
   ngOnInit() {
@@ -23,10 +24,8 @@ export class TripListComponent implements OnInit {
     .then ((val) => {
       this.data = val;
       console.log(this.data);
-     
     })
     .catch((err) => console.error(err.message));
-    
     
     /*this.trips = new Array<Trip>();
     const trip = new Trip();
@@ -40,6 +39,4 @@ export class TripListComponent implements OnInit {
   newTrip(){
    // this.route.navigate(['trips/new']);
   }
-
-  
 }
