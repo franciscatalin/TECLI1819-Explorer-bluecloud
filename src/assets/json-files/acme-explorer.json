@@ -85,115 +85,73 @@
       "price": "2600€"
     }
   ],
-
+  
   "actors": [
     {
-      "id": "5c6852f34112510ff0a5dbb3",
-      "role": ["MANAGER"],
-      "name": "Jose",
-      "surname": "salas",
-      "email": "jose.salas@gmail.com",
-      "password": "QWER123",
-      "phone": "809-565-8899",
-      "address": "Júcar",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
-    },
-    {
-      "id": "5c6853124112510ff0a5dbb4",
-      "role": ["MANAGER"],
-      "name": "Rosa",
-      "surname": "Fernandez",
-      "email": "rosa.fernandez@gmail.com",
-      "password": "RTYU4566",
-      "phone": "809-565-8899",
-      "address": "Darro",
-      "created": "2019-02-16T18:14:42.362+0000",
-      "__v": 0
-    },
-    {
-      "id": "5c97f59846369ab14747016e",
-      "role": ["EXPLORER"],
       "name": "Miguel",
-      "surname": "Garcia",
+      "surname": "Garcia Soto",
+      "role": "Explorer",
+      "password": "#IO.p5607",
       "email": "miguel.garcia@gmail.com",
-      "password": "IOP567",
-      "phone": "809-565-8899",
-      "address": "Guadalquivir",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
+      "countrycode": "+34",
+      "phone": "674512805",
+      "address": "C/ Federico Garcia Lorca nº 14",
+      "id": "JVPSnkN"
     },
     {
-      "id": "5c97f5981c827378548c5f5b",
-      "role": ["EXPLORER"],
       "name": "Ana",
-      "surname": "Ortega",
+      "surname": "Ortega Rey",
+      "role": "Explorer",
+      "password": "&aSdF1523",
       "email": "ana.ortega@gmail.com",
-      "password": "ASDF123",
-      "phone": "809-565-8899",
-      "address": "Granada",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
+      "countrycode": "+34",
+      "phone": "678905350",
+      "address": "C/ Albarado nº 3",
+      "id": "XlH6nVt"
     },
     {
-      "id": "5c97f59844f142245515a0a4",
-      "role": ["EXPLORER"],
       "name": "Juan",
-      "surname": "Orellana",
+      "surname": "Orellana Moreno",
+      "role": "Administrator",
+      "password": "_FghJ4066$",
       "email": "juan.orellana@gmail.com",
-      "password": "FGHJ4566",
-      "phone": "809-565-8899",
-      "address": "Ebro",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
+      "countrycode": "+34",
+      "phone": "675454019",
+      "address": "C/ Pablo Picasso nº 5 ",
+      "id": "Jf~LeGZ"
     },
     {
-      "id": "5c97f598326c236060cc0591",
-      "role": ["EXPLORER"],
-      "name": "Maria",
-      "surname": "Blanco",
-      "email": "maria.blanco@gmail.com",
-      "password": "JKL456",
-      "phone": "809-565-8899",
-      "address": "Guadiana",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
+      "name": "Marina",
+      "surname": "Santos Iglesias",
+      "role": "Administrator",
+      "password": "#aDsR1745",
+      "email": "marina.santos@gmail.com",
+      "countrycode": "+34",
+      "phone": "673454790",
+      "address": "C/ Miguel Angel nº 2",
+      "id": "rz2ZUtJ"
     },
     {
-      "id": "5c97f598e9bd6b467f3c4946",
-      "role": ["SPONSOR"],
-      "name": "Manuel",
-      "surname": "Parra",
-      "email": "manuel.parra@gmail.com",
-      "password": "ZXC456",
-      "phone": "809-565-8899",
-      "address": "Duero",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
-    },
-    {
-      "id": "5c97f598ccfef31bcac53017",
-      "role": ["ADMINISTRATOR"],
-      "name": "Pablo",
-      "surname": "Ferrer",
-      "email": "pablo.ferrer@gmail.com",
-      "password": "VBN589",
-      "phone": "809-565-8899",
-      "address": "Segura",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "__v": 0
-    },
-    {
-      "id": "5c6852f34112510ff0a5dbb9",
-      "role": ["MANAGER"],
       "name": "Jose",
-      "surname": "salas",
+      "surname": "Salas Blanco",
+      "role": "Manager",
+      "password": "$QWeR183",
       "email": "jose.salas@gmail.com",
-      "password": "QWER123",
-      "phone": "809-565-8899",
-      "address": "Júcar",
-      "created": "2019-02-16T18:14:11.267+0000",
-      "v": 0
+      "countrycode": "+34",
+      "phone": "678900467",
+      "address": "C/ Guadiana nº 14",
+      "id": "36fwnMp"
+    },
+    {
+      "name": "Rosa",
+      "surname": "Fernandez Garrido",
+      "role": "Manager",
+      "password": "*RtYU4560",
+      "email": "rosa.fernandez@gmail.com",
+      "countrycode": "+34",
+      "phone": "674533871",
+      "address": "C/ Ebro nº 4",
+      "id": "uEs83T4"
     }
   ]
 }

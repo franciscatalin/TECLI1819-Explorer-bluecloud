@@ -30,16 +30,12 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
       ({
         name: [''],
         surname: [''],
+        role: [''],
         password: [''],
         email: [''],
         countrycode: [''],
         phone: [''],
         address: [''],
-        role: [''],
-        preferredLanguage: [''],
-
-
-
       });
   }
 
