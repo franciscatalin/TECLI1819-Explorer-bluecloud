@@ -184,5 +184,16 @@
       "address": "C/ Ebro nº 4",
       "id": "uEs83T4"
     }
+  ],
+  "warehouse": [
+    {
+      "avg": 432,
+      "min": 200,
+      "max": 505,
+      "ratio": 435,
+      "stanDes": 45,
+      "id":"Fjkdsf"
+      
+    }
   ]
 }
