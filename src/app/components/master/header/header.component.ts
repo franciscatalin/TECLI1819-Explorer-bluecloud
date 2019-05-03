@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
-import { TranslatableComponent } from '../../shared/translatable/translatable.component'
+import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Actor } from '../../../models/actor.model';
 
