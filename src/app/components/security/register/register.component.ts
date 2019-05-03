@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class RegisterComponent extends TranslatableComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  roleList = ['Administrator', 'Manager', 'Explorer'];
+  roleList = ['Sponsor', 'Explorer'];
 
 
   constructor(private translateService: TranslateService,private formBuilder: FormBuilder, private authService: AuthService,
