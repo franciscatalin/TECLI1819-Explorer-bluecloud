@@ -68,7 +68,7 @@
       <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" routerLink="/register">{{ 'actor.register' | translate}}</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" routerLink="/login">{{'security.login' | translate}}</a>
       </li>
       <li class="nav-item active" *ngIf="currentActor">
