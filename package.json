@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "json-server --watch ./src/assets/json-files/acme-explorer-actors.json"
+    "server": "json-server --watch ./src/assets/json-files/acme-explorer.json"
   },
   "private": true,
   "dependencies": {

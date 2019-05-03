@@ -27,7 +27,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/ApplicationList">{{'header.list.applications'|translate}}</a>  
-          <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.display.application'|translate}}</a>         
+        <!--  <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.display.application'|translate}}</a> -->        
          
           
         </div>
@@ -73,7 +73,7 @@
       <li class="nav-item active">
         <a class="nav-link" routerLink="/login">{{'security.login' | translate}}</a>
       </li>
-      <li class="nav-item active" *ngIf="!currentActor">
+      <li class="nav-item active" *ngIf="currentActor">
         <a class="nav-link" style="cursor:pointer" (click)="logout()"> {{'security.logout' | translate}} </a>
       </li>
 
