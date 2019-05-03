@@ -4,6 +4,8 @@ import { TripService } from 'src/app/services/trip.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-trip-list',
@@ -12,10 +14,15 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 })
 export class TripListComponent extends TranslatableComponent implements OnInit {
 
-  trips: Array<Trip>;
-  data: any[];
-  constructor(private tripservice: TripService,
-    private translateservice: TranslateService,private router: Router, private route: ActivatedRoute) {
+  // Array de Trips donde almacenamos el listado de viajes
+  data: Trip[];
+
+  constructor(private fb: FormBuilder,
+    private tripservice: TripService,
+    private router: Router,
+    private translateservice: TranslateService,
+    public authService: AuthService,
+    private route: ActivatedRoute) {
       super (translateservice);
      }
 
@@ -23,20 +30,12 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
     this.tripservice.getTrips()
     .then ((val) => {
       this.data = val;
-      console.log(this.data);
+      console.log('Listado de viajes: ' + this.data);
     })
     .catch((err) => console.error(err.message));
-    
-    /*this.trips = new Array<Trip>();
-    const trip = new Trip();
-    trip.title = 'Viaje a EEUU';
-    trip.ticker = 'TXD123456';
-    trip.description = 'Viaje por Estados Unidos de costa a costa';
-    trip.price = 1.250;
-    this.trips.push(trip);*/
   }
 
-  newTrip(){
+  newTrip() {
    // this.route.navigate(['trips/new']);
   }
 }
