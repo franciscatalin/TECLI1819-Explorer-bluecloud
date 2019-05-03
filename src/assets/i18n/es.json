@@ -53,7 +53,7 @@
         "list": "Listar empleados"
     },
     "messages": {
-        "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+        "auth.registration.correct": "Usuario correctamente registrado",
         "auth.logout": "El usuario se ha desconectado correctamente",
         "auth.login.correct": "El usuario ha entrado correctamente",
         "already.registered": "¿Ya está registrado?",

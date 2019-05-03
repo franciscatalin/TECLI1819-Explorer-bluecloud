@@ -53,7 +53,7 @@
         "list": "List clerks"
     },
     "messages": {
-        "auth.registration.correct": "The user {{username}} has been correctly registered",
+        "auth.registration.correct": "User correctly registered",
         "auth.logout": "The user has logged out from the app",
         "auth.login.correct": "The user has been correctly logged in",
         "already.registered": "Already registered?",
