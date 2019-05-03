@@ -1,5 +1,5 @@
 import { Entity } from './Entity.model';
-import { Actor } from './actor.model';
+
 
 export class Trip extends Entity{
    // Administrator: Actor;
