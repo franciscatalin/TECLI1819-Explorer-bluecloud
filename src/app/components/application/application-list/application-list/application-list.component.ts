@@ -4,6 +4,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslatableComponent } from 'src/app/components/shared/translatable/translatable.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-application-list',
@@ -11,10 +12,15 @@ import { TranslatableComponent } from 'src/app/components/shared/translatable/tr
   styleUrls: ['./application-list.component.css']
 })
 export class ApplicationListComponent extends TranslatableComponent implements OnInit {
- 
-  data: any[];
-  constructor(private applicationservice: ApplicationService,
-    private translateservice: TranslateService,private router: Router, private route: ActivatedRoute) {
+
+  // Array de Application donde almacenamos el listado de aplicaciones
+  data: Application[];
+
+  constructor(private fb: FormBuilder,
+    private applicationservice: ApplicationService,
+    private router: Router,
+    private translateservice: TranslateService,
+    private route: ActivatedRoute) {
     super(translateservice);
   }
 
@@ -22,13 +28,8 @@ export class ApplicationListComponent extends TranslatableComponent implements O
     this.applicationservice.getApplications()
     .then ((val) => {
       this.data = val;
-      console.log(this.data);
+      console.log('Listado de aplicaciones:' + this.data);
     })
     .catch((err) => console.error(err.message));
-    
-  
   }
-
-  
-
 }

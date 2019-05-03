@@ -15,9 +15,9 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 // Then we find all the tests.
-// const context = require.context('./', true, /\.spec\.ts$/);
+ const context = require.context('./', true, /\.spec\.ts$/);
 
- const context = require.context('./', true, /trip-list\.component\.spec\.ts$/);
+// const context = require.context('./', true, /trip-list\.component\.spec\.ts$/);
 // const context = require.context('./', true, /trip-display\.component\.spec\.ts$/);
 // const context = require.context('./', true, /application-list\.component\.spec\.ts$/);
 
