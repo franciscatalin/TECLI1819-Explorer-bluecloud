@@ -195,5 +195,51 @@
       "id":"Fjkdsf"
       
     }
+  ],
+  "applications": [
+    {
+    "id":"01",
+    "actorid": "JVPSnkN",
+    "actorname":"",
+    "tripid":"",
+    "tripname":"Madrid",
+    "status":"Pending",
+    "comment":"Ninguno",
+    "reject_reason":"Ninguno",
+    "if_paid":true,
+    "validated": true,
+    "cancelationMoment": "12/12/2019",
+    "created": "12/12/2019"
+   
+    },
+    {
+      "id":"02",
+      "actorid": "JVPSnkN",
+      "actorname":"",
+      "tripid":"",
+      "tripname":"Italia",
+      "status":"Pending",
+      "comment":"Ninguno",
+      "reject_reason":"Ninguno",
+      "if_paid":true,
+      "validated": true,
+      "cancelationMoment": "12/12/2019",
+      "created": "12/12/2019"
+    },
+    {
+    "id":"03",
+    "actorid": "JVPSnkN",
+    "actorname":"",
+    "tripid":"",
+    "tripname":"Dubai",
+    "status":"Pending",
+    "comment":"Ninguno",
+    "reject_reason":"Ninguno",
+    "if_paid":true,
+    "validated": true,
+    "cancelationMoment": "12/12/2019",
+    "created": "12/12/2019"
+    }
+   
   ]
 }

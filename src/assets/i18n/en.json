@@ -53,7 +53,7 @@
         "list": "List clerks"
     },
     "messages": {
-        "auth.registration.correct": "The user {{username}} has been correctly registered",
+        "auth.registration.correct": "User correctly registered",
         "auth.logout": "The user has logged out from the app",
         "auth.login.correct": "The user has been correctly logged in",
         "already.registered": "Already registered?",
@@ -109,5 +109,33 @@
         "ratio.app": "Ratio Applications",
         "starts": "STARTS",
         "ends": "ENDS"
+    }
+
+    ,
+        "trip": {
+            "ticker": "Ticker",
+            "cancelled_reason": "Cancelled_reason",
+            "title": "Title",
+            "cancelationMoment": "Cancelation Moment",
+            "description": "Description",
+            "price": "Price",
+            "list_requirements": "List_Requirements",
+            "status": "Status",
+            "date_start": "Date of Start",
+            "date_end": "Date of End",
+            "published": "Published",
+            "created": "Created",
+            "details": "Details"
+    },
+    "application": {
+    
+    "tripname": "Trip Name",
+    "status":"Status",
+    "comment":"Comment",
+    "reject_reason":"Reject reason",
+    "if_paid":"Paid",
+    "validated": "Validated",
+    "cancelationMoment": "Cancelation Moment",
+    "created": "Created trip"
     }
 }

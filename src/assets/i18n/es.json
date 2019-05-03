@@ -53,7 +53,7 @@
         "list": "Listar empleados"
     },
     "messages": {
-        "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+        "auth.registration.correct": "Usuario correctamente registrado",
         "auth.logout": "El usuario se ha desconectado correctamente",
         "auth.login.correct": "El usuario ha entrado correctamente",
         "already.registered": "¿Ya está registrado?",
@@ -114,4 +114,33 @@
         "ends": "TÉRMINO"
 
     }
+
+    ,
+        "trip": {
+            "ticker": "Ticker",
+            "cancelled_reason": "Razón de Cancelación",
+            "title": "Título",
+            "cancelationMoment": "Momento de Cancelación",
+            "description": "Descripción",
+            "price": "Precio",
+            "list_requirements": "Listado de Requerimientos",
+            "status": "Estado",
+            "date_start": "Fecha Inicio",
+            "date_end": "Fecha de Finalización",
+            "published": "Publicado",
+            "created": "Creado",
+            "details": "Ver Detalles"
+    },
+
+    "application": {
+    
+        "tripname": "Lugar del viaje",
+        "status":"Estado",
+        "comment":"Comentario",
+        "reject_reason":"Razón de Rechazo",
+        "if_paid":"Pagado",
+        "validated": "Validado",
+        "cancelationMoment": "Momento de Cancelación",
+        "created": "Creación Viaje"
+        }
 }

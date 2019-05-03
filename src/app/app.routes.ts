@@ -26,6 +26,13 @@ const appRoutes: Routes = [
       { path: '', component: TripListComponent }
     ]
   },
+
+  {
+    path: 'applications', children: [
+      { path: 'ApplicationDisplay/:id', component: ApplicationDisplayComponent },
+      { path: '', component: ApplicationListComponent,canActivate: [ActorRoleGuard], data: { expectedRole: 'Explorer|Manager'} }
+    ]
+  },
   { path: 'ApplicationList', component: ApplicationListComponent },
   { path: 'ApplicationDisplay', component: ApplicationDisplayComponent },
   { path: 'denied-access', component: DeniedAccessPageComponent },
