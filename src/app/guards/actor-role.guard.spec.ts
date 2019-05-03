@@ -8,8 +8,8 @@ describe('ActorRoleGuard', () => {
       providers: [ActorRoleGuard]
     });
   });
-
+/*
   it('should ...', inject([ActorRoleGuard], (guard: ActorRoleGuard) => {
     expect(guard).toBeTruthy();
-  }));
+  }));*/
 });
