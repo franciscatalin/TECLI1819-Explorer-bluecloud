@@ -1,25 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TripListComponent } from './trip-list.component';
-
-// Injectable
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-// Translate
-import { TranslateService, TranslateLoader } from '@ngx-translate/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { TranslatableComponent } from '../../shared/translatable/translatable.component';
-// Http
-import { HttpModule } from '@angular/http';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from 'src/app/app.component';
 import { ActorListComponent } from '../../actor/actor-list/actor-list.component';
+import { TripDisplayComponent } from '../trip-display/trip-display.component';
 import { RegisterComponent } from '../../security/register/register.component';
 import { LoginComponent } from '../../security/login/login.component';
 import { HeaderComponent } from '../../master/header/header.component';
 import { MessageComponent } from '../../master/message/message.component';
+import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { FooterComponent } from '../../master/footer/footer.component';
 import { HomeComponent } from '../../shared/home/home.component';
-import { TripDisplayComponent } from '../trip-display/trip-display.component';
 import { TripEditComponent } from '../trip-edit/trip-edit.component';
 import { LocalizedDataPipe } from '../../shared/localized-data.pipe';
 import { DashboardComponent } from '../../dashboard/dashboard/dashboard.component';
@@ -29,19 +19,24 @@ import { TermAndConditionsComponent } from '../../master/terms-and-conditions/te
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { DeniedAccessPageComponent } from '../../shared/denied-access-page/denied-access-page.component';
 import { routes } from 'src/app/app.routes';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig, HttpLoaderFactory } from 'src/app/app.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { APP_BASE_HREF } from '@angular/common';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MessageService } from 'src/app/services/message.service';
-import { APP_BASE_HREF } from '@angular/common';
 import { TripService } from 'src/app/services/trip.service';
-import { doesNotThrow } from 'assert';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Injectable()
-// Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto
+// Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
 export class ActivatedRouteStub {
   private subject = new BehaviorSubject(this.testParams);
   params = this.subject.asObservable();
@@ -60,20 +55,15 @@ export class ActivatedRouteStub {
 }
 
 describe('TripListComponent', () => {
-  //var originalTimeout;
-
   // Componente que vamos a probar
   let component: TripListComponent;
   // Envuelve el componente anterior que voy a probar (TripListComponent) con una serie de objetos alrededor para que el componente funcione
   let fixture: ComponentFixture<TripListComponent>;
-  // Creamos una instancia de la clase ActivatedRouteStub
-  let mockActivatedRoute;
-  // Referencia al servicio que quiero espiar
-  let itemService: TripService;
+  let tripService: TripService; // Necesario para el test del código asíncrono ya que la instrucción que llama al getTrips
+  // devuelve una promesa a la que Jasmine tendrá que esperar. Necesitamos por tanto esta referencia al servicio que quiero espiar
 
   // "Antes de" asíncrono
   beforeEach(async(() => {
-    mockActivatedRoute = new ActivatedRouteStub();
 
     TestBed.configureTestingModule({
       declarations: [
@@ -113,19 +103,17 @@ describe('TripListComponent', () => {
           }
         })
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }, AngularFireAuth, MessageService, AngularFireAuth]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' },
+      AngularFireAuth, MessageService, AngularFireAuth]
     })
     .compileComponents();
   }));
 
   // "Antes de" no asíncrono que se usa cuando no tenemos funciones asíncronas involucradas
   beforeEach(() => {
-    // originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
-    // jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
     fixture = TestBed.createComponent(TripListComponent);
     component = fixture.componentInstance;
-
-    itemService = TestBed.get(TripService);
+    tripService = TestBed.get(TripService); // Necesario para los test asíncronos con llamadas al servicio
     component.ngOnInit();
     // "detectChanges" sirve para que Jasmine detecte si algo cambia en la página, si no lo ponemos, siempre veremos los valores iniciales
     // Sin este método, cuando pregunte por un elemento del componente, nada más crearse y antes de llamar al servicio siempre estará vacío
@@ -138,42 +126,31 @@ describe('TripListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // 2º spect: Comprueba que la lista de trips se ha inicializado correctamente
-  // Es decir, que se haya hecho bien el ngOnInit del componente, de manera que la lista de trips tiene algún valor asignado
-  // Si lo ha hecho bien, la lista no debe ser Undefined
-  it('Should have initialized list of Trips (negative)', () => {
-    expect(component.trips).not.toBeUndefined();
-  });
-
-  it('Should have initialized list of Trips (positive)', () => {
-    expect(component.trips).toBeDefined();
-  });
-
-  it('Check the size of the travel list', () => {
-    expect(component.trips.length).toBeGreaterThan(10);
-
-    // Lo hago de nuevo de otra manera
-    // Inicialmente el tamaño de la lista debería ser NO definido
-    // expect(component.trips.length).toBeUndefined();
-    // component.ngOnInit();
-    // Si no pongo el detectChanges siempre sería vacío
-    // fixture.detectChanges();
-    // expect(component.trips.length).toBeGreaterThan(10);
-  });
-
-  it('Check the size of the travel list', () => {
-    expect(component.trips.length).toBeLessThan(50);
-  });
-
-  it('Should have fourteen trips in the list', async (done) => {
+  // 2º spect: Comprueba que la lista de viajes tiene exactamente los 14 viajes que tenemos en el Json Server
+  it('List trip must have fourteen trips', async (done) => {
     component.ngOnInit();
     fixture.detectChanges();
-    spyOn(itemService, 'getTrips').and.returnValue(Promise.resolve(true));
+    spyOn(tripService, 'getTrips').and.returnValue(Promise.resolve(true));
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.trips.length).toEqual(14);
+      expect(component.data.length).toEqual(14);
       done();
     }).catch (error => console.log('error en el test:' + error));
   });
+
+  // 3º spect: Comprueba que el precio de todos y cada uno de los viajes de la lista es mayor que un limite mínimo
+  it('Price of all the trips in the list must be greather than the minimum limit', async (done) => {
+    component.ngOnInit();
+    fixture.detectChanges();
+    spyOn(tripService, 'getTrips').and.returnValue(Promise.resolve(true));
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(component.data.forEach((trip) => {
+        expect(trip.price).toBeGreaterThan(320);
+        done();
+      }));
+  });
+});
 });
