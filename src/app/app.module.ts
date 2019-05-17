@@ -32,6 +32,8 @@ import { TermAndConditionsComponent } from './components/master/terms-and-condit
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { HttpModule } from '@angular/http';
 import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
+import { ProfileComponent } from './components/actor/profile/profile.component';
+import { ActorService } from './services/actor.service';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -71,7 +73,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApplicationDisplayComponent,
     TermAndConditionsComponent,
     NotFoundComponent,
-    DeniedAccessPageComponent
+    DeniedAccessPageComponent,
+    ProfileComponent
 
   ],
   imports: [
@@ -90,7 +93,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [AngularFireAuth, MessageService, AngularFireAuth],
+  providers: [AngularFireAuth, MessageService, AngularFireAuth, ActorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
