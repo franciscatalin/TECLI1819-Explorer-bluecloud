@@ -1,9 +1,53 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Actor } from '../models/actor.model';
+import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+// Todos los métodos relacionados con los actores irían en este servicio
+// excepto aquellos métodos que tengan que ver con la autenticación, login, logout, etc que irían a auth.service
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+};
+
+@Injectable()
 export class ActorService {
 
-  constructor() { }
+  token: string;
+  userRole: string;
+  // Url donde está mi endpoint para acceder los actores
+  private apiUrl = environment.apiBaseUrl + '/actors';
+
+  constructor(private http: HttpClient, private authService: AuthService) { }
+
+  // Devuelve un actor dado su ID
+  getActor(id: string) {
+      // Añado el id a la url donde tengo los actores
+      const url = `${this.apiUrl}/${id}`;
+      // Devuelvo la promesa de haber hecho la petición get
+      return this.http.get<Actor>(url).toPromise();
+    }
+
+  // Este método hace un put en el Json Server de un actor que le pase como parámetro
+  updateProfile(actor: Actor) {
+    // Construimos la url del actor que vamos a modificar
+    const url =  `${this.apiUrl}/${actor.id}`;
+    // Es muy importante añadir las cabeceras para indicarle al servidor que lo que le envío a continuación es un JSON
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    // Encapsulo ahora el cuerpo, que no es más que el Actor pasado a JSON
+    const body = JSON.stringify(actor);
+
+    return new Promise<any>((resolve, reject) => {
+      // Petición put pasando el url, body y cabecera
+      this.http.put(url, body, httpOptions).toPromise()
+      .then(res => {
+        // Si todo va bien, actualizo los atributos que tiene el authService relacionados con el actor, que tambien tiene que enterarse
+        const token = this. authService.getCurrentActor().customToken;
+        this.authService.setCurrentActor(actor);
+        resolve(res);
+      }, err => { console.log(err); reject(err); });
+    });
+  }
 }
