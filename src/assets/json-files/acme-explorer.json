@@ -124,7 +124,7 @@
       "phone": "674512805",
       "address": "C/ Federico Garcia Lorca nº 14",
       "id": "JVPSnkN",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Ana",
@@ -136,7 +136,7 @@
       "phone": "678905350",
       "address": "C/ Albarado nº 3",
       "id": "XlH6nVt",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Juan",
@@ -148,7 +148,7 @@
       "phone": "675454019",
       "address": "C/ Pablo Picasso nº 5 ",
       "id": "Jf~LeGZ",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Marina",
@@ -160,7 +160,7 @@
       "phone": "673454790",
       "address": "C/ Miguel Angel nº 2",
       "id": "rz2ZUtJ",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Jose",
@@ -172,31 +172,19 @@
       "phone": "678900467",
       "address": "C/ Guadiana nº 14",
       "id": "36fwnMp",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
+      "id": "uEs83T4",
       "name": "Rosa",
       "surname": "Fernandez Garrido",
-      "role": "Manager",
-      "password": "*RtYU4560",
       "email": "rosa.fernandez@gmail.com",
-      "countrycode": "+34",
+      "password": "*RtYU4560",
       "phone": "674533871",
       "address": "C/ Ebro nº 4",
-      "id": "uEs83T4",
-      "preferredLanguage": "English"
-    },
-    {
-      "name": "Aziz",
-      "surname": "Kayar",
-      "role": "Spanish",
-      "password": "chanell13",
-      "email": "aziz@gmail.com",
-      "countrycode": "+34",
-      "phone": "77777",
-      "address": "37-08 unión st apt 205 flushing queens",
-      "id": "qnWqTHL",
-      "preferredLanguage": "Spanish"
+      "preferredLanguage": "es",
+      "photo": "http",
+      "role": "Manager"
     },
     {
       "name": "Lorin",
@@ -207,8 +195,44 @@
       "countrycode": "+34",
       "phone": "555555",
       "address": "37-08 unión st apt 205 flushing queens",
-      "preferredLanguage": "Spanish",
+      "preferredLanguage": "es",
       "id": "6ikrj9P"
+    },
+    {
+      "name": "Cami",
+      "surname": "prueba",
+      "role": "Sponsor",
+      "password": "Chaenll16",
+      "email": "cami@gmail.com",
+      "countrycode": "+34",
+      "phone": "599533",
+      "address": "jose nicolas",
+      "preferredLanguage": "es",
+      "id": "n5HDWHb"
+    },
+    {
+      "name": "tati",
+      "surname": "kayar",
+      "role": "Sponsor",
+      "password": "Chanell18",
+      "email": "tati@gmail.com",
+      "countrycode": "+34",
+      "phone": "89989",
+      "address": "jose nicolas",
+      "preferredLanguage": "en",
+      "id": "g_zQ_5S"
+    },
+    {
+      "name": "Misa",
+      "surname": "dsgd",
+      "role": "Sponsor",
+      "password": "Chanell19",
+      "email": "misa@gmail.com",
+      "countrycode": "+34",
+      "phone": "8888888",
+      "address": "37-08 unión st apt 205 flushing queens",
+      "preferredLanguage": "en",
+      "id": "HQL7a~7"
     }
   ],
   "warehouse": [

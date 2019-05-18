@@ -28,13 +28,12 @@ export class AuthService {
     }
 
     getCurrentActor() {
-      // return (this.currentActor);
       let result = null;
       const currentActor = localStorage.getItem('currentActor');
       if (currentActor) {
         result = JSON.parse(currentActor);
       } else {
-        this.messageService.notifyMessage('auth.user.not.found', 'alert alert-danger');
+        // this.messageService.notifyMessage('auth.user.not.found', 'alert alert-danger');
       }
       return result;
     }

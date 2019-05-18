@@ -89,8 +89,10 @@
             "pattern.numeric": "Oops, only digits are allowed in this field.",
             "url.valid": "Oops, only valid URLs are allowed in this field.",
             "string.maxLength": "Oops, you must introduce a maximum of {{maxvalue}} characters in this field.",
+            "string.minLength": "Oops, you must introduce a minimum of {{minvalue}} characters in this field.",
             "password.minlength": "The password needs to be 5 characters or more!",
-            "select.value": "Select a value"
+            "select.value": "Select a value",
+            "phone.exists": "Phone already exists"
         }
     },
     "denied-access-page": {

@@ -13,7 +13,7 @@
         "create.pass": "Crear contraseña",
         "repeat.pass": "Repetir contraseña",
         "create.account": "Crear Cuenta",
-        "preferredLanguage": "Lenguaje de su preferencia",
+        "preferredLanguage": "Idioma",
         "started": "Comience con su cuenta gratuita",
         "profile.edit": "Editar Perfil",
         "photo": "Foto"
@@ -89,8 +89,10 @@
             "pattern.numeric": "Por favor, introduzca únicamente dígitos numéricos.",
             "url.valid": "Por favor, introduzca una URL válida.",
             "string.maxLength": "Por favor, introduzca un máximo de {{maxvalue}} caracteres.",
+            "string.minLength": "Por favor, introduzca un mínimo de {{minvalue}} caracteres.",
             "password.minlength": "Por favor, introduzca una contraseña de al menos 5 caracteres",
-            "select.value": "Seleccione un valor"
+            "select.value": "Seleccione un valor",
+            "phone.exists": "El teléfono ya existe"
         }
     },
     "denied-access-page": {
