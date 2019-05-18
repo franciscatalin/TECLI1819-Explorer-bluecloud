@@ -28,7 +28,15 @@ export class AuthService {
     }
 
     getCurrentActor() {
-      return (this.currentActor);
+      // return (this.currentActor);
+      let result = null;
+      const currentActor = localStorage.getItem('currentActor');
+      if (currentActor) {
+        result = JSON.parse(currentActor);
+      } else {
+        this.messageService.notifyMessage('auth.user.not.found', 'alert alert-danger');
+      }
+      return result;
     }
 
    registerUser (actor: Actor) {
@@ -73,13 +81,15 @@ export class AuthService {
         const url = environment.apiBaseUrl + `/actors?email=` + email; // http://localhost:3000/actors?email
         this.http.get<Actor[]>(url).toPromise()
         .then((actor: Actor[]) => {
-          this.currentActor = actor[0];
+          // this.currentActor = actor[0];
+          this.setCurrentActor(actor[0]);
           this.userLoggedIn.next(true);
           // Mensaje que se muestra cuando todo ha ido correctamente
           this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
           // Hacemos el resolve que ahora devuelve el actor actual que se acaba de loguear
           // Este resolve nos sirve para saber el actor actual y su rol en el sistema
-          resolve(this.currentActor);
+          // resolve(this.currentActor);
+          resolve(actor[0]);
         }).catch(error =>  {
           reject(error);
         });
@@ -97,6 +107,8 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
+          this.setCurrentActor(null);
+          this.userLoggedIn.next(false);
           // Si todo ha ido bien hacemos el resolve
           resolve();
       // Si firebase devuelve algún error lo capturamos
@@ -110,9 +122,11 @@ export class AuthService {
 // Método que controla cual es el rol del actor que está actualmente logueado
 checkRole (roles: string ): boolean {
   let result = false;
-
-  if (this.currentActor) {
-    if (roles.indexOf(this.currentActor.role.toString()) !== -1) {
+  const currentActor = this.getCurrentActor();
+  // if (this.currentActor) {
+    if (currentActor) {
+    // if (roles.indexOf(this.currentActor.role.toString()) !== -1) {
+      if (roles.indexOf(currentActor.role.toString()) !== -1) {
       result = true;
     } else {
       result = false;
@@ -125,6 +139,21 @@ checkRole (roles: string ): boolean {
     }
   }
 return result;
+}
+
+
+setCurrentActor(actor: any) {
+  if (actor) {
+    localStorage.setItem('currentActor', JSON.stringify({
+      id: actor.id,
+      name: actor.name,
+      surname: actor.surname,
+      role: actor.role,
+      preferredLanguage: actor.preferredLanguage
+    }));
+  } else {
+    localStorage.removeItem('currentActor');
+  }
 }
 
 }

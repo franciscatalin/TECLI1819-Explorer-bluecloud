@@ -13,7 +13,10 @@
         "create.pass": "Create password",
         "repeat.pass": "Repeat password",
         "create.account": "Create Account",
-        "started": "Get started with your free account"
+        "preferredLanguage": "Preferred Language",
+        "started": "Get started with your free account",
+        "profile.edit": "Edit Profile",
+        "photo": "Photo"
     },
     "security": {
         "login": "Login",
@@ -75,7 +78,20 @@
         "denied.access.title": "Denied access.",
         "denied.access.message": "You don't have permission to access {{resource}} on this server.",
         "add.category.failed": "Category could not be added.",
-        "no.items.found": "No items found for this category."
+        "no.items.found": "No items found for this category.",
+        "validation": {
+            "required": "Oops, you must introduce a value.",
+            "number.valid": "Oops, you must introduce a valid number.",
+            "number.positive": "Oops, only positive numbers are accepted.",
+            "number.max": "Oops, only numbers lower than {{maxvalue}} are accepted.",
+            "number.min": "Oops, only numbers higher then {{minvalue}} are accepted.",
+            "email.valid": "Oops, you must introduce a valid email address.",
+            "pattern.numeric": "Oops, only digits are allowed in this field.",
+            "url.valid": "Oops, only valid URLs are allowed in this field.",
+            "string.maxLength": "Oops, you must introduce a maximum of {{maxvalue}} characters in this field.",
+            "password.minlength": "The password needs to be 5 characters or more!",
+            "select.value": "Select a value"
+        }
     },
     "denied-access-page": {
         "title": "Denied access",

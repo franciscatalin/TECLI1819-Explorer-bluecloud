@@ -16,7 +16,7 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   roleList = ['Sponsor', 'Explorer'];
-
+  idiomlist = ['English', 'Spanish'];
 
   constructor(private translateService: TranslateService,private formBuilder: FormBuilder, private authService: AuthService,
     private router: Router) {
@@ -36,6 +36,7 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
         countrycode: [''],
         phone: [''],
         address: [''],
+        preferredLanguage:[''],
       });
   }
 

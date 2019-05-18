@@ -59,10 +59,19 @@
 				</div> <!-- form-group// -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
-						<span  class="input-group-text"> <i class="fa fa-user"></i> </span>
+						<span  class="input-group-text"> <i class="fa fa-key"></i> </span>
 					</div>
 					<select formControlName="role" class="form-control">
 						<option *ngFor="let role of roleList" [value]="role">{{role}}</option>
+					</select>
+				</div> <!-- form-group end.// -->
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-book"></i> </span>
+					</div>
+                        <!-- idiom start.// -->
+					<select formControlName="preferredLanguage" class="form-control">
+						<option *ngFor="let preferredLanguage of idiomlist" [value]="preferredLanguage">{{preferredLanguage}}</option>
 					</select>
 				</div> <!-- form-group end.// -->
 				<div class="form-group input-group">

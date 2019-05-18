@@ -13,7 +13,10 @@
         "create.pass": "Crear contraseña",
         "repeat.pass": "Repetir contraseña",
         "create.account": "Crear Cuenta",
-        "started": "Comience con su cuenta gratuita"
+        "preferredLanguage": "Lenguaje de su preferencia",
+        "started": "Comience con su cuenta gratuita",
+        "profile.edit": "Editar Perfil",
+        "photo": "Foto"
     },
     "security": {
         "login": "Entrar",
@@ -75,9 +78,21 @@
         "denied.access.title": "Acceso denegado.",
         "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor.",
         "add.category.failed": "Fallo al agregar categoría.",
-        "no.items.found": "No se encontraron productos en la categoría seleccionada."
+        "no.items.found": "No se encontraron productos en la categoría seleccionada.",
+        "validation": {
+            "required": "Por favor, introduca un valor.",
+            "number.valid": "Por favor, introduzca un valor numérico.",
+            "number.positive": "Por favor, introduzca un valor positivo",
+            "number.max": "Por favor, introduzca un valor menor que {{maxvalue}}.",
+            "number.min": "Por favor, introduzca un valor mayor que {{minvalue}}.",
+            "email.valid": "Por favor, introduzca una dirección de email válida.",
+            "pattern.numeric": "Por favor, introduzca únicamente dígitos numéricos.",
+            "url.valid": "Por favor, introduzca una URL válida.",
+            "string.maxLength": "Por favor, introduzca un máximo de {{maxvalue}} caracteres.",
+            "password.minlength": "Por favor, introduzca una contraseña de al menos 5 caracteres",
+            "select.value": "Seleccione un valor"
+        }
     },
-
     "denied-access-page": {
         "title": "Acceso denegado",
         "message-start": "No tiene permisos para acceder a",
