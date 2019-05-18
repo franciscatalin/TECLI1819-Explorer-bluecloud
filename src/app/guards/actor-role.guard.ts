@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { Actor } from '../models/actor.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActorRoleGuard implements CanActivate {
+
+  private currentActor: Actor;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -20,6 +23,7 @@ export class ActorRoleGuard implements CanActivate {
       let result = false;
       // Si currentActor = true significa que tenemos un actor logueado, es decir, el actor actual no es anónimo
       if (currentActor) {
+        console.log('Valor del currentActor: ' + currentActor);
         // Vemos cual es el rol activo del actor actual y lo guardamos en activeRole
         const activeRole = new RegExp(currentActor.role.toString(), 'i');
         // Si el rol que puede ejecutar la accion está contenido en el activeRole, significa que el actor actual logueado tiene ese permiso

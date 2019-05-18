@@ -38,9 +38,7 @@ export class LoginComponent extends TranslatableComponent {
       this.authService.login(email, password).then(_ => {
       // Reseteamos el formulario
       form.reset();
-      this.email = email;
       // Una vez que el usuario ya se ha logueado correctamente, lo enviamos a lo que corresponda según la variable returUrl
-      console.log('El valor de la variable returnUrl es: ' + this.returnUrl);
       this.router.navigateByUrl(this.returnUrl);
       // Si firebase me devuelve algún código de error lo capturamos
    }).catch((error) =>  {
