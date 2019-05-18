@@ -7,7 +7,6 @@
       "description": "Precioso viaje por Paris",
       "price": 800,
       "picture": "http://s1.1zoom.me/big0/72/France_Sky_Paris_Eiffel_Tower_Clouds_513637_1280x853.jpg"
-     
     },
     {
       "id": "02",
@@ -16,7 +15,6 @@
       "description": "Precioso viaje por Roma",
       "price": 550,
       "picture": "https://www.lavanguardia.com/r/GODO/LV/p4/WebSite/2017/05/15/Recortada/img_mbigas_20170515-145025_imagenes_lv_terceros_coliseum-250-krRG-U422602355018esF-992x558@LaVanguardia-Web.jpg"
-      
     },
     {
       "id": "03",
@@ -40,7 +38,7 @@
       "ticker": "1290NBG",
       "description": "Precioso viaje por Madrid",
       "price": 325,
-      "picture":"http://www.tipgroup.com.uy/admin/imagenes/paquetes/2018_4_11_16_10_35_Madrid.jpg"
+      "picture": "http://www.tipgroup.com.uy/admin/imagenes/paquetes/2018_4_11_16_10_35_Madrid.jpg"
     },
     {
       "id": "06",
@@ -72,7 +70,7 @@
       "ticker": "5678ALR",
       "description": "Precioso viaje por la República Dominicana",
       "price": 1299,
-      "picture":"https://i1.wp.com/www.eldinero.com.do/wp-content/uploads/turismo-de-lujo-republica-dominicana.jpg?fit=1200%2C785&ssl=1"
+      "picture": "https://i1.wp.com/www.eldinero.com.do/wp-content/uploads/turismo-de-lujo-republica-dominicana.jpg?fit=1200%2C785&ssl=1"
     },
     {
       "id": "10",
@@ -114,9 +112,7 @@
       "price": 2600,
       "picture": "https://cdn.getyourguide.com/img/tour_img-372390-146.jpg"
     }
-  
   ],
-  
   "actors": [
     {
       "name": "Miguel",
@@ -127,7 +123,8 @@
       "countrycode": "+34",
       "phone": "674512805",
       "address": "C/ Federico Garcia Lorca nº 14",
-      "id": "JVPSnkN"
+      "id": "JVPSnkN",
+      "preferredLanguage": "English"
     },
     {
       "name": "Ana",
@@ -138,7 +135,8 @@
       "countrycode": "+34",
       "phone": "678905350",
       "address": "C/ Albarado nº 3",
-      "id": "XlH6nVt"
+      "id": "XlH6nVt",
+      "preferredLanguage": "English"
     },
     {
       "name": "Juan",
@@ -149,7 +147,8 @@
       "countrycode": "+34",
       "phone": "675454019",
       "address": "C/ Pablo Picasso nº 5 ",
-      "id": "Jf~LeGZ"
+      "id": "Jf~LeGZ",
+      "preferredLanguage": "English"
     },
     {
       "name": "Marina",
@@ -160,7 +159,8 @@
       "countrycode": "+34",
       "phone": "673454790",
       "address": "C/ Miguel Angel nº 2",
-      "id": "rz2ZUtJ"
+      "id": "rz2ZUtJ",
+      "preferredLanguage": "English"
     },
     {
       "name": "Jose",
@@ -171,7 +171,8 @@
       "countrycode": "+34",
       "phone": "678900467",
       "address": "C/ Guadiana nº 14",
-      "id": "36fwnMp"
+      "id": "36fwnMp",
+      "preferredLanguage": "English"
     },
     {
       "name": "Rosa",
@@ -182,7 +183,20 @@
       "countrycode": "+34",
       "phone": "674533871",
       "address": "C/ Ebro nº 4",
-      "id": "uEs83T4"
+      "id": "uEs83T4",
+      "preferredLanguage": "English"
+    },
+    {
+      "name": "Aziz",
+      "surname": "Kayar",
+      "role": "Spanish",
+      "password": "chanell13",
+      "email": "aziz@gmail.com",
+      "countrycode": "+34",
+      "phone": "77777",
+      "address": "37-08 unión st apt 205 flushing queens",
+      "preferredLanguage": "",
+      "id": "qnWqTHL"
     }
   ],
   "warehouse": [
@@ -192,54 +206,51 @@
       "max": 505,
       "ratio": 435,
       "stanDes": 45,
-      "id":"Fjkdsf"
-      
+      "id": "Fjkdsf"
     }
   ],
   "applications": [
     {
-    "id":"01",
-    "actorid": "JVPSnkN",
-    "actorname":"",
-    "tripid":"",
-    "tripname":"Madrid",
-    "status":"Pending",
-    "comment":"Ninguno",
-    "reject_reason":"Ninguno",
-    "if_paid":true,
-    "validated": true,
-    "cancelationMoment": "12/12/2019",
-    "created": "12/12/2019"
-   
-    },
-    {
-      "id":"02",
+      "id": "01",
       "actorid": "JVPSnkN",
-      "actorname":"",
-      "tripid":"",
-      "tripname":"Italia",
-      "status":"Pending",
-      "comment":"Ninguno",
-      "reject_reason":"Ninguno",
-      "if_paid":true,
+      "actorname": "",
+      "tripid": "",
+      "tripname": "Madrid",
+      "status": "Pending",
+      "comment": "Ninguno",
+      "reject_reason": "Ninguno",
+      "if_paid": true,
       "validated": true,
       "cancelationMoment": "12/12/2019",
       "created": "12/12/2019"
     },
     {
-    "id":"03",
-    "actorid": "JVPSnkN",
-    "actorname":"",
-    "tripid":"",
-    "tripname":"Dubai",
-    "status":"Pending",
-    "comment":"Ninguno",
-    "reject_reason":"Ninguno",
-    "if_paid":true,
-    "validated": true,
-    "cancelationMoment": "12/12/2019",
-    "created": "12/12/2019"
+      "id": "02",
+      "actorid": "JVPSnkN",
+      "actorname": "",
+      "tripid": "",
+      "tripname": "Italia",
+      "status": "Pending",
+      "comment": "Ninguno",
+      "reject_reason": "Ninguno",
+      "if_paid": true,
+      "validated": true,
+      "cancelationMoment": "12/12/2019",
+      "created": "12/12/2019"
+    },
+    {
+      "id": "03",
+      "actorid": "JVPSnkN",
+      "actorname": "",
+      "tripid": "",
+      "tripname": "Dubai",
+      "status": "Pending",
+      "comment": "Ninguno",
+      "reject_reason": "Ninguno",
+      "if_paid": true,
+      "validated": true,
+      "cancelationMoment": "12/12/2019",
+      "created": "12/12/2019"
     }
-   
   ]
 }
