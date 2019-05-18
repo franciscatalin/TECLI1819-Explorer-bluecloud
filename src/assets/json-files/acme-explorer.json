@@ -175,28 +175,16 @@
       "preferredLanguage": "English"
     },
     {
+      "id": "uEs83T4",
       "name": "Rosa",
       "surname": "Fernandez Garrido",
-      "role": "Manager",
-      "password": "*RtYU4560",
       "email": "rosa.fernandez@gmail.com",
-      "countrycode": "+34",
+      "password": "*RtYU4560",
       "phone": "674533871",
       "address": "C/ Ebro nº 4",
-      "id": "uEs83T4",
-      "preferredLanguage": "English"
-    },
-    {
-      "name": "Aziz",
-      "surname": "Kayar",
-      "role": "Spanish",
-      "password": "chanell13",
-      "email": "aziz@gmail.com",
-      "countrycode": "+34",
-      "phone": "77777",
-      "address": "37-08 unión st apt 205 flushing queens",
-      "id": "qnWqTHL",
-      "preferredLanguage": "Spanish"
+      "preferredLanguage": "es",
+      "photo": "http",
+      "role": "Manager"
     },
     {
       "name": "Lorin",
