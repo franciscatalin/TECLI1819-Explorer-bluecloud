@@ -124,7 +124,7 @@
       "phone": "674512805",
       "address": "C/ Federico Garcia Lorca nº 14",
       "id": "JVPSnkN",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Ana",
@@ -136,7 +136,7 @@
       "phone": "678905350",
       "address": "C/ Albarado nº 3",
       "id": "XlH6nVt",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Juan",
@@ -148,7 +148,7 @@
       "phone": "675454019",
       "address": "C/ Pablo Picasso nº 5 ",
       "id": "Jf~LeGZ",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Marina",
@@ -160,7 +160,7 @@
       "phone": "673454790",
       "address": "C/ Miguel Angel nº 2",
       "id": "rz2ZUtJ",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "name": "Jose",
@@ -172,7 +172,7 @@
       "phone": "678900467",
       "address": "C/ Guadiana nº 14",
       "id": "36fwnMp",
-      "preferredLanguage": "English"
+      "preferredLanguage": "en"
     },
     {
       "id": "uEs83T4",
@@ -195,7 +195,7 @@
       "countrycode": "+34",
       "phone": "555555",
       "address": "37-08 unión st apt 205 flushing queens",
-      "preferredLanguage": "Spanish",
+      "preferredLanguage": "es",
       "id": "6ikrj9P"
     },
     {
