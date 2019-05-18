@@ -195,8 +195,20 @@
       "countrycode": "+34",
       "phone": "77777",
       "address": "37-08 unión st apt 205 flushing queens",
-      "preferredLanguage": "",
-      "id": "qnWqTHL"
+      "id": "qnWqTHL",
+      "preferredLanguage": "Spanish"
+    },
+    {
+      "name": "Lorin",
+      "surname": "Kayar",
+      "role": "Sponsor",
+      "password": "Chanell13",
+      "email": "lorin@gmail.com",
+      "countrycode": "+34",
+      "phone": "555555",
+      "address": "37-08 unión st apt 205 flushing queens",
+      "preferredLanguage": "Spanish",
+      "id": "6ikrj9P"
     }
   ],
   "warehouse": [

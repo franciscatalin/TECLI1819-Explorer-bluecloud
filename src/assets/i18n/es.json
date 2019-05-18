@@ -13,9 +13,9 @@
         "create.pass": "Crear contraseña",
         "repeat.pass": "Repetir contraseña",
         "create.account": "Crear Cuenta",
+        "preferredLanguage": "Lenguaje de su preferencia",
         "started": "Comience con su cuenta gratuita",
         "profile.edit": "Editar Perfil",
-        "preferredLanguage": "Idioma",
         "photo": "Foto"
     },
     "security": {
