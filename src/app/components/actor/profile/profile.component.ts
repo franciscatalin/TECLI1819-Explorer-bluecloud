@@ -7,6 +7,7 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 import { AuthService } from 'src/app/services/auth.service';
 import { ActorService } from 'src/app/services/actor.service';
 import { ValidateURLOptional } from '../../shared/optionalUrl.validator';
+import { existingPhoneNumValidator } from '../../shared/existingPhone.validator';
 
 @Component({
   selector: 'app-profile',
@@ -44,7 +45,7 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
       password: [''],
       // usamos el patrón para solamente aceptar dígitos numéricos
       // además de eso tengo otro validador asíncrono para mirar en base de datos que no tenga otro usuario con el mismo teléfono
-      phone: ['', Validators.pattern('[0-9]+')], // [existingPhoneNumValidator(this.actorService)]],
+      phone: ['', [Validators.pattern('[0-9]+')], [existingPhoneNumValidator(this.actorService)]],
       address: ['', Validators.maxLength(50)], // máximo 50 caracteres
       preferredLanguage: [''],
       photo: ['', ValidateURLOptional], // Aquí utilizaremos un validador definido por nosotros (custom)
