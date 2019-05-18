@@ -16,7 +16,7 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   roleList = ['Sponsor', 'Explorer'];
-  idiomlist = ['English', 'Spanish'];
+  idiomlist = ['en', 'es'];
 
   constructor(private translateService: TranslateService,private formBuilder: FormBuilder, private authService: AuthService,
     private router: Router) {

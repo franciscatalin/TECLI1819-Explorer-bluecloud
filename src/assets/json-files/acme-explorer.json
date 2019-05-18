@@ -197,6 +197,42 @@
       "address": "37-08 unión st apt 205 flushing queens",
       "preferredLanguage": "Spanish",
       "id": "6ikrj9P"
+    },
+    {
+      "name": "Cami",
+      "surname": "prueba",
+      "role": "Sponsor",
+      "password": "Chaenll16",
+      "email": "cami@gmail.com",
+      "countrycode": "+34",
+      "phone": "599533",
+      "address": "jose nicolas",
+      "preferredLanguage": "es",
+      "id": "n5HDWHb"
+    },
+    {
+      "name": "tati",
+      "surname": "kayar",
+      "role": "Sponsor",
+      "password": "Chanell18",
+      "email": "tati@gmail.com",
+      "countrycode": "+34",
+      "phone": "89989",
+      "address": "jose nicolas",
+      "preferredLanguage": "en",
+      "id": "g_zQ_5S"
+    },
+    {
+      "name": "Misa",
+      "surname": "dsgd",
+      "role": "Sponsor",
+      "password": "Chanell19",
+      "email": "misa@gmail.com",
+      "countrycode": "+34",
+      "phone": "8888888",
+      "address": "37-08 unión st apt 205 flushing queens",
+      "preferredLanguage": "en",
+      "id": "HQL7a~7"
     }
   ],
   "warehouse": [
