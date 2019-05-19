@@ -89,6 +89,7 @@
             "pattern.numeric": "Oops, only digits are allowed in this field.",
             "url.valid": "Oops, only valid URLs are allowed in this field.",
             "string.maxLength": "Oops, you must introduce a maximum of {{maxvalue}} characters in this field.",
+            "string.minLength": "Oops, you must introduce a minimum of {{minvalue}} characters in this field.",
             "password.minlength": "The password needs to be 5 characters or more!",
             "select.value": "Select a value",
             "phone.exists": "Phone already exists"
@@ -105,6 +106,7 @@
         "list.trips": "List Trips",
         "list.managers": "List Managers",
         "display.trip": "Display Trips",
+        "application.manager": "Managed Applications",
         "profile": "PROFILE",
         "edit.profile": "Edit Profile",
         "applications": "APPLICATIONS",

@@ -89,6 +89,7 @@
             "pattern.numeric": "Por favor, introduzca únicamente dígitos numéricos.",
             "url.valid": "Por favor, introduzca una URL válida.",
             "string.maxLength": "Por favor, introduzca un máximo de {{maxvalue}} caracteres.",
+            "string.minLength": "Por favor, introduzca un mínimo de {{minvalue}} caracteres.",
             "password.minlength": "Por favor, introduzca una contraseña de al menos 5 caracteres",
             "select.value": "Seleccione un valor",
             "phone.exists": "El teléfono ya existe"
@@ -111,6 +112,7 @@
         "applications": "APLICACIONES",
         "list.applications": "Listar Aplicaciones",
         "display.application": "Desplegar Aplicación",
+        "application.manager": "Aplicaciones Administradas",
         "administration": "ADMINISTRACIÓN",
         "dashboard": "Desplegar dashboard",
         "warehouse": "Configurar warehouse",
