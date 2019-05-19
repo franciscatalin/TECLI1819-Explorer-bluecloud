@@ -27,25 +27,28 @@ export class AuthService {
     private messageService: MessageService, private http: HttpClient) {
     }
 
+    // Método que devuelve el usuario logueado actualmente del localStorage
     getCurrentActor() {
       let result = null;
+      // con getItem obtenemos el currentActor
       const currentActor = localStorage.getItem('currentActor');
+      // Vemos si es nulo
       if (currentActor) {
+        // Si no es nulo, lo parseamos y lo devolvemos como resultado del método
         result = JSON.parse(currentActor);
       } else {
+        // En caso contrario, mostramos un mensaje que indica que no hay ningún usuario almacenado en localStorage
+        // Según el caso este mensaje tendrá sentido o no
         // this.messageService.notifyMessage('auth.user.not.found', 'alert alert-danger');
       }
       return result;
     }
 
    registerUser (actor: Actor) {
-
     return new Promise<any>((resolve, reject) => {
-
       // Llamamos a firebase para registrar al usuario con el email y el password
      this.fireAuth.auth.createUserWithEmailAndPassword (actor.email, actor.password)
       .then (_ => {
-
         const headers = new HttpHeaders ();
         headers.append ('Content-Type', 'application/json');
         const url = `${environment.apiBaseUrl + '/actors'}`; // http://localhost:3000/actors
@@ -80,7 +83,7 @@ export class AuthService {
         const url = environment.apiBaseUrl + `/actors?email=` + email; // http://localhost:3000/actors?email
         this.http.get<Actor[]>(url).toPromise()
         .then((actor: Actor[]) => {
-          // this.currentActor = actor[0];
+          // Este método setCurrentActor recibe un actor y lo almacena en el localStorage
           this.setCurrentActor(actor[0]);
           this.userLoggedIn.next(true);
           // Mensaje que se muestra cuando todo ha ido correctamente
@@ -90,6 +93,7 @@ export class AuthService {
           // resolve(this.currentActor);
           resolve(actor[0]);
         }).catch(error =>  {
+          this.messageService.notifyMessage('errorMessages.auth.login.failed', 'alert alert-danger');
           reject(error);
         });
         // Si firebase devuelve algún error lo capturamos
@@ -106,6 +110,8 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
+          // Al hacer logout es muy importante que tengo que eliminar la información del localStorage
+          // Eliminamos la información enviando null al setCurrentActor
           this.setCurrentActor(null);
           this.userLoggedIn.next(false);
           // Si todo ha ido bien hacemos el resolve
@@ -118,18 +124,22 @@ export class AuthService {
     });
 }
 
-// Método que controla cual es el rol del actor que está actualmente logueado
+// Método que controla cual es el rol del actor que está actualmente logueado y que se usa para ver que opciones le tenemos que mostar
+// El método recibe una serie de roles, y preguntamos si el rol del actor actual tiene alguno de los roles contenidos en la variable "roles"
 checkRole (roles: string ): boolean {
   let result = false;
+  // Guardamos en currentActor el actor actual que lo sacamos del localStore
   const currentActor = this.getCurrentActor();
-  // if (this.currentActor) {
+  // Si el actor existe
     if (currentActor) {
-    // if (roles.indexOf(this.currentActor.role.toString()) !== -1) {
+      // Preguntamos si el rol del usuario actual es alguno del listado de roles que permiten el acceso
+      // Si es distinto de -1 significa que lo ha encontrado, por lo tanto el resultado es true
       if (roles.indexOf(currentActor.role.toString()) !== -1) {
       result = true;
     } else {
       result = false;
     }
+    // Si no existe el currentActor, pero el usuario actual es anónimo, entonces también le tengo que dejar paso devolviendo true
   } else {
     if (roles.indexOf('anonymous') !== -1) {
       result = true;
@@ -140,9 +150,11 @@ checkRole (roles: string ): boolean {
 return result;
 }
 
-
+// Método que recibe un actor y lo almacena en el localStorage
 setCurrentActor(actor: any) {
+  // Volvemos a comprobar que el actor exista y no sea nulo
   if (actor) {
+    // JSON.stringify sirve para darle el formato que deseemos al JSON que se almacena en la variable currentActor.
     localStorage.setItem('currentActor', JSON.stringify({
       id: actor.id,
       name: actor.name,
@@ -150,6 +162,7 @@ setCurrentActor(actor: any) {
       role: actor.role,
       preferredLanguage: actor.preferredLanguage
     }));
+    // Si el actor es nulo, es debido a que venimos del método logout, así que ahora lo que hago es eliminar el actor con removeItem
   } else {
     localStorage.removeItem('currentActor');
   }

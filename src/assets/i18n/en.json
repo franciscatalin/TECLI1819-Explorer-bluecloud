@@ -75,6 +75,7 @@
         "auth.weak.password": "Password should be at least 6 characters long.",
         "auth.registration.failed": "Registration failed.",
         "auth.logout.failed": "Logout failed.",
+        "auth.login.failed": "Login failed.",
         "denied.access.title": "Denied access.",
         "denied.access.message": "You don't have permission to access {{resource}} on this server.",
         "add.category.failed": "Category could not be added.",
