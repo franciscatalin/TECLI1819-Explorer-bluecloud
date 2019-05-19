@@ -34,6 +34,7 @@ import { HttpModule } from '@angular/http';
 import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 import { ProfileComponent } from './components/actor/profile/profile.component';
 import { ActorService } from './services/actor.service';
+import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -74,7 +75,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TermAndConditionsComponent,
     NotFoundComponent,
     DeniedAccessPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    TripCreateComponent
 
   ],
   imports: [
