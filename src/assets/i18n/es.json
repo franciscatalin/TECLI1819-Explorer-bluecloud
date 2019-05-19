@@ -75,6 +75,7 @@
         "auth.weak.password": "La contraseña debería tener al menos 6 caracteres.",
         "auth.registration.failed": "Fallo en el registro.",
         "auth.logout.failed": "Fallo en la desconexión.",
+        "auth.login.failed": "Fallo en el login.",
         "denied.access.title": "Acceso denegado.",
         "denied.access.message": "No tiene permiso para acceder a {{resource}} en este servidor.",
         "add.category.failed": "Fallo al agregar categoría.",
