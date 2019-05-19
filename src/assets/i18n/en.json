@@ -145,7 +145,10 @@
             "date_end": "Date of End",
             "published": "Published",
             "created": "Created",
-            "details": "Details"
+            "details": "Details",
+            "picture": "Url picture",
+            "create.trip": "Trip Creation",
+            "started": "Start to create trip"
     },
     "application": {
     

@@ -148,7 +148,10 @@
             "date_end": "Fecha de Finalización",
             "published": "Publicado",
             "created": "Creado",
-            "details": "Ver Detalles"
+            "details": "Ver Detalles",
+            "picture": "Url Foto",
+            "create.trip": "Creación viajes",
+            "started": "Incie creando un viaje"
     },
 
     "application": {
