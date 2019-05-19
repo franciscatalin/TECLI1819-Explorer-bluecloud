@@ -13,7 +13,7 @@ import { Actor } from '../../../models/actor.model';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  private currentActor: Actor;
+  currentActor: boolean;
   private userLoggedIn: boolean;
   private activeRole = 'anonymous';
 
@@ -34,8 +34,8 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
       if (loggedIn) {
         // Le preguntamos al servicio de autenticación por el usuario que se acaba de loguear en la aplicación
         this.currentActor = this.authservice.getCurrentActor();
-        // Obtenemos el rol activo, que es el valor que tendremos que comprobar
-        this.activeRole = this.currentActor.role.toString();
+        // Obtenemos el rol activo, que es el valor que tendremos que comprobar        
+        this.activeRole = localStorage.getItem('activeRole');
         // En este caso no hay usuario logueado 
       } else {
         this.activeRole = 'anonymous';
@@ -48,9 +48,10 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   logout() {
     this.authservice.logout()
       .then(_ => {
-        // Cuando todo ha ido correcto, el actor actual pasa a ser anónimo
-        this.activeRole = 'anonymous';
-        this.currentActor = null;
+        // Cuando todo ha ido correcto, el actor actual pasa a ser anónimo        
+        //localStorage.setItem('activeRole', 'anonymous');
+        localStorage.setItem('currentActor', '');       
+        this.currentActor = false;
         this.messageService.notifyMessage('messages.auth.logout', 'alert alert-success');
       })
       .catch(error => {

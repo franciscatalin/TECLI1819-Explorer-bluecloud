@@ -112,6 +112,7 @@
         "applications": "APLICACIONES",
         "list.applications": "Listar Aplicaciones",
         "display.application": "Desplegar Aplicación",
+        "application.manager": "Aplicaciones Administradas",
         "administration": "ADMINISTRACIÓN",
         "dashboard": "Desplegar dashboard",
         "warehouse": "Configurar warehouse",
