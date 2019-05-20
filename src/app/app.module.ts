@@ -36,6 +36,7 @@ import { ProfileComponent } from './components/actor/profile/profile.component';
 import { ActorService } from './services/actor.service';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
 import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
+import { AgmCoreModule} from '@agm/core';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -87,7 +88,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
+      libraries: ['places']
+      }),
     AngularFireModule.initializeApp(firebaseConfig),
     TranslateModule.forRoot({
       loader: {

@@ -1,108 +1,118 @@
-
 <legend>{{ 'actor.profile.edit' | translate }}</legend>
 
 <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-<div class="form-group has-danger">
+  <div class="form-group has-danger">
 
-  <!-- Some fields has not to be editted -->
-  <input class="form-control" formControlName="id" type="hidden">
-  <input class="form-control" formControlName="role" type="hidden">
-  <input class="form-control" formControlName="email" type="hidden">
-  <input class="form-control" formControlName="password" type="hidden">
+    <!-- Some fields has not to be editted -->
+    <input class="form-control" formControlName="id" type="hidden">
+    <input class="form-control" formControlName="role" type="hidden">
+    <input class="form-control" formControlName="email" type="hidden">
+    <input class="form-control" formControlName="password" type="hidden">
 
-<!-- List of fields -->
-<label class="center-block">{{ 'actor.name' | translate }}:
-  <input class="form-control" formControlName="name" placeholder="{{'actor.name' | translate}}">
-  </label>
-  <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo requiered, mostramos el mensaje -->
-  <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
-  <div *ngIf="profileForm.get('name').errors &&
+    <!-- List of fields -->
+    <label class="center-block">{{ 'actor.name' | translate }}:
+      <input class="form-control" formControlName="name" placeholder="{{'actor.name' | translate}}">
+    </label>
+    <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo requiered, mostramos el mensaje -->
+    <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
+    <div *ngIf="profileForm.get('name').errors &&
     profileForm.get('name').touched &&
     profileForm.get('name').errors.required" class="text-danger">
-    {{ 'errorMessages.validation.required' | translate }}
-  </div>
-<br/>
+      {{ 'errorMessages.validation.required' | translate }}
+    </div>
+    <br />
 
 
-<label class="center-block">{{ 'actor.surname' | translate }}:
-  <input class="form-control" formControlName="surname" >
-  </label>
-  <div *ngIf="profileForm.get('surname').errors &&
+    <label class="center-block">{{ 'actor.surname' | translate }}:
+      <input class="form-control" formControlName="surname">
+    </label>
+    <div *ngIf="profileForm.get('surname').errors &&
     profileForm.get('surname').touched &&
     profileForm.get('surname').errors.required" class="text-danger">
-    {{ 'errorMessages.validation.required' | translate }}
-  </div>
-<br/>
+      {{ 'errorMessages.validation.required' | translate }}
+    </div>
+    <br />
 
-<label class="center-block">{{ 'actor.phone' | translate }}:
-  <input class="form-control" formControlName="phone" >
-  </label>
-  <!-- si el campo phone tiene errores y ha sido modificado y el error es de tipo patrón, mostramos el mensaje -->
-  <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
-  <div *ngIf="profileForm.get('phone').errors &&
+    <label class="center-block">{{ 'actor.phone' | translate }}:
+      <input class="form-control" formControlName="phone">
+    </label>
+    <!-- si el campo phone tiene errores y ha sido modificado y el error es de tipo patrón, mostramos el mensaje -->
+    <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
+    <div *ngIf="profileForm.get('phone').errors &&
     profileForm.get('phone').touched &&
-    profileForm.get('phone').errors.pattern"
-  class="text-danger">
-    {{ 'errorMessages.validation.pattern.numeric' | translate }}
-  </div>
-  <!-- añadimos ahora la validación asíncrona para comprobar que no haya ningún otro usuario en backend con el mismo teléfono -->
-  <!-- un mismo campo puede tener por tanto varios validadores -->
-  <div *ngIf="profileForm.get('phone').errors &&
+    profileForm.get('phone').errors.pattern" class="text-danger">
+      {{ 'errorMessages.validation.pattern.numeric' | translate }}
+    </div>
+    <!-- añadimos ahora la validación asíncrona para comprobar que no haya ningún otro usuario en backend con el mismo teléfono -->
+    <!-- un mismo campo puede tener por tanto varios validadores -->
+    <div *ngIf="profileForm.get('phone').errors &&
     profileForm.get('phone').touched &&
-    profileForm.get('phone').errors.phoneNumExists"
-  class="text-danger">
-    {{ 'errorMessages.validation.phone.exists' | translate }}
-  </div>
-<br/>
+    profileForm.get('phone').errors.phoneNumExists" class="text-danger">
+      {{ 'errorMessages.validation.phone.exists' | translate }}
+    </div>
+    <br />
 
-<label class="center-block">{{ 'actor.address' | translate }}:
-  <input class ="form-control" formControlName="address" #search size="55">
-  </label>
-  <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo maxlength, mostramos el mensaje -->
-  <div *ngIf="profileForm.get('address').errors &&
+    <label class="center-block">{{ 'actor.address' | translate }}:
+      <input class="form-control" formControlName="address" #search size="55">
+    </label>
+
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
+      (mapClick)="mapClicked($event)">
+      <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
+        [markerDraggable]="m.draggable">
+        <agm-info-window><strong>InfoWindow content</strong></agm-info-window>
+      </agm-marker>
+      <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
+        [editable]="true">
+      </agm-circle>
+    </agm-map>
+
+    <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo maxlength, mostramos el mensaje -->
+    <div *ngIf="profileForm.get('address').errors &&
     profileForm.get('address').touched &&
-    profileForm.get('address').errors.maxlength"
-  class="text-danger">
-  <!-- MaxLenght me dice tambien cual es el valor máximo que yo he definido (50) y el valor actual que tiene el campo -->
-  <!-- OJO, en este caso le estamos pasando a translate un valor para que luego se rellene la variable {{maxvalue}} en este caso -->
-    {{ 'errorMessages.validation.string.maxLength' | translate: {
+    profileForm.get('address').errors.maxlength" class="text-danger">
+      <!-- MaxLenght me dice tambien cual es el valor máximo que yo he definido (50) y el valor actual que tiene el campo -->
+      <!-- OJO, en este caso le estamos pasando a translate un valor para que luego se rellene la variable {{maxvalue}} en este caso -->
+      {{ 'errorMessages.validation.string.maxLength' | translate: {
       maxvalue: profileForm.get('address').errors.maxlength.requiredLength
     } }}
-  </div>
-<br/>
+    </div>
+    <br />
 
-<!-- En este caso mostramos un combo para que el usuario decida -->
-<label class="center-block">{{ 'actor.preferredLanguage' | translate }}:
-  <select class ="form-control" formControlName="preferredLanguage">
-    <!-- Usamos también un array para rellenar todos los posibles campos, que salen de la variable langs del profile.components  -->
-    <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
-    </select>
-  </label>
-<br/>
 
-<label class="center-block">{{ 'actor.photo' | translate }}:
-    <input class ="form-control" formControlName="photo">
+    <!-- En este caso mostramos un combo para que el usuario decida -->
+    <label class="center-block">{{ 'actor.preferredLanguage' | translate }}:
+      <select class="form-control" formControlName="preferredLanguage">
+        <!-- Usamos también un array para rellenar todos los posibles campos, que salen de la variable langs del profile.components  -->
+        <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
+      </select>
+    </label>
+    <br />
+
+
+
+    <label class="center-block">{{ 'actor.photo' | translate }}:
+      <input class="form-control" formControlName="photo">
     </label>
     <!-- En este caso comprobamos también la validación custom que hemos creado  -->
     <div *ngIf="profileForm.get('photo').errors &&
     profileForm.get('photo').touched &&
-    !profileForm.get('photo').errors.validUrl"
-  class="text-danger">
-    {{ 'errorMessages.validation.url.valid' | translate }}
+    !profileForm.get('photo').errors.validUrl" class="text-danger">
+      {{ 'errorMessages.validation.url.valid' | translate }}
+    </div>
+    <br />
+
+    <!-- Botón enviar -->
+    <!-- Con [disabled] hacemos que este botón esté activo solamente cuando todos los campos sean válidos  -->
+    <!-- De esta manera evitamos enviar datos incorrectos al servidor  -->
+    <button type="submit" class="btn btn-success" [disabled]="profileForm.invalid">
+      {{ 'messages.save' | translate }}
+    </button>&nbsp;
+
+    <!-- Botón cancelar -->
+    <button (click)="goBack()" class="btn btn-primary">
+      {{ 'messages.cancel' | translate }}
+    </button>
+
   </div>
-  <br/>
-
-<!-- Botón enviar -->
-<!-- Con [disabled] hacemos que este botón esté activo solamente cuando todos los campos sean válidos  -->
-<!-- De esta manera evitamos enviar datos incorrectos al servidor  -->
-<button type="submit" class="btn btn-success" [disabled]="profileForm.invalid">
-  {{ 'messages.save' | translate }}
-</button>&nbsp;
-
-<!-- Botón cancelar -->
-<button (click)="goBack()" class="btn btn-primary">
-  {{ 'messages.cancel' | translate }}
-</button>
-
-</div>
 </form>
