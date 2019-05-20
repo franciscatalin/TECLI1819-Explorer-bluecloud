@@ -116,7 +116,8 @@
         "administration": "ADMINISTRATION",
         "dashboard": "Display dashboard",
         "warehouse": "Configure warehouse",
-        "new.trip": "Create a new trip"
+        "new.trip": "Create a new trip",
+        "new.application": "Create a new Application"
     },
         "dashboard": {
         "managed.trips": "Manager Trips",
@@ -148,7 +149,8 @@
             "details": "Details",
             "picture": "Url picture",
             "create.trip": "Trip Creation",
-            "started": "Start to create trip"
+            "started": "Start to create trip",
+            "create.publish" : "Publish"
     },
     "application": {
     
@@ -159,6 +161,10 @@
     "if_paid":"Paid",
     "validated": "Validated",
     "cancelationMoment": "Cancelation Moment",
-    "created": "Created trip"
+    "created": "Created trip",
+    "create.application": "Create Request ",
+    "started": "Created your request now",
+    "create": "Crearted"
+
     }
 }

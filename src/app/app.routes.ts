@@ -15,6 +15,7 @@ import { ActorRoleGuard } from './guards/actor-role.guard';
 import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 import { ProfileComponent } from './components/actor/profile/profile.component';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
+import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous|Administrator'}},
   { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator'}},
   { path: 'TripCreateComponent', component: TripCreateComponent },
+  { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent }, 
   {
     path: 'trips', children: [
       { path: 'TripDisplay/:id', component: TripDisplayComponent },
