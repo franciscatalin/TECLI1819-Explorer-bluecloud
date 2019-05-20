@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Trip } from '../models/trip.model';
 import { environment } from 'src/environments/environment';
+import { Application } from '../models/application.model';
+import { MessageService } from './message.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +15,7 @@ import { environment } from 'src/environments/environment';
 export class TripService {
 
   private tripUrl =  `${environment.apiBaseUrl + '/trips'}`;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private messageService: MessageService) { }
 
   getTrip (id: string) {
    
@@ -25,4 +31,24 @@ export class TripService {
     return this.http.get<Trip[]>(this.tripUrl).toPromise();
 
   }
+
+  
+  registerTrip (trip: Trip ) {
+
+    return new Promise<any>((resolve, reject) => {
+
+        const headers = new HttpHeaders ();
+        headers.append ('Content-Type', 'application/json');
+        const url = `${environment.apiBaseUrl + '/trips'}`; // http://localhost:3000/actors
+        const body = JSON.stringify(trip);
+      this.http.post (url, body, httpOptions).toPromise()
+        .then (res => {
+           this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+          resolve (res);
+        }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
+      reject (err);
+      });
+      
+      });
+    }
 }
