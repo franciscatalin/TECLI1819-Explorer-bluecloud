@@ -16,7 +16,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>
-          <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>   
+          <a class="dropdown-item" routerLink="/ApplicationCreateComponent">{{'header.new.application'|translate}}</a>
         </div>
       </li>
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Explorer')">

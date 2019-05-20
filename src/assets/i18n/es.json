@@ -117,7 +117,8 @@
         "administration": "ADMINISTRACIÓN",
         "dashboard": "Desplegar dashboard",
         "warehouse": "Configurar warehouse",
-        "new.trip": "Crear un nuevo viaje"
+        "new.trip": "Crear un nuevo viaje",
+        "new.application": "Crear nueva aplicación"
     },
 
     "dashboard": {
@@ -151,7 +152,8 @@
             "details": "Ver Detalles",
             "picture": "Url Foto",
             "create.trip": "Creación viajes",
-            "started": "Incie creando un viaje"
+            "started": "Incie creando un viaje",
+            "create.publish" : "Publicar"
     },
 
     "application": {
@@ -163,6 +165,10 @@
         "if_paid":"Pagado",
         "validated": "Validado",
         "cancelationMoment": "Momento de Cancelación",
-        "created": "Creación Viaje"
+        "created": "Creación Viaje",
+        "create.application": "Crear solicitud ",
+        "started": "Cree su solicitud ahora",
+        "create": "Crear"
+        
         }
 }
