@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+/// <reference path="../../../../../node_modules/@types/googlemaps/index.d.ts" />
+
+import { Component, OnInit, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,6 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ActorService } from 'src/app/services/actor.service';
 import { ValidateURLOptional } from '../../shared/optionalUrl.validator';
 import { existingPhoneNumValidator } from '../../shared/existingPhone.validator';
+import { MouseEvent, MapsAPILoader } from '@agm/core';
+import { marker} from '../../../models/marker.model';
+
+declare var google: any;
 
 @Component({
   selector: 'app-profile',
@@ -22,16 +28,61 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
   // Array que indica las opciones que tendrá el combo del lenguaje dentro del formulario de edición de perfil
   langs = ['en', 'es'];
 
+  //google maps zoom level
+  zoom = 10;
+
+  //initial center position for the map
+  lat = 36.510810;
+  lng = 6.278451;
+  markers: marker[] = [];
+  autocomplete: any;
+
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+
   // Para poder construir el formulario necesitamos el FormBuilder
   constructor(private fb: FormBuilder,
     private router: Router, private authService: AuthService,
-    private actorService: ActorService, private translateService: TranslateService) {
+    private actorService: ActorService, private translateService: TranslateService,
+    private mapsAPILoader: MapsAPILoader, private NgZone: NgZone) {
     super(translateService);
   }
 
   // Cuando se esté inicializando el componente, lo primero que vamos a hacer es crear el formulario
   ngOnInit() {
     this.createForm();
+
+    this.mapsAPILoader.load().then(() => {
+
+      this.autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ['address']
+      });
+      this.autocomplete.addListener('place_changed', () => {
+        this.NgZone.run(() => {
+          const place = this.autocomplete.getPlace();
+
+          this.profileForm.value.address = place.formatted_address;
+
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          this.lat = place.geometry.location.lat();
+          this.lng = place.geometry.location.lng();
+          this.zoom = 16;
+
+          this.markers = []
+          this.markers.push({
+            lat: this.lat,
+            lng: this.lng,
+            draggable: true
+          });
+        });
+      });
+    }).catch(err => console.log(err));
+
+
+
   }
 
   // Método donde creamos el formulario, es decir donde definimos los campos de los que consta el formulario creando un grupo con "group"
@@ -73,10 +124,26 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
         this.profileForm.controls['preferredLanguage'].setValue(actor.preferredLanguage);
         this.profileForm.controls['role'].setValue(actor.role);
         this.profileForm.controls['address'].setValue(actor.address);
-      }
-});
 
+        if (this.actor.address == null) {
+          this.setCurrentPosition();
+        } else {
+          const coords = this.actor.address.split(';');
+          console.log('Split: ' + coords);
+          if (coords != null && coords.length === 2) {
+            this.markers.push({
+              lat: +coords[0],
+              lng: +coords[1],
+              draggable: true
+            });
+          }
+        }
+      }
+    });
   }
+      
+   
+          
 
   // Método que se ejecuta cuando le damos al botón salvar del formulario de edición
   onSubmit() {
@@ -90,11 +157,35 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
     }).catch((err) => {
       console.error(err);
     });
-    }
+  }
 
-    // Este método se ejecuta al pinchar en el botón cancelar y lo que hacemos es volver al menú principal
-    goBack(): void {
-      this.router.navigate(['/home']);
+  // Este método se ejecuta al pinchar en el botón cancelar y lo que hacemos es volver al menú principal
+  goBack(): void {
+    this.router.navigate(['/home']);
+  }
+
+  mapClicked($event: MouseEvent) {
+    this.markers = [];
+    this.markers.push({
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: true
+    });
+
+    this.profileForm.value.address = $event.coords.lat + ';' + $event.coords.lng;
+    this.profileForm.controls['address'].setValue(this.profileForm.value.address);
+  }
+
+  private setCurrentPosition() {
+    if ('geolocation' in navigator) {
+      console.log('Geolocation');
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.zoom = 12;
+
+      });
     }
+  }
 
 }

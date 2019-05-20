@@ -19,7 +19,14 @@ export class DashboardComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.warehouseservice.getWarehouses()
+    .then ((val) => {
+      this.data = val;
+      console.log('Listado de warehorse:' + this.data);
+    })
+    .catch((err) => console.error(err.message));
   }
+  
 
 
 }
