@@ -17,7 +17,7 @@
 			<p class="divider-text">
 				<span class="bg-light"></span>
 			</p>
-			<form [formGroup]="registerForm" (ngSubmit)="onPublish()">
+			<form [formGroup]="registerForm" (ngSubmit)="onCreated()">
 
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
@@ -27,14 +27,7 @@
 
 				</div> <!-- form-group// -->
 
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-edit"></i> </span>
-					</div>
-					
-					<input formControlName="description" class="form-control" placeholder="{{'trip.description'|translate}}" type="text">
-				</div> <!-- form-group// -->
-
+				
 								
         <div class="form-group input-group">
 					<div class="input-group-prepend">

@@ -39,4 +39,18 @@ export class ApplicationCreateComponent implements OnInit {
     
   }
 
+  onCreated() {
+    this.submitted = true;
+    if (this.registerForm.valid) {
+      console.log ('Hola Mundo');
+      console.log (this.registerForm.value);
+      this.applicationService.registerapplication (this.registerForm.value)
+
+      .then(res => {
+
+        console.log(res );
+        //this.router.navigate(['/login']);
+      }, err => { console.log(err + 'Real error'); });
+  }
+  }
 }

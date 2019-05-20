@@ -111,6 +111,24 @@
       "description": "Precioso viaje por Dubai",
       "price": 2600,
       "picture": "https://cdn.getyourguide.com/img/tour_img-372390-146.jpg"
+    },
+    {
+      "ticker": "",
+      "detalles": "",
+      "cancelled_reason": "",
+      "title": "India",
+      "cancelationMoment": "",
+      "description": "El destino que sueñas",
+      "price": "500",
+      "picture": "http://www.babamusica.com/wp-content/uploads/2019/01/india-148045726738o.jpg",
+      "list_requirements": "",
+      "status": "Pending",
+      "date_start": "",
+      "date_end": "",
+      "published": "",
+      "created": "",
+      "preferredLanguage": "",
+      "id": "16IRYIa"
     }
   ],
   "actors": [
@@ -287,6 +305,21 @@
       "validated": true,
       "cancelationMoment": "12/12/2019",
       "created": "12/12/2019"
+    },
+    {
+      "actorid": "",
+      "actorname": "",
+      "tripid": "",
+      "tripname": "India",
+      "status": "Pending",
+      "comment": "Quiero ir a la india",
+      "reject_reason": "",
+      "if_paid": "",
+      "validated": "",
+      "cancelationMoment": "",
+      "created": "",
+      "preferredLanguage": "",
+      "id": "EnRCl4V"
     }
   ]
 }
