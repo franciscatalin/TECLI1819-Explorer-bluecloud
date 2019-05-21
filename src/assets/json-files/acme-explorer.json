@@ -129,6 +129,74 @@
       "created": "",
       "preferredLanguage": "",
       "id": "16IRYIa"
+    },
+    {
+      "ticker": "",
+      "detalles": "",
+      "cancelled_reason": "",
+      "title": "Mexico",
+      "cancelationMoment": "",
+      "description": "No te lo pierdas",
+      "price": "900",
+      "picture": "https://i2.wp.com/padondenosvamos.com/wp-content/uploads/2018/02/mexico-sombra.jpg?fit=1068%2C600&ssl=1",
+      "list_requirements": "",
+      "status": "Pending",
+      "date_start": "",
+      "date_end": "",
+      "published": "",
+      "preferredLanguage": "",
+      "id": "Jdh7af_"
+    },
+    {
+      "ticker": "",
+      "detalles": "",
+      "cancelled_reason": "",
+      "title": "Turkia",
+      "cancelationMoment": "",
+      "description": "Hermoso viaje a turkia",
+      "price": "400",
+      "picture": "https://www.ecestaticos.com/imagestatic/clipping/58f/7fa/58f7fa33d2ab80d1fa99c9f9a746df5a/el-desplome-de-la-lira-turca-amenaza-a-espana-como-destino-turistico.jpg?mtime=1535044802",
+      "list_requirements": "",
+      "status": "Pending",
+      "date_start": "12/01/2019",
+      "date_end": "12/02/2019",
+      "published": "",
+      "preferredLanguage": "",
+      "id": "wvARRXm"
+    },
+    {
+      "ticker": "",
+      "detalles": "",
+      "cancelled_reason": "",
+      "title": "Turkia",
+      "cancelationMoment": "",
+      "description": "Hermoso viaje a turkia",
+      "price": "400",
+      "picture": "https://www.ecestaticos.com/imagestatic/clipping/58f/7fa/58f7fa33d2ab80d1fa99c9f9a746df5a/el-desplome-de-la-lira-turca-amenaza-a-espana-como-destino-turistico.jpg?mtime=1535044802",
+      "list_requirements": "",
+      "status": "Pending",
+      "date_start": "12/01/2019",
+      "date_end": "12/02/2019",
+      "published": "",
+      "preferredLanguage": "",
+      "id": "vmshWu2"
+    },
+    {
+      "ticker": "",
+      "detalles": "",
+      "cancelled_reason": "",
+      "title": "Malaga ",
+      "cancelationMoment": "",
+      "description": "Excelente viaje",
+      "price": "800",
+      "picture": "https://static.vueling.com/cms/media/1216271/malaga.jpg",
+      "list_requirements": "",
+      "status": "Pending",
+      "date_start": "02/12/2019",
+      "date_end": "01/01/2020",
+      "published": "",
+      "preferredLanguage": "",
+      "id": "K6P2kSL"
     }
   ],
   "actors": [
@@ -320,6 +388,21 @@
       "created": "",
       "preferredLanguage": "",
       "id": "EnRCl4V"
+    },
+    {
+      "actorid": "",
+      "actorname": "",
+      "tripid": "",
+      "tripname": "New York",
+      "status": "Pending",
+      "comment": "Quiero ir",
+      "reject_reason": "",
+      "if_paid": "",
+      "validated": "",
+      "cancelationMoment": "",
+      "created": "",
+      "preferredLanguage": "",
+      "id": "5sIFlN~"
     }
   ]
 }

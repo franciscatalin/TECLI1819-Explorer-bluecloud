@@ -27,7 +27,7 @@ export class ApplicationCreateComponent implements OnInit {
         actorname:[''],
         tripid:[''],
         tripname: [''],
-        status:[''],
+        status:['Pending'],
         comment:[''],
         reject_reason:[''],
         if_paid:[''],
