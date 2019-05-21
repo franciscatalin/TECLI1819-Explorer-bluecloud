@@ -42,7 +42,7 @@ export class TripCreateComponent extends TranslatableComponent implements OnInit
     date_start: [''],
     date_end: [''],
     published: [''],
-    created: [''],
+    created: Date.now,
     preferredLanguage:[''],
       });
 
