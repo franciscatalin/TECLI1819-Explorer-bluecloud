@@ -4,6 +4,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Actor } from '../../../models/actor.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
 
   constructor(private translateService: TranslateService,
     private messageService: MessageService,
-    private authservice: AuthService) {
+    private authservice: AuthService, private router: Router, private route: ActivatedRoute) {
     super(translateService);
   }
 
@@ -52,6 +53,7 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
         //localStorage.setItem('activeRole', 'anonymous');
         localStorage.setItem('currentActor', '');       
         this.currentActor = false;
+        this.router.navigate(['login']);
         this.messageService.notifyMessage('messages.auth.logout', 'alert alert-success');
       })
       .catch(error => {
