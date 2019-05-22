@@ -23,7 +23,7 @@ export class ActorService {
 
   // Devuelve un actor dado su ID
   getActor(id: string) {
-      // Añado el id a la url donde tengo los actores
+      // Añado el id a la url donde tengo los actores. http://localhost:3000/actors/id
       const url = `${this.apiUrl}/${id}`;
       // Devuelvo la promesa de haber hecho la petición get
       return this.http.get<Actor>(url).toPromise();
@@ -37,9 +37,9 @@ export class ActorService {
    // o un booleano indicando si existe al menos alguno que lo tenga. Sin embargo, al trabajar con JSON server esa lógica 
    // habría que implementarla en un middleware, aumentando la complejidad innecesariamente.
 
-  // Este método hace un put en el Json Server de un actor que le pase como parámetro
+  // Este método hace un put en el Json Server de un actor que recibe como parámetro
   updateProfile(actor: Actor) {
-    // Construimos la url del actor que vamos a modificar
+    // Construimos la url del actor que vamos a modificar. http://localhost:3000/actors/id
     const url =  `${this.apiUrl}/${actor.id}`;
     // Es muy importante añadir las cabeceras para indicarle al servidor que lo que le envío a continuación es un JSON
     const headers = new HttpHeaders();
@@ -53,7 +53,7 @@ export class ActorService {
       .then(res => {
         // Si todo va bien, actualizo los atributos que tiene el authService relacionados con el actor, que tambien tiene que enterarse
         const token = this. authService.getCurrentActor().customToken;
-        this.authService.setCurrentActor(actor);
+        this.authService.setCurrentActor(actor, token);
         resolve(res);
       }, err => { console.log(err); reject(err); });
     });
