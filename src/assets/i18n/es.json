@@ -65,6 +65,7 @@
         "save": "Guardar",
         "cancel": "Cancelar",
         "delete": "Eliminar",
+        "discard.changes": "¿Estas seguro que quieres deshacer los cambios?",
         "placeHolder": "Entrar"
     },
     "errorMessages": {

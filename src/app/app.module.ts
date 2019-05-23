@@ -37,6 +37,7 @@ import { ActorService } from './services/actor.service';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
 import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 import { AgmCoreModule} from '@agm/core';
+import { CookieService } from 'ngx-cookie-service';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -102,7 +103,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [AngularFireAuth, MessageService, AngularFireAuth, ActorService],
+  providers: [AngularFireAuth, MessageService, AngularFireAuth, ActorService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

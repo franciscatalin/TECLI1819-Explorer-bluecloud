@@ -65,6 +65,7 @@
         "save": "Save",
         "cancel": "Cancel",
         "delete": "Delete",
+        "discard.changes": "Do you want to discard changes?",
         "placeHolder": "Enter"
     },
     "errorMessages": {
