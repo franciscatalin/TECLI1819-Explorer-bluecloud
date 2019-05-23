@@ -1,9 +1,6 @@
-import { Entity } from './Entity.model';
+import { Entity } from './Entity.model'; 
 
-
-export class Trip extends Entity{
-  
-  
+export class Trip extends Entity{ 
     ticker: String;
     detalles: String;
     cancelled_reason: String;

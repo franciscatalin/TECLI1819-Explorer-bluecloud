@@ -14,41 +14,38 @@ const httpOptions = {
 })
 export class TripService {
 
-  private tripUrl =  `${environment.apiBaseUrl + '/trips'}`;
-  constructor(private http: HttpClient,private messageService: MessageService) { }
+  private tripUrl = `${environment.apiBaseUrl + '/trips'}`;
+  constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getTrip (id: string) {
-   
+  getTrip(id: string) {
     const url = `${this.tripUrl}/${id}`;
     return this.http.get<Trip>(url).toPromise();
-
   }
 
-  
-  getTrips () {
-   
-    
+  getTitle(title: string) {
+    const url = `${this.tripUrl}/?q=${title}`;
+    return this.http.get<Trip[]>(url).toPromise();
+  }
+
+  getTrips() {
     return this.http.get<Trip[]>(this.tripUrl).toPromise();
-
   }
 
-  
-  registerTrip (trip: Trip ) {
-
+  registerTrip(trip: Trip) {
     return new Promise<any>((resolve, reject) => {
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      const url = `${environment.apiBaseUrl + '/trips'}`; // http://localhost:3000/actors
+      const body = JSON.stringify(trip);
+      this.http.post(url, body, httpOptions).toPromise()
+        .then(res => {
+          this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+          resolve(res);
+        }, err => {
+          this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
+          reject(err);
+        });
 
-        const headers = new HttpHeaders ();
-        headers.append ('Content-Type', 'application/json');
-        const url = `${environment.apiBaseUrl + '/trips'}`; // http://localhost:3000/actors
-        const body = JSON.stringify(trip);
-      this.http.post (url, body, httpOptions).toPromise()
-        .then (res => {
-           this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
-          resolve (res);
-        }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
-      reject (err);
-      });
-      
-      });
-    }
+    });
+  }
 }

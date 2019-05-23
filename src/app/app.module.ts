@@ -38,6 +38,7 @@ import { TripCreateComponent } from './components/trip/trip-create/trip-create.c
 import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 import { AgmCoreModule} from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
+import { SearchTripComponent } from './components/search-trip/search-trip.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -80,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeniedAccessPageComponent,
     ProfileComponent,
     TripCreateComponent,
-    ApplicationCreateComponent
+    ApplicationCreateComponent,
+    SearchTripComponent
 
   ],
   imports: [
