@@ -15,8 +15,8 @@
           {{'header.trips'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>           
-        
+          <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>
+
         </div>
       </li>
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Explorer')">
@@ -25,8 +25,8 @@
           {{'header.applications'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/applications">{{'header.list.applications'|translate}}</a>
-          
+          <a class="dropdown-item" routerLink="/applications">{{'header.list.applications'|translate}}</a>
+
         </div>
       </li>
 
@@ -36,32 +36,32 @@
           {{'header.applications'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/applications">{{'header.application.manager'|translate}}</a>
-          
+          <a class="dropdown-item" routerLink="/applications">{{'header.application.manager'|translate}}</a>
+
         </div>
       </li>
 
-      
+
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Administrator')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.profile'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>         
+          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" routerLink="/ApplicationDisplay">{{'header.list.managers'|translate}}</a>
-          <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>
         </div>
       </li>
-      
+
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Manager')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.profile'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
         </div>
       </li>
 
@@ -71,25 +71,27 @@
           {{'header.profile'|translate}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>  
+          <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
         </div>
       </li>
 
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Administrator')">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-          aria-haspopup="true" aria-expanded="false">{{ 'header.administration' | translate}}</a>
-        <div class="dropdown-menu" >         
-          <a class="dropdown-item" routerLink="/Dashboard">{{'header.dashboard' | translate}}</a> 
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">{{ 'header.administration' | translate}}</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/Dashboard">{{'header.dashboard' | translate}}</a>
           <a class="dropdown-item" routerLink="/TripList">{{'header.warehouse'|translate}}</a>
-          <a class="dropdown-item"> {{'administrator.mcap'|translate}}</a> 
+          <a class="dropdown-item"> {{'administrator.mcap'|translate}}</a>
         </div>
       </li>
 
 
     </ul>
     <form class="form-inline mx-auto">
-      <input class="form-control mr-sm-2" type="search" placeholder="{{'header.search'|translate}}" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{'header.search'|translate}}</button>
+      <input class="form-control mr-sm-2" [(ngModel)]="busqueda.text" [ngModelOptions]="{standalone: true}"
+        type="search" placeholder="{{'header.search'|translate}}" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+        routerLink="/trips/SearchTripComponent/{{busqueda.text}}">{{'header.search'|translate}}</button>
     </form>
 
     <ul class="navbar-nav">
@@ -107,7 +109,7 @@
         <a class="nav-link" style="cursor:pointer" (click)="logout()"> {{'security.logout' | translate}} </a>
       </li>
 
-      
+
     </ul>
 
   </div>
