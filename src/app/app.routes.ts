@@ -16,20 +16,23 @@ import { DeniedAccessPageComponent } from './components/shared/denied-access-pag
 import { ProfileComponent } from './components/actor/profile/profile.component';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
 import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
+import { SearchTripComponent } from './components/search-trip/search-trip.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous'}},
-  { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous|Administrator'}},
-  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator'}},
+  { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous' } },
+  { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous|Administrator' } },
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator' } },
   { path: 'TripCreateComponent', component: TripCreateComponent },
-  { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent }, 
+  { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent },
+
+  // 
   {
     path: 'trips', children: [
       { path: 'TripDisplay/:id', component: TripDisplayComponent },
-      
+      { path: 'SearchTripComponent/:title', component: SearchTripComponent },
       { path: '', component: TripListComponent }
     ]
   },
@@ -37,7 +40,7 @@ const appRoutes: Routes = [
   {
     path: 'applications', children: [
       { path: 'ApplicationDisplay/:id', component: ApplicationDisplayComponent },
-      { path: '', component: ApplicationListComponent,canActivate: [ActorRoleGuard], data: { expectedRole: 'Explorer|Manager'} }
+      { path: '', component: ApplicationListComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Explorer|Manager' } }
     ]
   },
   { path: 'ApplicationList', component: ApplicationListComponent },
@@ -48,4 +51,4 @@ const appRoutes: Routes = [
   { path: '**', redirectTo: '/not-found' }
 ];
 
-export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' });
