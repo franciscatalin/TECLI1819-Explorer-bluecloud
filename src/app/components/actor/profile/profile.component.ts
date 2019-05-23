@@ -12,6 +12,9 @@ import { ValidateURLOptional } from '../../shared/optionalUrl.validator';
 import { existingPhoneNumValidator } from '../../shared/existingPhone.validator';
 import { MouseEvent, MapsAPILoader } from '@agm/core';
 import { marker} from '../../../models/marker.model';
+import { Picture } from 'src/app/models/picture.model';
+import { CanComponentDeactivate } from 'src/app/services/can-deactivate.service';
+import { Observable } from 'rxjs';
 
 declare var google: any;
 
@@ -20,31 +23,41 @@ declare var google: any;
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent extends TranslatableComponent implements OnInit {
+export class ProfileComponent extends TranslatableComponent implements OnInit, CanComponentDeactivate {
 
   // Creamos un atributo que va a ser el propio formulario (un grupo de campos formulario)
   profileForm: FormGroup;
   actor: Actor;
   // Array que indica las opciones que tendrá el combo del lenguaje dentro del formulario de edición de perfil
   langs = ['en', 'es'];
-
-  //google maps zoom level
+  // photoChanged es un boleano que nos sirve para saber si el usuario ha cambiado la foto que estaba o no
+  photoChanged = false;
+  // Este atributo es la propia imagen
+  picture: string;
+  // Nivel de zoom de Google maps
   zoom = 10;
-
-  //initial center position for the map
-  lat = 36.510810;
-  lng = 6.278451;
+  // Posición inicial en el mapa
+  lat = 37.3753501;
+  lng = -6.0250983;
   markers: marker[] = [];
   autocomplete: any;
+
+  // can deactivate
+  // Booleano que determina cuando el componente ha sido actualizado
+  private updated: boolean;
+  // private categoryForm: FormGroup;
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
 
   // Para poder construir el formulario necesitamos el FormBuilder
   constructor(private fb: FormBuilder,
-    private router: Router, private authService: AuthService,
-    private actorService: ActorService, private translateService: TranslateService,
-    private mapsAPILoader: MapsAPILoader, private NgZone: NgZone) {
+    private router: Router,
+    private authService: AuthService,
+    private actorService: ActorService,
+    private translateService: TranslateService,
+    private mapsAPILoader: MapsAPILoader,
+    private NgZone: NgZone) {
     super(translateService);
   }
 
@@ -99,7 +112,9 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
       phone: ['', [Validators.pattern('[0-9]+')], [existingPhoneNumValidator(this.actorService)]],
       address: ['', Validators.maxLength(50)], // máximo 50 caracteres
       preferredLanguage: [''],
-      photo: ['', ValidateURLOptional], // Aquí utilizaremos un validador definido por nosotros (custom)
+      photo: [''], // El campo photo ahora será un selector de fichero (botón examinar)
+      // ValidateURLOptional],  Aquí utilizaremos un validador definido por nosotros (custom) - deprecated
+      picture: [''],
       role: ['']
     });
 
@@ -113,6 +128,7 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
     const idActor = this.authService.getCurrentActor().id;
     this.actorService.getActor(idActor).then((actor) => {
       this.actor = actor;
+      console.log('createForm');
       console.log(JSON.stringify(actor));
       if (actor) {
         this.profileForm.controls['id'].setValue(actor.id);
@@ -124,7 +140,15 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
         this.profileForm.controls['preferredLanguage'].setValue(actor.preferredLanguage);
         this.profileForm.controls['role'].setValue(actor.role);
         this.profileForm.controls['address'].setValue(actor.address);
+        // Si el actor tiene una imagen, esa tengo que cargarla al inicial el formulario
+        // Buffer es el array de bits de la imagen que se guarda en JSON Server
+        if (actor.photoObject != undefined) { // Para que no salte el error cuando no está creada la estructura
+          this.picture = actor.photoObject.Buffer;
+          // Cargamos en un textarea que inicialmente está oculto, el array de bits de la imagen
+          document.getElementById('showresult').textContent = actor.photoObject.Buffer;
+        }
 
+        // Maps
         if (this.actor.address == null) {
           this.setCurrentPosition();
         } else {
@@ -141,14 +165,19 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
       }
     });
   }
-      
-   
-          
+
 
   // Método que se ejecuta cuando le damos al botón salvar del formulario de edición
   onSubmit() {
+    console.log('dentro de onSubmit');
     // se recuperan los valores que el usuario haya podido modificar
     const formModel = this.profileForm.value;
+    // Comprobamos si la foto ha cambiado
+    if (this.photoChanged) {
+      formModel.photoObject = new Picture ();
+      formModel.photoObject.Buffer = document.getElementById('showresult').textContent;
+      formModel.photoObject.contentType = 'image/png'; // Por ahora solo aceptamos imagenes de tipo .png
+    }
     // Llamo a un método que vuelca al servidor los valores que ha modificado el usuario
     this.actorService.updateProfile(formModel).then((val) => {
       console.log(val);
@@ -162,6 +191,24 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
   // Este método se ejecuta al pinchar en el botón cancelar y lo que hacemos es volver al menú principal
   goBack(): void {
     this.router.navigate(['/home']);
+  }
+
+  // Este evento es el que se dispara cuando el usuario haga click en el botón "examinar" del html para buscar un fichero
+  onFileChange(event) {
+    const reader = new FileReader();
+    const showout = document.getElementById('showresult');
+    let res;
+    this.photoChanged = true;
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+
+      reader.addEventListener('loadend', function () {
+        res = reader.result;
+        showout.textContent = this.result.toString();
+      });
+      reader.readAsDataURL(file);
+    }
   }
 
   mapClicked($event: MouseEvent) {
@@ -187,5 +234,28 @@ export class ProfileComponent extends TranslatableComponent implements OnInit {
       });
     }
   }
+
+  // Método genérico que cada componente lo tiene que customizar
+  canDeactivate (): Observable <boolean> | Promise <boolean> | boolean {
+    console.log('canDeactivate');
+    // Por defecto devolvemos siempre falso
+    let result = false;
+    // Mensaje internacionalizado con una ventana emergente
+    const message = this.translateService.instant('messages.discard.changes');
+    // Si el componente no ha sido actualizado, y el formulario está sucio (tenia algo y se ha cambiado)
+    // Guardo el mensaje y lo retorno
+    if (!this.updated && this.profileForm.dirty) {
+      result = confirm(message);
+    } else {
+      this.goBack();
+    }
+    return result;
+  }
+
+
+
+
+
+
 
 }

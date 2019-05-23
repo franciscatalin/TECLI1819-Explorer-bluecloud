@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 import { MessageService } from 'src/app/services/message.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Subject } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,11 +25,13 @@ export class AuthService {
   // Observable que le sirve al header para actualizarse y mostrar una opción o otra en base al usuario que esté logueado en el sistema
   userLoggedIn = new Subject ();
 
-  constructor(private authService: AuthService, private fireAuth: AngularFireAuth,
-    private messageService: MessageService, private http: HttpClient) {
+  constructor(private fireAuth: AngularFireAuth,
+    private messageService: MessageService,
+    private http: HttpClient,
+    private cookieService: CookieService) {
     }
 
-    // Método que devuelve el usuario logueado actualmente del localStorage
+    // Método que devuelve parseado el usuario logueado actualmente del localStorage
     getCurrentActor() {
       let result = null;
       // con getItem obtenemos el currentActor
@@ -81,17 +85,19 @@ export class AuthService {
         .then(_ => {
         // Si todo ha ido bien en fireBase invoco a mi backend (Json Server en nuestro caso) con el email para recuperar el actor
         const url = environment.apiBaseUrl + `/actors?email=` + email; // http://localhost:3000/actors?email
+        const token = this.fireAuth.auth.currentUser.getIdToken;
+        console.log(token);
         this.http.get<Actor[]>(url).toPromise()
-        .then((actor: Actor[]) => {
-          // Este método setCurrentActor recibe un actor y lo almacena en el localStorage
-          this.setCurrentActor(actor[0]);
-          this.userLoggedIn.next(true);
-          // Mensaje que se muestra cuando todo ha ido correctamente
-          this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
-          // Hacemos el resolve que ahora devuelve el actor actual que se acaba de loguear
-          // Este resolve nos sirve para saber el actor actual y su rol en el sistema
-          // resolve(this.currentActor);
-          resolve(actor[0]);
+          .then((actor: Actor[]) => {
+            // Este método setCurrentActor recibe un actor y lo almacena en el localStorage
+            this.setCurrentActor(actor[0], token);
+            this.userLoggedIn.next(true);
+            // Mensaje que se muestra cuando todo ha ido correctamente
+            this.messageService.notifyMessage('messages.auth.login.correct', 'alert alert-success');
+            // Hacemos el resolve que ahora devuelve el actor actual que se acaba de loguear
+            // Este resolve nos sirve para saber el actor actual y su rol en el sistema
+            // resolve(this.currentActor);
+            resolve(actor[0]);
         }).catch(error =>  {
           this.messageService.notifyMessage('errorMessages.auth.login.failed', 'alert alert-danger');
           reject(error);
@@ -150,8 +156,9 @@ checkRole (roles: string ): boolean {
 return result;
 }
 
-// Método que recibe un actor y lo almacena en el localStorage
-setCurrentActor(actor: any) {
+// Este método si recibe un actor lo guarda en el localStorage y si recibe un token lo guarda en la cookie
+// El símbolo ? significa que el parámetro para el token es opcional
+setCurrentActor(actor: any, token?: any) {
   // Volvemos a comprobar que el actor exista y no sea nulo
   if (actor) {
     // JSON.stringify sirve para darle el formato que deseemos al JSON que se almacena en la variable currentActor.
@@ -162,9 +169,14 @@ setCurrentActor(actor: any) {
       role: actor.role,
       preferredLanguage: actor.preferredLanguage
     }));
-    // Si el actor es nulo, es debido a que venimos del método logout, así que ahora lo que hago es eliminar el actor con removeItem
+    // Cuando me logueo, si hemos recibido el token, entonces lo guardamos en una cookie
+    if (token) {
+      this.cookieService.set('currentToken', token);
+    }
+    // Si el actor es nulo, es debido a que venimos del método logout, así que ahora lo que hago es eliminar el actor y el token
   } else {
     localStorage.removeItem('currentActor');
+    this.cookieService.delete('currentToken');
   }
 }
 

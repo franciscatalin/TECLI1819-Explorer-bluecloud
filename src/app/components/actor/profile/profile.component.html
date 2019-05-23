@@ -87,22 +87,24 @@
         <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
       </select>
     </label>
-    <br />
-
-
+    <br/>
 
     <label class="center-block">{{ 'actor.photo' | translate }}:
-      <input class="form-control" formControlName="photo">
+      <input class="form-control" formControlName="photo" (change)="onFileChange($event)" type="file">
     </label>
-    <!-- En este caso comprobamos también la validación custom que hemos creado  -->
-    <div *ngIf="profileForm.get('photo').errors &&
-    profileForm.get('photo').touched &&
-    !profileForm.get('photo').errors.validUrl" class="text-danger">
-      {{ 'errorMessages.validation.url.valid' | translate }}
-    </div>
-    <br />
+    <!-- Si el usuario tiene foto, cargamos su foto -->
+    <img *ngIf="picture != null" class="card-img-top img-fluid"
+        style=" display: block; object-fit:contain;" src="{{picture}}">
+    <!-- Si picture === undefined entonces el usuario no tiene foto, cargamos una imagen genérica -->
+    <img *ngIf="picture === undefined" class="card-img-top img-fluid"
+        style=" width: 25%; display: block;object-fit:contain;"
+        src="https://wingslax.com/wp-content/uploads/2017/12/no-image-available.png">
 
-    <!-- Botón enviar -->
+    <!-- Este textarea "showresult" inicialmente estará oculto y lo usaremos para cargar el array de bits de la imagen -->
+    <textarea id="showresult" hidden="true"></textarea>
+    <br/>
+
+    <!-- Botón guardar -->
     <!-- Con [disabled] hacemos que este botón esté activo solamente cuando todos los campos sean válidos  -->
     <!-- De esta manera evitamos enviar datos incorrectos al servidor  -->
     <button type="submit" class="btn btn-success" [disabled]="profileForm.invalid">
@@ -110,7 +112,7 @@
     </button>&nbsp;
 
     <!-- Botón cancelar -->
-    <button (click)="goBack()" class="btn btn-primary">
+    <button (click)="canDeactivate()" class="btn btn-primary">
       {{ 'messages.cancel' | translate }}
     </button>
 
