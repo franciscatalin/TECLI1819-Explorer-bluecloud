@@ -5,6 +5,9 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 import { TranslateService } from '@ngx-translate/core';
 import { Actor } from '../../../models/actor.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Alert } from 'selenium-webdriver';
+import { Search } from 'src/app/models/search';
+import { TripService } from 'src/app/services/trip.service';
 
 
 @Component({
@@ -17,10 +20,15 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   currentActor: boolean;
   private userLoggedIn: boolean;
   private activeRole = 'anonymous';
+  private busqueda: Search = { text: null };
 
   constructor(private translateService: TranslateService,
     private messageService: MessageService,
-    private authservice: AuthService, private router: Router, private route: ActivatedRoute) {
+    private authservice: AuthService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private tripservice: TripService
+  ) {
     super(translateService);
   }
 
@@ -51,7 +59,7 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
       .then(_ => {
         // Cuando todo ha ido correcto, el actor actual pasa a ser anónimo        
         //localStorage.setItem('activeRole', 'anonymous');
-        localStorage.setItem('currentActor', '');       
+        localStorage.setItem('currentActor', '');
         this.currentActor = false;
         this.router.navigate(['login']);
         this.messageService.notifyMessage('messages.auth.logout', 'alert alert-success');
@@ -60,7 +68,9 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
         this.messageService.notifyMessage('errorMessages.auth.logout.failed', 'alert alert-danger');
         console.log(error);
       });
-    }
+  }
 
-
+  onSearch() {
+    // this.router.navigate(["SearchTripComponent"]);
+  }
 }

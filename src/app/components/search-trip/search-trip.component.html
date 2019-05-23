@@ -4,10 +4,10 @@
   <div class="card mb-3" *ngFor="let trip of data">
     <div class="card-img">
       <img class="card-img-top" src={{trip.picture}} alt="Card image cap">
-      
+      <span>
         <h4 routerLink="/trips/TripDisplay/{{trip.id}}" 
         class="btn-card">Ver detalles</h4>
-      
+      </span>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{trip.title}}</h5>
