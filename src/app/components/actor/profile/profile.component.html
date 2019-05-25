@@ -9,18 +9,21 @@
     <input class="form-control" formControlName="email" type="hidden">
     <input class="form-control" formControlName="password" type="hidden">
 
+    <!-- {{profileForm.get('name').errors}} -->
+    <!-- {{profileForm.get('address').errors}} -->
+    
     <!-- List of fields -->
     <label class="center-block">{{ 'actor.name' | translate }}:
-      <input class="form-control" formControlName="name" placeholder="{{'actor.name' | translate}}">
+      <input class="form-control" formControlName="name">
     </label>
-    <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo requiered, mostramos el mensaje -->
+    <!-- si el campo name tiene errores, ha sido tocado y el error es de tipo required, mostramos el mensaje -->
     <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
     <div *ngIf="profileForm.get('name').errors &&
     profileForm.get('name').touched &&
     profileForm.get('name').errors.required" class="text-danger">
       {{ 'errorMessages.validation.required' | translate }}
     </div>
-    <br />
+    <br/>
 
 
     <label class="center-block">{{ 'actor.surname' | translate }}:
@@ -31,12 +34,13 @@
     profileForm.get('surname').errors.required" class="text-danger">
       {{ 'errorMessages.validation.required' | translate }}
     </div>
-    <br />
+    <br/>
+
 
     <label class="center-block">{{ 'actor.phone' | translate }}:
       <input class="form-control" formControlName="phone">
     </label>
-    <!-- si el campo phone tiene errores y ha sido modificado y el error es de tipo patrón, mostramos el mensaje -->
+    <!-- si el campo phone tiene errores, ha sido tocado y el error es de tipo patrón, mostramos el mensaje -->
     <!-- en las dos primeras lineas vemos si hay algún error, y en la siguiente afinamos con el error -->
     <div *ngIf="profileForm.get('phone').errors &&
     profileForm.get('phone').touched &&
@@ -50,14 +54,15 @@
     profileForm.get('phone').errors.phoneNumExists" class="text-danger">
       {{ 'errorMessages.validation.phone.exists' | translate }}
     </div>
-    <br />
+    <br/>
+
 
     <label class="center-block">{{ 'actor.address' | translate }}:
       <input class="form-control" formControlName="address" #search size="55">
     </label>
-
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
       (mapClick)="mapClicked($event)">
+       <!-- mapClicked es el método que se ejecuta cuando se pincha en algún punto del mapa -->
       <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
         [markerDraggable]="m.draggable">
         <agm-info-window><strong>InfoWindow content</strong></agm-info-window>
@@ -66,8 +71,7 @@
         [editable]="true">
       </agm-circle>
     </agm-map>
-
-    <!-- si el campo name tiene errores y ha sido modificado y el error es de tipo maxlength, mostramos el mensaje -->
+    <!-- si el campo name tiene errores, ha sido tocado y el error es de tipo maxlength, mostramos el mensaje -->
     <div *ngIf="profileForm.get('address').errors &&
     profileForm.get('address').touched &&
     profileForm.get('address').errors.maxlength" class="text-danger">
@@ -77,7 +81,13 @@
       maxvalue: profileForm.get('address').errors.maxlength.requiredLength
     } }}
     </div>
-    <br />
+    <div *ngIf="profileForm.get('address').errors" class="text-danger">
+      {{profileForm.get('address').errors}}
+    </div>
+    <div *ngIf="profileForm.get('photo').errors" class="text-danger">
+      {{profileForm.get('photo').errors}}
+    </div>
+    <br/>
 
 
     <!-- En este caso mostramos un combo para que el usuario decida -->
@@ -85,11 +95,14 @@
       <select class="form-control" formControlName="preferredLanguage">
         <!-- Usamos también un array para rellenar todos los posibles campos, que salen de la variable langs del profile.components  -->
         <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
+        <!-- "langs" es un array que nos hemos declarado dentro del componente perfil  -->
       </select>
     </label>
     <br/>
 
+
     <label class="center-block">{{ 'actor.photo' | translate }}:
+      <!-- onFileChange es el método que se ejecuta cuando el usuario haga click en el botón "examinar" del html para buscar una foto  -->
       <input class="form-control" formControlName="photo" (change)="onFileChange($event)" type="file">
     </label>
     <!-- Si el usuario tiene foto, cargamos su foto -->
@@ -97,7 +110,7 @@
         style=" display: block; object-fit:contain;" src="{{picture}}">
     <!-- Si picture === undefined entonces el usuario no tiene foto, cargamos una imagen genérica -->
     <img *ngIf="picture === undefined" class="card-img-top img-fluid"
-        style=" width: 25%; display: block;object-fit:contain;"
+        style=" width: 20%; display: block;object-fit:contain;"
         src="https://wingslax.com/wp-content/uploads/2017/12/no-image-available.png">
 
     <!-- Este textarea "showresult" inicialmente estará oculto y lo usaremos para cargar el array de bits de la imagen -->
@@ -110,11 +123,11 @@
     <button type="submit" class="btn btn-success" [disabled]="profileForm.invalid">
       {{ 'messages.save' | translate }}
     </button>&nbsp;
+    <!-- &nbsp; sirve para dar un espacio entre botón y botón  -->
 
     <!-- Botón cancelar -->
-    <button (click)="canDeactivate()" class="btn btn-primary" >
+    <button (click)="goBack()" class="btn btn-primary">
       {{ 'messages.cancel' | translate }}
     </button>
-
   </div>
 </form>
