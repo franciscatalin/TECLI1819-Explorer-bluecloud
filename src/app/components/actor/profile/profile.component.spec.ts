@@ -42,6 +42,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRouteStub } from '../../application/application-list/application-list/application-list.component.spec';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckoutComponent } from '../../checkout/checkout.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -75,7 +77,8 @@ describe('ProfileComponent', () => {
           ProfileComponent,
           TripCreateComponent,
           ApplicationCreateComponent,
-          SearchTripComponent
+          SearchTripComponent,
+          CheckoutComponent
         ],
         imports: [
           routes,
@@ -84,6 +87,7 @@ describe('ProfileComponent', () => {
           FormsModule,
           HttpClientModule,
           ReactiveFormsModule,
+          NgxPayPalModule,
           AgmCoreModule.forRoot({
             apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
             libraries: ['places']
