@@ -21,15 +21,15 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
 					</div>
-					<input formControlName="name" class="form-control" placeholder="{{'actor.name'|translate}}" type="text">
-					<input formControlName="surname" class="form-control" placeholder="{{'actor.surname'|translate}}" type="text">
+					<input formControlName="name" class="form-control" placeholder="{{'actor.name'|translate}}" id="name" name="name" type="text">
+					<input formControlName="surname" class="form-control" placeholder="{{'actor.surname'|translate}}" id="surname" name="surname" type="text">
 				</div> <!-- form-group// -->
 
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 					</div>
-					<input formControlName="email" class="form-control" placeholder="{{'actor.email'|translate}}" type="email">
+					<input formControlName="email" class="form-control" placeholder="{{'actor.email'|translate}}" id="email" name="email" type="email">
 
 				</div> <!-- form-group// -->
 
@@ -38,7 +38,7 @@
 						<span class="input-group-text"> <i class="fa fa-building"></i> </span>
 					</div>
 
-					<input formControlName="address" class="form-control" placeholder="{{'actor.address'|translate}}" type="address">
+					<input formControlName="address" class="form-control" placeholder="{{'actor.address'|translate}}" id="address" name="address" type="address">
 
 				</div>
 
@@ -53,13 +53,13 @@
 						<option value="2">+198</option>
 						<option value="3">+701</option>
 					</select>
-					<input formControlName="phone" class="form-control" placeholder="{{'actor.phone'|translate}}" type="text">
+					<input formControlName="phone" class="form-control" placeholder="{{'actor.phone'|translate}}" id="phone" name="phone" type="text">
 				</div> <!-- form-group// -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
 						<span  class="input-group-text"> <i class="fa fa-key"></i> </span>
 					</div>
-					<select formControlName="role" class="form-control">
+					<select formControlName="role" class="form-control" id="role" name="role">
 						<option *ngFor="let role of roleList" [value]="role">{{role}}</option>
 					</select>
 				</div> <!-- form-group end.// -->
@@ -76,8 +76,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 					</div>
-					<input formControlName="password" class="form-control" placeholder="{{'actor.create.pass'|translate}}"
-						type="password">
+					<input formControlName="password" class="form-control" placeholder="{{'actor.create.pass'|translate}}" id="password" name="password" type="password">
 				</div> <!-- form-group// -->
 				<div class="form-group input-group">
 					<div class="input-group-prepend">
