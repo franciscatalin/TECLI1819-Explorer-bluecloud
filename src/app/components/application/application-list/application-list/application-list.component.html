@@ -1,18 +1,20 @@
-<table class="table table-striped" *ngFor="let application of data">
+<table class="table table-striped" >
     <thead>
       <tr>
-        <th scope="col">#</th>
+       
         <th scope="col" >Lugar a visitar</th>
         <th scope="col">Estado solicitud</th>
        
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-
+      <tr *ngFor="let application of data">
+        
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.tripname}}</td>
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.status}}</td>
+        <a routerLink="/Checkout">
+          <button type="button" class="btn-card">Checkout</button>
+        </a> 
         
       </tr>
       
