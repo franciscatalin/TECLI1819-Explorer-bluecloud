@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" >
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="tile">
@@ -15,29 +15,29 @@
                                 <span></span>
                             </div>
                             <div class="ends">
-                                <strong>ENDS</strong> 14:30 MAY 2019
+                                <strong>ENDS</strong> 14:30 JUNE 2019
                             </div>
                         </div>
 
-                        <div class="stats">
+                        <div *ngFor="let warehouse of data" class="stats">
 
                             <div>
-                                <strong>{{'dashboard.average'|translate}}</strong> 3098
+                                <strong>{{'dashboard.average'|translate}}</strong> {{warehouse.avgTrip}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.minimum'|translate}}</strong> 562
+                                <strong>{{'dashboard.minimum'|translate}}</strong> {{warehouse.minTrip}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.maximum'|translate}}</strong> 182
+                                <strong>{{'dashboard.maximum'|translate}}</strong> {{warehouse.maxTrip}}
                             </div>
                             <div>
                               <strong>'</strong> 
                           </div>
 
                             <div>
-                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> 182
+                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> {{warehouse.stanDesTip}}
                           </div>
 
                         </div>
@@ -63,22 +63,22 @@
                                 <span></span>
                             </div>
                             <div class="ends">
-                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 MAY 2019
+                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 JUNE 2019
                             </div>
                         </div>
 
-                        <div class="stats">
+                        <div  *ngFor="let warehouse of data" class="stats" >
 
                             <div>
-                                <strong>{{'dashboard.average'|translate}}</strong> 3098
+                                <strong>{{'dashboard.average'|translate}}</strong> {{warehouse.avgAp}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.minimum'|translate}}</strong> 562
+                                <strong>{{'dashboard.minimum'|translate}}</strong> {{warehouse.minAp}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.maximum'|translate}}</strong> 182
+                                <strong>{{'dashboard.maximum'|translate}}</strong> {{warehouse.minPrice}}
                             </div>
 
                             <div>
@@ -86,7 +86,7 @@
                           </div>
 
                             <div>
-                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> 182
+                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> {{warehouse.stanDesAp}}
                           </div>
 
                         </div>
@@ -101,7 +101,7 @@
             </div>
 
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div class="tile">
+                <div  class="tile">
                     <div class="wrapper">
                         <div class="header">{{'dashboard.trips.prices'|translate}}</div>
 
@@ -115,7 +115,7 @@
                                 <span></span>
                             </div>
                             <div class="ends">
-                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 MAY 2019
+                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 JUNE 2019
                             </div>
                         </div>
 
@@ -123,18 +123,18 @@
 
                         
 
-                        <div class="stats">
+                        <div *ngFor="let warehouse of data" class="stats">
 
                             <div>
-                                <strong>{{'dashboard.average'|translate}}</strong> 3098
+                                <strong>{{'dashboard.average'|translate}}</strong> {{warehouse.avgPrice}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.minimum'|translate}}</strong> 562
+                                <strong>{{'dashboard.minimum'|translate}}</strong> {{warehouse.minPrice}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.maximum'|translate}}</strong> 182
+                                <strong>{{'dashboard.maximum'|translate}}</strong> {{warehouse.maxPrice}}
                             </div>
 
                             <div>
@@ -142,7 +142,7 @@
                           </div>
 
                             <div>
-                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> 182
+                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> {{warehouse.stanDesPrice}}
                           </div>
 
                         </div>
@@ -167,39 +167,43 @@
                                 <span></span>
                             </div>
                             <div class="ends">
-                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 MAY 2019
+                                <strong>{{'dashboard.ends'|translate}}</strong> 14:30 JUNE 2019
                             </div>
                         </div>
 
-                        <div class="stats">
+                        <div *ngFor="let warehouse of data" class="stats2">
 
                             <div>
-                                <strong>{{'dashboard.average'|translate}}</strong> 3098
+                                <strong>{{'dashboard.status'|translate}}</strong> {{warehouse.status1}}
                             </div>
 
                             <div>
-                                <strong>{{'dashboard.minimum'|translate}}</strong> 562
+                                <strong>{{'dashboard.ratio'|translate}}</strong> {{warehouse.ratio1}}
                             </div>
-
-                            <div>
-                                <strong>{{'dashboard.maximum'|translate}}</strong> 182
-                            </div>
-
-                            <div>
-                              <strong>'</strong> 
-                          </div>
-
-                            <div>
-                              <strong>{{'dashboard.standard.deviation'|translate}}</strong> 182
-                          </div>
 
                         </div>
+                        <div *ngFor="let warehouse of data" class="stats2">
 
+                            <div>
+                                {{warehouse.status2}}
+                            </div>
+
+                            <div>
+                                {{warehouse.ratio2}}
+                            </div>
+                        </div>
+                        <div *ngFor="let warehouse of data" class="stats2">
+
+                            <div>
+                                 {{warehouse.status3}}
+                            </div>
+
+                            <div>
+                                 {{warehouse.ratio3}}
+                            </div>
+                        </div>
                         
 
-                        
-
-                        
                     </div>
                 </div> 
             </div>

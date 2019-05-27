@@ -17,7 +17,7 @@ import { TripService } from 'src/app/services/trip.service';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  currentActor: boolean;
+  currentActor: Actor;
   private userLoggedIn: boolean;
   private activeRole = 'anonymous';
   private busqueda: Search = { text: null };
@@ -38,6 +38,14 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
 
   // Cuando el servicio de login me diga que un usuario se ha logueado se ejecutará este trozo de código ya que estamos escuchando
   ngOnInit() {
+    this.currentActor = this.authservice.getCurrentActor();
+    if(this.currentActor != null){
+      this.activeRole = this.currentActor.role.toString();
+    }else {
+      this.activeRole = 'anonymous';
+    }
+
+    
     this.authservice.userLoggedIn.subscribe((loggedIn: boolean) => {
       // Si el usuario está logueado
       if (loggedIn) {
@@ -60,7 +68,7 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
         // Cuando todo ha ido correcto, el actor actual pasa a ser anónimo        
         //localStorage.setItem('activeRole', 'anonymous');
         localStorage.setItem('currentActor', '');
-        this.currentActor = false;
+        this.currentActor = null;
         this.router.navigate(['login']);
         this.messageService.notifyMessage('messages.auth.logout', 'alert alert-success');
       })

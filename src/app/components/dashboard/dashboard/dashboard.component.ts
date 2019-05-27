@@ -3,6 +3,7 @@ import { Warehouse } from '../../../models/warehouse.model';
 import { WarehouseService } from 'src/app/services/warehouse.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,8 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  warehouse: Array<Warehouse>;
-  data: any[];
+  data: Warehouse[]; 
   constructor(private warehouseservice: WarehouseService,
     private translateservice: TranslateService,private router: Router, private route: ActivatedRoute) {
    
