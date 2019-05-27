@@ -213,16 +213,17 @@
       "preferredLanguage": "en"
     },
     {
+      "id": "XlH6nVt",
       "name": "Ana",
       "surname": "Ortega Rey",
-      "role": "Explorer",
-      "password": "&aSdF1523",
       "email": "ana.ortega@gmail.com",
-      "countrycode": "+34",
+      "password": "&aSdF1523",
       "phone": "678905350",
       "address": "C/ Albarado nº 3",
-      "id": "XlH6nVt",
-      "preferredLanguage": "en"
+      "preferredLanguage": "en",
+      "photo": "",
+      "picture": "",
+      "role": "Explorer"
     },
     {
       "name": "Juan",
@@ -237,16 +238,17 @@
       "preferredLanguage": "en"
     },
     {
+      "id": "rz2ZUtJ",
       "name": "Marina",
       "surname": "Santos Iglesias",
-      "role": "Administrator",
-      "password": "#aDsR1745",
       "email": "marina.santos@gmail.com",
-      "countrycode": "+34",
+      "password": "#aDsR1745",
       "phone": "673454790",
       "address": "C/ Miguel Angel nº 2",
-      "id": "rz2ZUtJ",
-      "preferredLanguage": "en"
+      "preferredLanguage": "en",
+      "photo": "",
+      "picture": "",
+      "role": "Administrator"
     },
     {
       "name": "Jose",
@@ -321,13 +323,26 @@
       "id": "HQL7a~7"
     }
   ],
-  "warehouse": [
+  "warehouses": [
     {
-      "avg": 432,
-      "min": 200,
-      "max": 505,
-      "ratio": 435,
-      "stanDes": 45,
+      "avgTrip": 432,
+      "avgAp": 567,
+      "avgPrice": 654,
+      "minTrip": 200,
+      "minAp": 200,
+      "minPrice": 200,
+      "maxTrip": 505,
+      "maxAp": 505,
+      "maxPrice": 505,
+      "stanDesTip": 45,
+      "stanDesAp": 45,
+      "stanDesPrice": 45,
+      "ratio1": 0.757142,
+      "ratio2": 0.142857,
+      "ratio3": 0.102857,
+      "status1": "Pending",
+      "status2": "Accepted",
+      "status3": "Cancelled",      
       "id": "Fjkdsf"
     }
   ],
