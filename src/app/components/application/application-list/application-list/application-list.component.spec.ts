@@ -33,6 +33,13 @@ import { MessageService } from 'src/app/services/message.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ApplicationService } from 'src/app/services/application.service';
+import { ProfileComponent } from 'src/app/components/actor/profile/profile.component';
+import { TripCreateComponent } from 'src/app/components/trip/trip-create/trip-create.component';
+import { ApplicationCreateComponent } from '../../application-create/application-create.component';
+import { AgmCoreModule} from '@agm/core';
+import { CookieService } from 'ngx-cookie-service';
+import { ActorService } from 'src/app/services/actor.service';
+import { SearchTripComponent } from 'src/app/components/search-trip/search-trip.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -61,7 +68,7 @@ describe('ApplicationListComponent', () => {
 
   beforeEach(async(() => {
     mockActivatedRoute = new ActivatedRouteStub();
-     
+
       TestBed.configureTestingModule({
         declarations: [
           AppComponent,
@@ -82,7 +89,11 @@ describe('ApplicationListComponent', () => {
           ApplicationDisplayComponent,
           TermAndConditionsComponent,
           NotFoundComponent,
-          DeniedAccessPageComponent
+          DeniedAccessPageComponent,
+          ProfileComponent,
+          TripCreateComponent,
+          ApplicationCreateComponent,
+          SearchTripComponent
         ],
         imports: [
           routes,
@@ -91,6 +102,10 @@ describe('ApplicationListComponent', () => {
           FormsModule,
           HttpClientModule,
           ReactiveFormsModule,
+          AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
+            libraries: ['places']
+            }),
           AngularFireModule.initializeApp(firebaseConfig),
           TranslateModule.forRoot({
             loader: {
@@ -101,7 +116,7 @@ describe('ApplicationListComponent', () => {
           })
         ],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }, {provide: ActivatedRoute, useValue: mockActivatedRoute},
-        AngularFireAuth, MessageService, AngularFireAuth]
+        AngularFireAuth, MessageService, AngularFireAuth,  ActorService, CookieService]
       })
     .compileComponents();
   }));
