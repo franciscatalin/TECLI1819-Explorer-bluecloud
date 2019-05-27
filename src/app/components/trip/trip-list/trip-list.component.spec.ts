@@ -33,7 +33,13 @@ import { TripService } from 'src/app/services/trip.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-
+import { ProfileComponent } from '../../actor/profile/profile.component';
+import { TripCreateComponent } from '../trip-create/trip-create.component';
+import { ApplicationCreateComponent } from '../../application/application-create/application-create.component';
+import { AgmCoreModule} from '@agm/core';
+import { ActorService } from 'src/app/services/actor.service';
+import { CookieService } from 'ngx-cookie-service';
+import { SearchTripComponent } from '../../search-trip/search-trip.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -85,7 +91,11 @@ describe('TripListComponent', () => {
         ApplicationDisplayComponent,
         TermAndConditionsComponent,
         NotFoundComponent,
-        DeniedAccessPageComponent
+        DeniedAccessPageComponent,
+        ProfileComponent,
+        TripCreateComponent,
+        ApplicationCreateComponent,
+        SearchTripComponent
       ],
       imports: [
         routes,
@@ -94,6 +104,10 @@ describe('TripListComponent', () => {
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
+          libraries: ['places']
+          }),
         AngularFireModule.initializeApp(firebaseConfig),
         TranslateModule.forRoot({
           loader: {
@@ -104,7 +118,7 @@ describe('TripListComponent', () => {
         })
       ],
       providers: [{provide: APP_BASE_HREF, useValue : '/' },
-      AngularFireAuth, MessageService, AngularFireAuth]
+      AngularFireAuth, MessageService, AngularFireAuth,  ActorService, CookieService]
     })
     .compileComponents();
   }));
@@ -126,15 +140,15 @@ describe('TripListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // 2º spect: Comprueba que la lista de viajes tiene exactamente los 14 viajes que tenemos en el Json Server
-  it('List trip must have fourteen trips', async (done) => {
+  // 2º spect: Comprueba que la lista de viajes tiene exactamente los 19 viajes que tenemos en el Json Server
+  it('List trip must have nineteen trips', async (done) => {
     component.ngOnInit();
     fixture.detectChanges();
     spyOn(tripService, 'getTrips').and.returnValue(Promise.resolve(true));
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.data.length).toEqual(14);
+      expect(component.data.length).toEqual(19);
       done();
     }).catch (error => console.log('error en el test:' + error));
   });
