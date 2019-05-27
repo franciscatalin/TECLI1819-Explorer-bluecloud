@@ -16,7 +16,8 @@
         "preferredLanguage": "Preferred Language",
         "started": "Get started with your free account",
         "profile.edit": "Edit Profile",
-        "photo": "Photo"
+        "photo": "Photo",
+        "manager": "Manager"
     },
     "security": {
         "login": "Login",
@@ -119,7 +120,8 @@
         "warehouse": "Configure warehouse",
         "new.trip": "Create a new trip",
         "new.application": "Create a new Application",
-        "list.actors": "Actor List"
+        "list.actors": "Actor List",
+        "new.manager": "Create Manager Account"
     },
         "dashboard": {
         "managed.trips": "Manager Trips",
@@ -131,7 +133,9 @@
         "standard.deviation": "STANDARD DEVIATION",
         "ratio.app": "Ratio Applications",
         "starts": "STARTS",
-        "ends": "ENDS"
+        "ends": "ENDS",
+        "status": "STATUS",
+        "ratio": "RATIO"
     }
 
     ,
