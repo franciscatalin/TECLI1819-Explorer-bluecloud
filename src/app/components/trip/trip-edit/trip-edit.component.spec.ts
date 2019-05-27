@@ -38,6 +38,8 @@ import { MessageService } from 'src/app/services/message.service';
 import { ActorService } from 'src/app/services/actor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckoutComponent } from '../../checkout/checkout.component';
 
 describe('TripEditComponent', () => {
   let component: TripEditComponent;
@@ -71,7 +73,8 @@ describe('TripEditComponent', () => {
           ProfileComponent,
           TripCreateComponent,
           ApplicationCreateComponent,
-          SearchTripComponent
+          SearchTripComponent,
+          CheckoutComponent
         ],
         imports: [
           routes,
@@ -80,6 +83,7 @@ describe('TripEditComponent', () => {
           FormsModule,
           HttpClientModule,
           ReactiveFormsModule,
+          NgxPayPalModule,
           AgmCoreModule.forRoot({
             apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
             libraries: ['places']

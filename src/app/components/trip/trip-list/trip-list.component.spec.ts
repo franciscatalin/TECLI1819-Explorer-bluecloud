@@ -40,6 +40,8 @@ import { AgmCoreModule} from '@agm/core';
 import { ActorService } from 'src/app/services/actor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckoutComponent } from '../../checkout/checkout.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -95,7 +97,8 @@ describe('TripListComponent', () => {
         ProfileComponent,
         TripCreateComponent,
         ApplicationCreateComponent,
-        SearchTripComponent
+        SearchTripComponent,
+        CheckoutComponent
       ],
       imports: [
         routes,
@@ -104,6 +107,7 @@ describe('TripListComponent', () => {
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgxPayPalModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
           libraries: ['places']
