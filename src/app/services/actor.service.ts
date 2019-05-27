@@ -29,6 +29,14 @@ export class ActorService {
       return this.http.get<Actor>(url).toPromise();
     }
 
+    
+  getActors () {
+   
+    
+    return this.http.get<Actor[]>(this.apiUrl).toPromise();
+
+  }
+
     // Método que nos devuelve el listado de usuarios que tienen como atributo teléfono el valor pasado como parámetro
    getUsersByPhoneNumber (phoneNum: string): Promise<Actor[]> {
      return this.http.get<Actor[]>(this.apiUrl + '?phone=' + phoneNum).toPromise();
