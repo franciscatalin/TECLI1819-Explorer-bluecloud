@@ -118,7 +118,8 @@
         "dashboard": "Display dashboard",
         "warehouse": "Configure warehouse",
         "new.trip": "Create a new trip",
-        "new.application": "Create a new Application"
+        "new.application": "Create a new Application",
+        "list.actors": "Actor List"
     },
         "dashboard": {
         "managed.trips": "Manager Trips",

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Actor } from '../../../models/actor.model';
+import { FormBuilder } from '@angular/forms';
+import { ApplicationService } from 'src/app/services/application.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ActorService } from 'src/app/services/actor.service';
 
 @Component({
   selector: 'app-actor-list',
@@ -8,22 +13,21 @@ import { Actor } from '../../../models/actor.model';
 })
 export class ActorListComponent implements OnInit {
 
-  actors: Array<Actor>;
+  data: Actor[];
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+    private actorservice: ActorService,
+    private router: Router,
+    private translateservice: TranslateService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.actors = new Array<Actor>();
-    const actor = new Actor();
-    actor.name = 'Miguel';
-    actor.surname = 'Sanchez';
-    actor.password = '123';
-  //  actor.email = 'yerllichanell@gmail.com';
-    actor.phone = '633755886';
-  //  actor.address = 'C/Alvarado';
- //   actor.role = 'Explorer';
-   actor.preferredLanguage = 'es';
-    this.actors.push(actor);
+    this.actorservice.getActors()
+    .then ((val) => {
+      this.data = val;
+      console.log('Listado de actores:' + this.data);
+    })
+    .catch((err) => console.error(err.message));
+  }
   }
 
-}

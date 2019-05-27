@@ -33,7 +33,15 @@ import { TripService } from 'src/app/services/trip.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-
+import { ProfileComponent } from '../../actor/profile/profile.component';
+import { TripCreateComponent } from '../trip-create/trip-create.component';
+import { ApplicationCreateComponent } from '../../application/application-create/application-create.component';
+import { CookieService } from 'ngx-cookie-service';
+import { ActorService } from 'src/app/services/actor.service';
+import { AgmCoreModule} from '@agm/core';
+import { SearchTripComponent } from '../../search-trip/search-trip.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CheckoutComponent } from '../../checkout/checkout.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -84,7 +92,12 @@ describe('TripDisplayComponent', () => {
         ApplicationDisplayComponent,
         TermAndConditionsComponent,
         NotFoundComponent,
-        DeniedAccessPageComponent
+        DeniedAccessPageComponent,
+        ProfileComponent,
+        TripCreateComponent,
+        ApplicationCreateComponent,
+        SearchTripComponent,
+        CheckoutComponent
       ],
       imports: [
         routes,
@@ -93,6 +106,11 @@ describe('TripDisplayComponent', () => {
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgxPayPalModule,
+        AgmCoreModule.forRoot({
+          apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
+          libraries: ['places']
+          }),
         AngularFireModule.initializeApp(firebaseConfig),
         TranslateModule.forRoot({
           loader: {
@@ -103,7 +121,7 @@ describe('TripDisplayComponent', () => {
         })
       ],
       providers: [{provide: APP_BASE_HREF, useValue : '/' }, {provide: ActivatedRoute, useValue: mockActivatedRoute},
-      AngularFireAuth, MessageService, AngularFireAuth]
+      AngularFireAuth, MessageService, AngularFireAuth, ActorService, CookieService]
     })
     .compileComponents();
   }));

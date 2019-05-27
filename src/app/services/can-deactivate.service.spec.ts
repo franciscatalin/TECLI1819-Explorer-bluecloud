@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CanDeactivateService } from './can-deactivate.service';
-
+// import { CanDeactivateService } from './can-deactivate.service';
+/*
 describe('CanDeactivateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
@@ -9,4 +9,4 @@ describe('CanDeactivateService', () => {
     const service: CanDeactivateService = TestBed.get(CanDeactivateService);
     expect(service).toBeTruthy();
   });
-});
+});*/
