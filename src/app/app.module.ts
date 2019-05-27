@@ -39,6 +39,8 @@ import { ApplicationCreateComponent } from './components/application/application
 import { AgmCoreModule} from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from './components/search-trip/search-trip.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -82,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProfileComponent,
     TripCreateComponent,
     ApplicationCreateComponent,
-    SearchTripComponent
+    SearchTripComponent,
+    CheckoutComponent
 
   ],
   imports: [
@@ -92,6 +95,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPayPalModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC4ay9WI4sdQEmDnjdnjAKx56_l_vVEqsw',
       libraries: ['places']

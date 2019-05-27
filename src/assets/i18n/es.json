@@ -119,7 +119,8 @@
         "dashboard": "Desplegar dashboard",
         "warehouse": "Configurar warehouse",
         "new.trip": "Crear un nuevo viaje",
-        "new.application": "Crear nueva aplicación"
+        "new.application": "Crear nueva aplicación",
+        "list.actors": "Listar Actores"
     },
 
     "dashboard": {

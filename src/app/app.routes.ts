@@ -17,6 +17,8 @@ import { ProfileComponent } from './components/actor/profile/profile.component';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
 import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 import { SearchTripComponent } from './components/search-trip/search-trip.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
   { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator' } },
   { path: 'TripCreateComponent', component: TripCreateComponent },
   { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent },
+  { path: 'Checkout', component: CheckoutComponent },
+  { path: 'ActorListComponent' , component: ActorListComponent},
 
   // 
   {

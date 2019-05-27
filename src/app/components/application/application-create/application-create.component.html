@@ -16,24 +16,7 @@
 			</p>
 			<form [formGroup]="registerForm" (ngSubmit)="onCreated()">
 
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-edit"></i> </span>
-					</div>
-					<input formControlName="tripname" class="form-control" placeholder="{{'application.tripname'|translate}}" type="text">
-
-				</div> <!-- form-group// -->
-
-				
-								
-        <div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span  class="input-group-text"> <i class="fa fa-asterisk"></i> </span>
-					</div>
-					<select formControlName="status" class="form-control">
-						<option *ngFor="let status of statusList" [value]="status">{{status}}</option>
-					</select>
-				</div> <!-- form-group end.// -->
+			
         
         <div class="form-group input-group">
 					<div class="input-group-prepend">
