@@ -16,7 +16,8 @@
         "preferredLanguage": "Idioma",
         "started": "Comience con su cuenta gratuita",
         "profile.edit": "Editar Perfil",
-        "photo": "Foto"
+        "photo": "Foto",
+        "manager": "Gerente"
     },
     "security": {
         "login": "Entrar",
@@ -120,7 +121,8 @@
         "warehouse": "Configurar warehouse",
         "new.trip": "Crear un nuevo viaje",
         "new.application": "Crear nueva aplicación",
-        "list.actors": "Listar Actores"
+        "list.actors": "Listar Actores",
+        "new.manager": "Crear cuenta Manager"
     },
 
     "dashboard": {
@@ -133,7 +135,9 @@
         "maximum": "MÁXIMO",
         "standard.deviation": "DESVIACIÓN ESTÁNDAR",
         "starts": "COMIENZO",
-        "ends": "TÉRMINO"
+        "ends": "TÉRMINO",
+        "status": "ESTADO",
+        "ratio": "RATIO"
 
     }
 

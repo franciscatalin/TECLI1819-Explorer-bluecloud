@@ -7,5 +7,5 @@ export class Warehouse extends Entity {
     max: number;
     stanDes: number;
     ratio: number;    
-    id: string;
+    id: string
 }

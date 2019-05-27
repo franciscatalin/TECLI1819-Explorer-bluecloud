@@ -19,6 +19,7 @@ import { ApplicationCreateComponent } from './components/application/application
 import { SearchTripComponent } from './components/search-trip/search-trip.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
+import { RegisterManagerComponent } from './components/security/register-manager/register-manager.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent },
   { path: 'Checkout', component: CheckoutComponent },
   { path: 'ActorListComponent' , component: ActorListComponent},
+  { path: 'RegisterManagerComponent', component: RegisterManagerComponent },
 
   // 
   {
