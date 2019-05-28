@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'Checkout', component: CheckoutComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager'}},
   { path: 'ActorListComponent' , component: ActorListComponent, canActivate: [ActorRoleGuard], data:{expectedRole:'Administrator|Manager'}},
   { path: 'RegisterManagerComponent', component: RegisterManagerComponent, canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
-  { path: 'ApplicationUpdateComponent', component: ApplicationUpdateComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager'} },
+  { path: 'ApplicationUpdateComponent', component: ApplicationUpdateComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Manager'} },
   {
     path: 'trips', children: [
       { path: 'TripDisplay/:id', component: TripDisplayComponent },
