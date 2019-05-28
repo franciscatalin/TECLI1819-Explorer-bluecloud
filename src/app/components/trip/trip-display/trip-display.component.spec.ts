@@ -42,6 +42,7 @@ import { AgmCoreModule} from '@agm/core';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CheckoutComponent } from '../../checkout/checkout.component';
+import { RegisterManagerComponent } from '../../security/register-manager/register-manager.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -97,7 +98,8 @@ describe('TripDisplayComponent', () => {
         TripCreateComponent,
         ApplicationCreateComponent,
         SearchTripComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        RegisterManagerComponent
       ],
       imports: [
         routes,
@@ -161,8 +163,11 @@ describe('TripDisplayComponent', () => {
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
+      console.log('El precio es: ' + component.trip.price);
       expect(component.trip.price).toBeLessThan(2800);
       done();
   }).catch (error => console.log('error en el test:' + error));
 });
+
+
 });

@@ -24,17 +24,15 @@ import { RegisterManagerComponent } from './components/security/register-manager
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous' } },
-  { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous|Administrator' } },
-  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator' } },
-  { path: 'TripCreateComponent', component: TripCreateComponent },
-  { path: 'ApplicationCreateComponent', component: ApplicationCreateComponent },
-  { path: 'Checkout', component: CheckoutComponent },
-  { path: 'ActorListComponent' , component: ActorListComponent},
-  { path: 'RegisterManagerComponent', component: RegisterManagerComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager' }},
+  { path: 'login', component: LoginComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous' }},
+  { path: 'register', component: RegisterComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'anonymous|Administrator' }},
+  { path: 'Dashboard', component: DashboardComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator' }},
+  { path: 'TripCreateComponent', component: TripCreateComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Manager' }},
+  { path: 'Checkout', component: CheckoutComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager'}},
+  { path: 'ActorListComponent' , component: ActorListComponent, canActivate: [ActorRoleGuard], data:{expectedRole:'Administrator|Manager'}},
+  { path: 'RegisterManagerComponent', component: RegisterManagerComponent, canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
 
-  // 
   {
     path: 'trips', children: [
       { path: 'TripDisplay/:id', component: TripDisplayComponent },
@@ -45,12 +43,12 @@ const appRoutes: Routes = [
 
   {
     path: 'applications', children: [
-      { path: 'ApplicationDisplay/:id', component: ApplicationDisplayComponent },
+      { path: 'ApplicationDisplay/:id', component: ApplicationDisplayComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager' }},
       { path: '', component: ApplicationListComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Explorer|Manager' } }
     ]
   },
-  { path: 'ApplicationList', component: ApplicationListComponent },
-  { path: 'ApplicationDisplay', component: ApplicationDisplayComponent },
+  { path: 'ApplicationList', component: ApplicationListComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager' }},
+  { path: 'ApplicationDisplay', component: ApplicationDisplayComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager' }},
   { path: 'denied-access', component: DeniedAccessPageComponent },
   { path: 'terms-and-conditions', component: TermAndConditionsComponent },
   { path: 'not-found', component: NotFoundComponent },
