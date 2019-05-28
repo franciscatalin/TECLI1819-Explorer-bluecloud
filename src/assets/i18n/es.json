@@ -122,7 +122,8 @@
         "new.trip": "Crear un nuevo viaje",
         "new.application": "Crear nueva aplicación",
         "list.actors": "Listar Actores",
-        "new.manager": "Crear cuenta Manager"
+        "new.manager": "Crear cuenta Manager",
+        "update.application": "Modificar Solicitudes"
     },
 
     "dashboard": {
@@ -177,7 +178,8 @@
         "create": "Crear",
         "place": "Lugar a visitar",
         "requestusstatus":"Estado solicitud",
-        "Checkout":"Pagar"
+        "Checkout":"Pagar",
+        "Update":  "Actualizar"
         
         }
 }

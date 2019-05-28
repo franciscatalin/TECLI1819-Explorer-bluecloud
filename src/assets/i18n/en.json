@@ -121,7 +121,8 @@
         "new.trip": "Create a new trip",
         "new.application": "Create a new Application",
         "list.actors": "Actor List",
-        "new.manager": "Create Manager Account"
+        "new.manager": "Create Manager Account",
+        "update.application": "Update Request"
     },
         "dashboard": {
         "managed.trips": "Manager Trips",
@@ -173,7 +174,8 @@
         "create": "Crearted",
         "place": "Place to visit",
         "requestusstatus":"Request status",
-        "Checkout":"Checkout"
+        "Checkout":"Checkout",
+         "Update":  "Update"
     
         }
 }
