@@ -163,7 +163,7 @@
     },
 
     "application": {
-    
+        "ticket":"Ticket",
         "tripname": "Lugar del viaje",
         "status":"Estado",
         "comment":"Comentario",
@@ -174,7 +174,10 @@
         "created": "Creación Viaje",
         "create.application": "Crear solicitud ",
         "started": "Cree su solicitud ahora",
-        "create": "Crear"
+        "create": "Crear",
+        "place": "Lugar a visitar",
+        "requestusstatus":"Estado solicitud",
+        "Checkout":"Pagar"
         
         }
 }

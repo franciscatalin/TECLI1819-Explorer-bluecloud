@@ -38,7 +38,7 @@ export class TripCreateComponent extends TranslatableComponent implements OnInit
     price:[''],
     picture:[''],
     list_requirements: [''],
-    status: [''],
+    status: ['Pending'],
     date_start: [''],
     date_end: [''],
     published: [''],

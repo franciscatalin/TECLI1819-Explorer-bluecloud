@@ -159,18 +159,21 @@
             "create.publish" : "Publish"
     },
     "application": {
+        "ticket":"Ticket",
+        "tripname": "Trip Name",
+        "status":"Status",
+        "comment":"Comment",
+        "reject_reason":"Reject reason",
+        "if_paid":"Paid",
+        "validated": "Validated",
+        "cancelationMoment": "Cancelation Moment",
+        "created": "Created trip",
+        "create.application": "Create Request ",
+        "started": "Created your request now",
+        "create": "Crearted",
+        "place": "Place to visit",
+        "requestusstatus":"Request status",
+        "Checkout":"Checkout"
     
-    "tripname": "Trip Name",
-    "status":"Status",
-    "comment":"Comment",
-    "reject_reason":"Reject reason",
-    "if_paid":"Paid",
-    "validated": "Validated",
-    "cancelationMoment": "Cancelation Moment",
-    "created": "Created trip",
-    "create.application": "Create Request ",
-    "started": "Created your request now",
-    "create": "Crearted"
-
-    }
+        }
 }
