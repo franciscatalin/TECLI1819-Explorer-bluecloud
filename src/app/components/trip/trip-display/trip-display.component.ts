@@ -4,6 +4,10 @@ import { TripService } from 'src/app/services/trip.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
+import { Application } from 'src/app/models/application.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
   selector: 'app-trip-display',
@@ -13,15 +17,19 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 
 export class TripDisplayComponent extends TranslatableComponent implements OnInit {
   trip = new Trip();
+  //application = new Application();
   id: string;
+  submitted = false;
+  applicationForm: FormGroup;
 
-  constructor(private tripservice: TripService,
+  constructor(private tripservice: TripService, private applicationservice: ApplicationService,
     private router: Router, private route: ActivatedRoute,
-    private translateservice: TranslateService) {
+    private translateservice: TranslateService, private authService: AuthService, private formBuilder: FormBuilder) {
     super(translateservice);
   }
 
   ngOnInit() {
+
     // A partir del listado de trips, el usuario selecciona un viaje que tiene un id concreto que se pasa por la URL y que aquí recuperamos
     this.id = this.route.snapshot.params['id'];
     // Una vez que ya tenemos el id, podemos usarlo para recuperar el trip completo
@@ -36,5 +44,96 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
         console.error(err);
       }
       );
+
+
+    /*this.applicationForm = this.formBuilder.group
+      ({
+
+        ticker: [''],
+        actorid: [this.authService.getCurrentActor().id],
+        actorname: [this.authService.getCurrentActor().name],
+        tripid: [this.tripservice.getCurrentTrip().id],
+        tripname: [''],
+        status: [''],
+        comment: ['ultima prueba aplicaciones'],
+        reject_reason: [''],
+        if_paid: [''],
+        validated: [''],
+        cancelationMoment: [''],
+        created: Date
+      });*/
+
+
   }
+
+  onCreated() {
+    // this.trip = new Trip();
+    /*
+    this.submitted = true;
+    if (this.applicationForm.valid) {
+      console.log ('Hola Mundo');
+      console.log (this.applicationForm.value);
+      this.applicationservice.registerapplication (this.applicationForm.value)
+
+      .then(res => {
+
+        console.log(res );
+        //this.router.navigate(['/login']);
+      }, err => { console.log(err + 'Real error'); });*/
+
+
+    //const application = new Application();
+    // application.actorid = this.authService.getCurrentActor().id
+
+    // application.tripid = this.trip.id
+
+    // this.tripservice.setCurrentTrip(this.trip);
+    const applicationjson =
+    {
+      ticker: this.trip.ticker,
+      actorid: this.authService.getCurrentActor().id,
+      actorname: this.authService.getCurrentActor().name,
+      tripid: this.trip.id,
+      tripname: this.trip.title,
+      status: this.trip.status,
+      comment: ' provisionary ',
+      reject_reason: '',
+      if_paid: '',
+      validated: '',
+      cancelationMoment: '',
+      created: new Date()
+    };
+
+    console.log(applicationjson);
+    this.applicationservice.registerapplication(applicationjson)
+    .then((val) => {
+      // this.trip = val;
+      console.log(val);
+    }
+      
+    )
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
+
+  saveApplication() {
+
+    /*trip =new Trip();
+    ticker: [''],
+    actorid: [ this.authService.getCurrentActor().id],
+    actorname:[ this.authService.getCurrentActor().name],
+    tripid:[this.tripservice.getCurrentTrip().id],
+    tripname: [''],
+    status:[''],
+    comment:['ultima prueba aplicaciones'],
+    reject_reason:[''],
+    if_paid:[''],
+    validated: [''],
+    cancelationMoment: [''],
+    created: Date*/
+
+  }
+
 }

@@ -24,6 +24,11 @@ export class ApplicationService {
 
   }
 
+  getapplicationactor(actorid: string) {
+    const url = `${this.applicationUrl}/?q=${actorid}`;
+    return this.http.get<Application[]>(url).toPromise();
+  }
+
   
   getApplications () {
    
@@ -33,7 +38,7 @@ export class ApplicationService {
   }
 
 
-  registerapplication (application: Application ) {
+  registerapplication (application: any) {
 
     return new Promise<any>((resolve, reject) => {
 

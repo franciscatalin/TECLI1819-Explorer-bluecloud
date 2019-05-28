@@ -19,9 +19,9 @@
                         <p>{{trip.description}}</p>
                         
                         <p>{{trip.price}}€</p>
-
-                        <span><h4 routerLink="/ApplicationCreateComponent"  class="btn-card" >Solicitar Viaje</h4></span>
-                           
+                       
+                        
+                        <button (click)="onCreated()" type="submit"  class="btn-card">Solicitar Viaje</button>
                             
                     </div>
                   
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="card-desc">
                                   <!--      <h3>{{'trip.title'}}</h3> -->
-                                  <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+                                  <textarea class="card-content" name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
                                         Commentarios!
                                         </textarea>
                                         </div>

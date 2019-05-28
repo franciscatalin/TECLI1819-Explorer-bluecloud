@@ -2,7 +2,7 @@ import { Entity } from './Entity.model';
 
 
 export class Application extends Entity{
-    actorid: Array<number>;
+    actorid: number;
     actorname:String;
     tripid:String;
     tripname: String;
