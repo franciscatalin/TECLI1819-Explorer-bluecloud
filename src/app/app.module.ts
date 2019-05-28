@@ -42,6 +42,7 @@ import { SearchTripComponent } from './components/search-trip/search-trip.compon
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { RegisterManagerComponent } from './components/security/register-manager/register-manager.component';
+import { ApplicationUpdateComponent } from './components/application/application-update/application-update.component';
 
 // Initialize Firebase
 export const firebaseConfig = {
@@ -87,7 +88,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApplicationCreateComponent,
     SearchTripComponent,
     CheckoutComponent,
-    RegisterManagerComponent
+    RegisterManagerComponent,
+    ApplicationUpdateComponent
 
   ],
   imports: [
