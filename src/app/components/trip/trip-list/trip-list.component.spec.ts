@@ -42,6 +42,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CheckoutComponent } from '../../checkout/checkout.component';
+import { RegisterManagerComponent } from '../../security/register-manager/register-manager.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -98,7 +99,8 @@ describe('TripListComponent', () => {
         TripCreateComponent,
         ApplicationCreateComponent,
         SearchTripComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        RegisterManagerComponent
       ],
       imports: [
         routes,
@@ -145,14 +147,14 @@ describe('TripListComponent', () => {
   });
 
   // 2º spect: Comprueba que la lista de viajes tiene exactamente los 19 viajes que tenemos en el Json Server
-  it('List trip must have nineteen trips', async (done) => {
+  it('List trip must have nine trips', async (done) => {
     component.ngOnInit();
     fixture.detectChanges();
     spyOn(tripService, 'getTrips').and.returnValue(Promise.resolve(true));
 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(component.data.length).toEqual(19);
+      expect(component.data.length).toEqual(9);
       done();
     }).catch (error => console.log('error en el test:' + error));
   });
@@ -166,7 +168,7 @@ describe('TripListComponent', () => {
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       expect(component.data.forEach((trip) => {
-        expect(trip.price).toBeGreaterThan(320);
+        expect(trip.price).toBeGreaterThan(199);
         done();
       }));
   });
