@@ -44,6 +44,7 @@ import { ActivatedRouteStub } from '../../application/application-list/applicati
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CheckoutComponent } from '../../checkout/checkout.component';
+import { RegisterManagerComponent } from '../../security/register-manager/register-manager.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -78,7 +79,8 @@ describe('ProfileComponent', () => {
           TripCreateComponent,
           ApplicationCreateComponent,
           SearchTripComponent,
-          CheckoutComponent
+          CheckoutComponent,
+          RegisterManagerComponent
         ],
         imports: [
           routes,

@@ -40,6 +40,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from '../../search-trip/search-trip.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CheckoutComponent } from '../../checkout/checkout.component';
+import { RegisterManagerComponent } from '../../security/register-manager/register-manager.component';
 
 describe('TripEditComponent', () => {
   let component: TripEditComponent;
@@ -74,7 +75,8 @@ describe('TripEditComponent', () => {
           TripCreateComponent,
           ApplicationCreateComponent,
           SearchTripComponent,
-          CheckoutComponent
+          CheckoutComponent,
+          RegisterManagerComponent
         ],
         imports: [
           routes,
