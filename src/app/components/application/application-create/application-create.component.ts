@@ -49,30 +49,7 @@ export class ApplicationCreateComponent implements OnInit {
         preferredLanguage:[''],
       });
 
- /*     const currentActor = this.authservice.getCurrentActor();
-      if (currentActor) {
-        const idActor = this.authservice.getCurrentActor().id;
-        this.actorService.getActor(idActor).then((actor) => {
-          this.actor = actor;
-          console.log('createForm');
-          console.log(JSON.stringify(actor));
-          if (actor) {
-            this.applicationForm.controls['actorid'].setValue(actor.id);
-            this.applicationForm.controls['actorname'].setValue(actor.name);
-          //  this.applicationForm.controls['tripid'].setValue(trip.tripid);
-         //   this.applicationForm.controls['email'].setValue(actor.email);
-          //  this.applicationForm.controls['password'].setValue(actor.password);
-         //   this.applicationForm.controls['phone'].setValue(actor.phone);
-       //     this.applicationForm.controls['preferredLanguage'].setValue(actor.preferredLanguage);
-       //     this.applicationForm.controls['role'].setValue(actor.role);
-       //     this.applicationForm.controls['address'].setValue(actor.address);
-    
-  }
-}
-    
-    
-  
-}*/
+ 
   }
 
   

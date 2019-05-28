@@ -56,4 +56,25 @@ export class ApplicationService {
       
       });
     }
+
+    updateApplication(application: any) {
+      // Construimos la url del actor que vamos a modificar. http://localhost:3000/actors/id
+   
+      const url =   `${this.applicationUrl}/${application.id}`;
+      // Es muy importante añadir las cabeceras para indicarle al servidor que lo que le envío a continuación es un JSON
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      // Encapsulo ahora el cuerpo, que no es más que el Actor pasado a JSON
+      const body = JSON.stringify(application);
+  
+      return new Promise<any>((resolve, reject) => {
+        // Petición put pasando el url, body y cabecera
+        this.http.put(url, body, httpOptions).toPromise()
+        .then(res => {
+          // Si todo va bien, actualizo los atributos que tiene el authService relacionados con el actor, que tambien tiene que enterarse
+          
+          resolve(res);
+        }, err => { console.log(err); reject(err); });
+      });
+    }
 }
