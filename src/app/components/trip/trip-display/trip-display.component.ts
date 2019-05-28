@@ -17,7 +17,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 
 export class TripDisplayComponent extends TranslatableComponent implements OnInit {
   trip = new Trip();
-  //application = new Application();
+  application = new Application();
   id: string;
   submitted = false;
   applicationForm: FormGroup;
@@ -96,7 +96,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
       tripid: this.trip.id,
       tripname: this.trip.title,
       status: this.trip.status,
-      comment: ' provisionary ',
+      comment: this.application.comment,
       reject_reason: '',
       if_paid: '',
       validated: '',
