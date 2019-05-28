@@ -19,9 +19,16 @@
                         <p>{{trip.description}}</p>
                         
                         <p>{{trip.price}}€</p>
-
-                        <span><h4 routerLink="/ApplicationCreateComponent"  class="btn-card" >Solicitar Viaje</h4></span>
-                           
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-edit"></i> </span>
+                            </div>
+                            <input formControlName="comment" class="form-control" placeholder="{{'application.comment'|translate}}" type="text">
+        
+                        </div>
+                       
+                        
+                        <button (click)="onCreated()" type="submit"  class="btn-card">Solicitar Viaje</button>
                             
                     </div>
                   
@@ -41,15 +48,7 @@
                                         
                                        <!-- <span><h4>{{'trip.title'}}</h4></span> -->
                                     </div>
-                                    <div class="card-desc">
-                                  <!--      <h3>{{'trip.title'}}</h3> -->
-                                  <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
-                                        Commentarios!
-                                        </textarea>
-                                        </div>
-                                        
-                                        <input type="submit" value="Submit"> 
-                                            
+                                  
                                     </div>
                                   
                                 </div>

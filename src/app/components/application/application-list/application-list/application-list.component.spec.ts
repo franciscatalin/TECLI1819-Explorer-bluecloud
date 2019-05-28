@@ -42,6 +42,7 @@ import { ActorService } from 'src/app/services/actor.service';
 import { SearchTripComponent } from 'src/app/components/search-trip/search-trip.component';
 import { CheckoutComponent } from 'src/app/components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { RegisterManagerComponent } from 'src/app/components/security/register-manager/register-manager.component';
 
 @Injectable()
 // Necesito esta clase para simular que tengo un usuario haciendo click en un objeto con un id concreto (test del id)
@@ -96,7 +97,8 @@ describe('ApplicationListComponent', () => {
           TripCreateComponent,
           ApplicationCreateComponent,
           SearchTripComponent,
-          CheckoutComponent
+          CheckoutComponent,
+          RegisterManagerComponent
         ],
         imports: [
           routes,

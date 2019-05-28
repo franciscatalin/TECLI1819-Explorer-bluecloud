@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxPayPalModule, ICreateOrderRequest, IPayPalConfig  } from 'ngx-paypal';
+import { NgxPayPalModule, ICreateOrderRequest, PayPalConfig  } from 'ngx-paypal';
 import { from } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -12,11 +12,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  public payPalConfig ? : IPayPalConfig;
+ // public payPalConfig ? : IPayPalConfig;
   public showSuccess: boolean;
   public showCancel: boolean;
   public showError: boolean;
-  //private payPalConfig: NgxPayPalModule;
+  private payPalConfig: PayPalConfig;
   constructor(private translateService: TranslateService,private formBuilder: FormBuilder, 
     private router: Router,private route: ActivatedRoute) { }
 
@@ -24,11 +24,12 @@ export class CheckoutComponent implements OnInit {
     this.initConfig();
   }
 
-/*
-  const total = this.route.snapshot.queryParams['total'];
- this.payPalConfig = new PayPalConf ({
+  initConfig(){
+  const total = this.route.snapshot.queryParams['price'];
+  console.log (total);
+ this.payPalConfig = new PayPalConfig ({
    currency: 'EUR',
-   clientId: ''
+   clientId: 'AcYYvVQ9rTjnGhWhhzXq7kE-ap-5H3X7N6_R1mLs40KrQ6bXNLSkOsOf90g7pOaA1ADns_n5eJvBhDm0',
    createOrder: (data) => < ICreateOrderRequest > {
      intent: 'CAPTURE',
      purchase_units: [{
@@ -47,8 +48,7 @@ export class CheckoutComponent implements OnInit {
      label: 'paypal',
      layout: 'vertical'
    },
- })*/
-/*}
+ 
 onApprove: (data, actions) =>{
   console.log ('Transaction was approved, but not authorized yet', data, actions);
   actions.order.get().then(details => {
@@ -68,9 +68,13 @@ onError: err =>{
 },
 onClick: () => {
   console.log('onClick');
-},
-*/
-private initConfig(): void {
+}
+});
+}
+}
+
+/*private initConfig(): void {
+  const price = this.route.snapshot.params['price'];
 this.payPalConfig = {
   currency: 'EUR',
   clientId: 'sb',
@@ -130,5 +134,5 @@ this.payPalConfig = {
       //this.resetStatus();
   },
 };
-}
-}
+}*/
+
