@@ -20,6 +20,7 @@ import { SearchTripComponent } from './components/search-trip/search-trip.compon
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';
 import { RegisterManagerComponent } from './components/security/register-manager/register-manager.component';
+import { ApplicationUpdateComponent } from './components/application/application-update/application-update.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'Checkout', component: CheckoutComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager'}},
   { path: 'ActorListComponent' , component: ActorListComponent, canActivate: [ActorRoleGuard], data:{expectedRole:'Administrator|Manager'}},
   { path: 'RegisterManagerComponent', component: RegisterManagerComponent, canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
-
+  { path: 'ApplicationUpdateComponent', component: ApplicationUpdateComponent, canActivate: [ActorRoleGuard], data: { expectedRole: 'Administrator|Explorer|Manager'} },
   {
     path: 'trips', children: [
       { path: 'TripDisplay/:id', component: TripDisplayComponent },

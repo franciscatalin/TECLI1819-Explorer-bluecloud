@@ -46,48 +46,12 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
       );
 
 
-    /*this.applicationForm = this.formBuilder.group
-      ({
-
-        ticker: [''],
-        actorid: [this.authService.getCurrentActor().id],
-        actorname: [this.authService.getCurrentActor().name],
-        tripid: [this.tripservice.getCurrentTrip().id],
-        tripname: [''],
-        status: [''],
-        comment: ['ultima prueba aplicaciones'],
-        reject_reason: [''],
-        if_paid: [''],
-        validated: [''],
-        cancelationMoment: [''],
-        created: Date
-      });*/
-
+  
 
   }
 
   onCreated() {
-    // this.trip = new Trip();
-    /*
-    this.submitted = true;
-    if (this.applicationForm.valid) {
-      console.log ('Hola Mundo');
-      console.log (this.applicationForm.value);
-      this.applicationservice.registerapplication (this.applicationForm.value)
-
-      .then(res => {
-
-        console.log(res );
-        //this.router.navigate(['/login']);
-      }, err => { console.log(err + 'Real error'); });*/
-
-
-    //const application = new Application();
-    // application.actorid = this.authService.getCurrentActor().id
-
-    // application.tripid = this.trip.id
-
-    // this.tripservice.setCurrentTrip(this.trip);
+   
     const applicationjson =
     {
       ticker: this.trip.ticker,
@@ -118,22 +82,5 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   }
 
 
-  saveApplication() {
-
-    /*trip =new Trip();
-    ticker: [''],
-    actorid: [ this.authService.getCurrentActor().id],
-    actorname:[ this.authService.getCurrentActor().name],
-    tripid:[this.tripservice.getCurrentTrip().id],
-    tripname: [''],
-    status:[''],
-    comment:['ultima prueba aplicaciones'],
-    reject_reason:[''],
-    if_paid:[''],
-    validated: [''],
-    cancelationMoment: [''],
-    created: Date*/
-
-  }
-
+ 
 }
