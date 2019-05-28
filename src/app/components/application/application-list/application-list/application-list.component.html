@@ -1,7 +1,7 @@
 <table class="table table-striped" >
     <thead>
       <tr>
-        <th scope="col">{{'application.ticket'|translate}}</th>
+   
         <th scope="col" >{{'application.place'|translate}}</th>
         <th scope="col">{{'application.requestusstatus'|translate}}</th>
         <th scope="col">{{'trip.price'|translate}}</th>
@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let application of data">
-        <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.ticker}}</td>
+
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.tripname}}</td>
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.status}}</td>
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{trips[application.tripid]}}</td>
