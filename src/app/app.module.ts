@@ -35,7 +35,6 @@ import { DeniedAccessPageComponent } from './components/shared/denied-access-pag
 import { ProfileComponent } from './components/actor/profile/profile.component';
 import { ActorService } from './services/actor.service';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
-import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 import { AgmCoreModule} from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchTripComponent } from './components/search-trip/search-trip.component';
@@ -85,7 +84,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeniedAccessPageComponent,
     ProfileComponent,
     TripCreateComponent,
-    ApplicationCreateComponent,
     SearchTripComponent,
     CheckoutComponent,
     RegisterManagerComponent,

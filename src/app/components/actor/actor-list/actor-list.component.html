@@ -1,63 +1,29 @@
-<!-- <table class="table table-striped" *ngFor="let actor of data">
+
+<table  class="table table-striped" >
+  <!-- La etiqueta <thead> contiene a un bloque de filas <tr> que representan a la sección de encabezado de una tabla -->
   <thead>
+    <!-- Cada etiqueta <tr> sirve para definir una fila (row) -->
     <tr>
-      
-      <th scope="col" >Usuarios</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Correo</th>
-      <th scope="col">Rol</th>
-     
+      <!-- El encabezado tanto horizontal como vertical de una tabla se define con la etiqueta <th> -->
+      <th>{{'actor.name'|translate}}</th> 
+      <th>{{'actor.surname'|translate}}</th> 
+      <th>{{'actor.email'|translate}}</th> 
+      <th>{{'actor.phone'|translate}}</th>
+      <th>{{'actor.address'|translate}}</th>
+      <th>{{'actor.role'|translate}}</th> 
     </tr>
   </thead>
+  <!-- La etiqueta <tbody> contiene a un bloque de filas <tr> que representaa a la sección del cuerpo de una tabla -->
   <tbody>
-    <tr>
-      
-
-      <td routerLink="">{{actor.name}}</td>
-      <td routerLink="">{{actor.surname}}</td>
-      <td routerLink="">{{actor.email}}</td>
-      <td routerLink="">{{actor.role}}</td>
-
+    <!-- En la segunda etiqueta <tr> utilizamos un bucle *ngFor para rellenar todos los datos -->
+    <tr *ngFor="let actor of data">
+      <!-- Los datos de una celda se definen con la etiqueta <td> -->
+      <td>{{actor.name}}</td> 
+      <td>{{actor.surname}}</td>
+      <td>{{actor.email}}</td>
+      <td>{{actor.phone}}</td>
+      <td>{{actor.address}}</td>
+      <td>{{actor.role}}</td>
     </tr>
-    
   </tbody>
-</table> -->
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {background-color: #f2f2f2;}
-</style>
-</head>
-<body>
-
--->
-
-<table  class="table table-striped" > 
-    <tr> <th>{{'actor.name'|translate}}</th> 
-    <th>{{'actor.surname'|translate}}</th> 
-    <th>{{'actor.email'|translate}}</th> 
-    <th>{{'actor.phone'|translate}}</th>
-    <th>{{'actor.address'|translate}}</th>
-    <th>{{'actor.role'|translate}}</th> 
-     
-  </tr > <tr *ngFor="let actor of data">
-    
-     <td >{{actor.name}}</td> 
-     <td>{{actor.surname}}</td>
-     <td>{{actor.email}}</td>
-     <td>{{actor.phone}}</td>
-     <td>{{actor.address}}</td>
-     <td>{{actor.role}}</td>
-     
-       </tr> </table>
+</table>
