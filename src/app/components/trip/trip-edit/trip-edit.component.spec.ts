@@ -21,7 +21,6 @@ import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { DeniedAccessPageComponent } from '../../shared/denied-access-page/denied-access-page.component';
 import { ProfileComponent } from '../../actor/profile/profile.component';
 import { TripCreateComponent } from '../trip-create/trip-create.component';
-import { ApplicationCreateComponent } from '../../application/application-create/application-create.component';
 import { routes } from 'src/app/app.routes';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -74,7 +73,6 @@ describe('TripEditComponent', () => {
           DeniedAccessPageComponent,
           ProfileComponent,
           TripCreateComponent,
-          ApplicationCreateComponent,
           SearchTripComponent,
           CheckoutComponent,
           RegisterManagerComponent,

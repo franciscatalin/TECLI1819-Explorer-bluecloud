@@ -22,14 +22,17 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   submitted = false;
   applicationForm: FormGroup;
 
-  constructor(private tripservice: TripService, private applicationservice: ApplicationService,
-    private router: Router, private route: ActivatedRoute,
-    private translateservice: TranslateService, private authService: AuthService, private formBuilder: FormBuilder) {
+  constructor(private tripservice: TripService,
+    private applicationservice: ApplicationService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private translateservice: TranslateService,
+    private authService: AuthService,
+    private formBuilder: FormBuilder) {
     super(translateservice);
   }
 
   ngOnInit() {
-
     // A partir del listado de trips, el usuario selecciona un viaje que tiene un id concreto que se pasa por la URL y que aquí recuperamos
     this.id = this.route.snapshot.params['id'];
     // Una vez que ya tenemos el id, podemos usarlo para recuperar el trip completo
@@ -44,16 +47,11 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
         console.error(err);
       }
       );
-
-
-  
-
   }
 
+  // Método que se ejecuta cuando el usuario hace click en el botón "Solicitar Viaje" para crear una aplicación
   onCreated() {
-   
-    const applicationjson =
-    {
+    const applicationjson = {
       ticker: this.trip.ticker,
       actorid: this.authService.getCurrentActor().id,
       actorname: this.authService.getCurrentActor().name,
@@ -73,14 +71,9 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
     .then((val) => {
       // this.trip = val;
       console.log(val);
-    }
-      
-    )
+    })
     .catch((err) => {
       console.error(err);
     });
   }
-
-
- 
 }

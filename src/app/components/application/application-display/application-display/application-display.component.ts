@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ApplicationDisplayComponent implements OnInit {
 
+  // Creamos una aplicación que será la que utilicemos para representarla luego en el display del html
   application = new Application();
   id: string;
 
@@ -19,17 +20,17 @@ export class ApplicationDisplayComponent implements OnInit {
   constructor(private applicationservice: ApplicationService,
      private router: Router, private route: ActivatedRoute,
      private translateservice: TranslateService, private authservice: AuthService ) {
-     
      }
 
+  // A este componente "Application-Display" se llega a partir del componente "Application-list" de donde recibimos además el id
   ngOnInit() {
-    
-    // A partir del listado de application, el usuario selecciona una aplicación que tiene un id concreto que se pasa por la URL y que aquí recuperamos
+
+    // Por la URL se pasa a este componente el id que aquí recuperamos
     this.id = this.route.snapshot.params['id'];
-    // Una vez que ya tenemos el id, podemos usarlo para recuperar la reserva o aplicación completo
-    this.applicationservice.getaplication(this.id)
+    // Una vez que ya tenemos el id, podemos usarlo para recuperar la aplicación completa
+    this.applicationservice.getApplication(this.id)
     // Las llamadas a los métodos de los servicios como suelen generar llamadas a backend no devuelven el objeto sino que devuelven promesas
-    // De manera que cuando se resuelva la promesa, lo que me devuelve el método "getApplication" es una aplicación que se guarda en la variable trip
+    // Cuando se resuelva la promesa, el método "getApplication" devuelve una aplicación que se guarda en la variable application
     .then ((val) => {
       this.application = val;
       console.log ('Trip id:' + this.application.id);
@@ -39,5 +40,4 @@ export class ApplicationDisplayComponent implements OnInit {
   }
   );
 }
-
 }

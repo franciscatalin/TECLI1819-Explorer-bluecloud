@@ -15,7 +15,6 @@ import { ActorRoleGuard } from './guards/actor-role.guard';
 import { DeniedAccessPageComponent } from './components/shared/denied-access-page/denied-access-page.component';
 import { ProfileComponent } from './components/actor/profile/profile.component';
 import { TripCreateComponent } from './components/trip/trip-create/trip-create.component';
-import { ApplicationCreateComponent } from './components/application/application-create/application-create.component';
 import { SearchTripComponent } from './components/search-trip/search-trip.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ActorListComponent } from './components/actor/actor-list/actor-list.component';

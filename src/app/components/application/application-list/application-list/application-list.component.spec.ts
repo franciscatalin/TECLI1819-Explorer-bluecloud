@@ -35,7 +35,6 @@ import { BehaviorSubject } from 'rxjs';
 import { ApplicationService } from 'src/app/services/application.service';
 import { ProfileComponent } from 'src/app/components/actor/profile/profile.component';
 import { TripCreateComponent } from 'src/app/components/trip/trip-create/trip-create.component';
-import { ApplicationCreateComponent } from '../../application-create/application-create.component';
 import { AgmCoreModule} from '@agm/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ActorService } from 'src/app/services/actor.service';
@@ -96,7 +95,6 @@ describe('ApplicationListComponent', () => {
           DeniedAccessPageComponent,
           ProfileComponent,
           TripCreateComponent,
-          ApplicationCreateComponent,
           SearchTripComponent,
           CheckoutComponent,
           RegisterManagerComponent,

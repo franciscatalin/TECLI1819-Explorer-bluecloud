@@ -1,64 +1,70 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <!-- Foto con el logo de la esquina superior izquierda -->
   <a class="navbar-brand" routerLink="/home" >
     <img src="../../../../assets/HeaderLogo.png" width="70" height="50" class="d-inline-block align-top" >
   </a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- La etiqueta <ul> viene de "unordered list" - lista no ordenada, es decir, crea una lista no ordenada -->
     <ul class="navbar-nav">
+      <!-- La etiqueta <li> viene de "item list" - lista de elementos -->
+      <!-- Creamos la lista 1: "TRIPS" o "VIAJES" -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.trips'|translate}}
         </a>
+        <!-- Subelemento de la lista 1: "List Trips" o "Listar Viajes" -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>
-         
-
+          <a class="dropdown-item" routerLink="/trips">{{'header.list.trips'|translate}}</a>      
         </div>
       </li>
+      <!-- Creamos la lista 2: "APPLICATIONS" o "APLICACIONES" de los actores de tipo EXPLORER -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Explorer')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.applications'|translate}}
         </a>
+        <!-- Subelemento de la lista 2: "List Applications" o "Listar Aplicaciones" de los actores de tipo EXPLORER -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/applications">{{'header.list.applications'|translate}}</a>
-         
-
+          <a class="dropdown-item" routerLink="/applications">{{'header.list.applications'|translate}}</a>      
         </div>
       </li>
-
+      <!-- Creamos la lista 2: "APPLICATIONS" o "APLICACIONES" de los actores de tipo MANAGER -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Manager')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.applications'|translate}}
         </a>
+        <!-- Subelementos de la lista 2 para los actores de tipo MANAGER -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- "Managed Applications" o "Aplicaciones Administradas" -->
           <a class="dropdown-item" routerLink="/applications">{{'header.application.manager'|translate}}</a>
+          <!-- "Update Request" o "Modificar Solicitudes" -->
           <a class="dropdown-item" routerLink="/ApplicationUpdateComponent">{{'header.update.application'|translate}}</a>
-          
-
         </div>
       </li>
-
+      <!-- Creamos la lista 2: "APPLICATIONS" o "APLICACIONES" de los actores de tipo ADMINISTRATOR -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Administrator')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.applications'|translate}}
         </a>
+        <!-- Subelementos de la lista 2 para los actores de tipo ADMINISTRATOR -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <!-- "Managed Applications" o "Aplicaciones Administradas" -->
           <a class="dropdown-item" routerLink="/applications">{{'header.application.manager'|translate}}</a>
+          <!-- "Update Request" o "Modificar Solicitudes" -->
           <a class="dropdown-item" routerLink="/ApplicationUpdateComponent">{{'header.update.application'|translate}}</a>
-          
-
         </div>
       </li>
-
-
+      <!-- Creamos la lista 3: "PROFILE" o "PERFIL" de los actores de tipo ADMINISTRATOR -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Administrator')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
@@ -107,9 +113,9 @@
        
         </div>
       </li>
-
-
     </ul>
+
+    <!-- Formulario de buscar viaje -->
     <form class="form-inline mx-auto">
       <input class="form-control mr-sm-2" [(ngModel)]="busqueda.text" [ngModelOptions]="{standalone: true}"
         type="search" placeholder="{{'header.search'|translate}}" aria-label="Search">
@@ -117,23 +123,24 @@
         routerLink="/trips/SearchTripComponent/{{busqueda.text}}">{{'header.search'|translate}}</button>
     </form>
 
+    <!-- Elementos de la parte superior derecha -->
     <ul class="navbar-nav">
       <li class="nav-item active">
         <button (click)="changeLanguage('en')" type="submit" class="btn-sm btn-primary mr-1">EN</button>
         <button (click)="changeLanguage('es')" type="submit" class="btn-sm btn-primary mr-1">ES</button>
       </li>
+      <!-- *ngIf indica cuando se tiene que mostrar, en este caso es cuando NO tengamos un actor logueado -->
       <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" routerLink="/register">{{ 'actor.register' | translate}}</a>
       </li>
+      <!-- *ngIf indica cuando se tiene que mostrar, en este caso es cuando NO tengamos un actor logueado -->
       <li class="nav-item active" *ngIf="!currentActor">
         <a class="nav-link" routerLink="/login">{{'security.login' | translate}}</a>
       </li>
+      <!-- *ngIf indica cuando se tiene que mostrar, en este caso es cuando SI tengamos un actor logueado -->
       <li class="nav-item active" *ngIf="currentActor">
         <a class="nav-link" style="cursor:pointer" (click)="logout()"> {{'security.logout' | translate}} </a>
       </li>
-
-
     </ul>
-
   </div>
 </nav>

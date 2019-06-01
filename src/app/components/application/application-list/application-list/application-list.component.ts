@@ -13,12 +13,14 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './application-list.component.html',
   styleUrls: ['./application-list.component.css']
 })
+
 export class ApplicationListComponent extends TranslatableComponent implements OnInit {
 
-  // Array de Application donde almacenamos el listado de aplicaciones
+  // Array donde almacenamos el listado de aplicaciones para recorrerlo en el html
   data: Application[];
   price: number;
   actorid: string;
+  // Creamos un diccionario vacío, que tendría una estructura como esta: miDiccionario = {'clave1':'valor1','clave2':'valor2'}
   trips = {};
 
   constructor(private fb: FormBuilder,
@@ -32,37 +34,29 @@ export class ApplicationListComponent extends TranslatableComponent implements O
   }
 
   ngOnInit() {
-    // this.applicationservice.getApplications()
-    //   .then((val) => {
-    //     this.data = val;
-    //     console.log('Listado de aplicaciones:' + this.data);
-    //   })
-    //   .catch((err) => console.error(err.message));
     this.getApplication();
-
+    // La siguiente llamada a tripservice es necesaria para mostrar los precios en la pantalla y para Paypal
     this.tripservice.getTrips()
       .then((val) => {
-
         val.forEach(val => {
+          // Con la siguiente línea, hacemos uso del diccionario y a cada id le estamos asignando su precio
           this.trips[val.id] = val.price;
         });
-
-        console.log('Listado de viajes: ' + JSON.stringify(this.trips));
+        console.log('Listado de todos los ids de viajes junto a su precio: ' + JSON.stringify(this.trips));
       })
       .catch((err) => console.error(err.message));
   }
 
   getApplication() {
-
+    // Obtenemos el listado de todas las aplicaciones de un actor a partir de su id
     this.actorid = this.authService.getCurrentActor().id;
-    // alert(this.title);
-    this.applicationservice.getapplicationactor(this.actorid)
+    this.applicationservice.getApplicationsActor(this.actorid)
       .then((val) => {
+        // Rellenamos la variable local "data" con las aplicaciones que nos ha devuelto el Json Server
         this.data = val;
-        console.log('Listado de viajes: ' + JSON.stringify(this.data));
+        console.log('Listado de aplicaciones del actor actual: ' + JSON.stringify(this.data));
       })
       .catch((err) => console.error(err.message));
   }
-
 }
 
