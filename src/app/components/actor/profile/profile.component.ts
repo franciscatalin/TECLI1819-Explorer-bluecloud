@@ -52,7 +52,7 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
   public searchElementRef: ElementRef;
 
   // Para poder construir el formulario necesitamos el FormBuilder
-  constructor(private fb: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private actorService: ActorService,
@@ -102,7 +102,8 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
   // Método donde creamos el formulario, es decir donde definimos los campos de los que consta el formulario creando un grupo con "group"
   // El formulario se crea inicialmente vacío hasta que cargamos el actor y se indica los validadores
   createForm() {
-    this.profileForm = this.fb.group({
+    this.profileForm = this.formBuilder.group
+    ({
       id: [''],
       name: ['', Validators.required], // valor requerido
       surname: ['', Validators.required], // valor requerido

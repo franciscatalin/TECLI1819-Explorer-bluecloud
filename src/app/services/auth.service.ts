@@ -7,16 +7,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Subject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
-
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class AuthService {
 
@@ -48,6 +45,7 @@ export class AuthService {
       return result;
     }
 
+  // Método que almacena un nuevo usuario dentro del Json Server
    registerUser (actor: Actor) {
     return new Promise<any>((resolve, reject) => {
       // Llamamos a firebase para registrar al usuario con el email y el password
@@ -60,13 +58,16 @@ export class AuthService {
       this.http.post (url, body, httpOptions).toPromise()
         .then (res => {
            this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+           // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
           resolve (res);
         }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
-      reject (err);
+        // Llamamos a "reject" cuando la promesa falla
+        reject (err);
       });
       }).catch (error => {
          this.messageService.notifyMessage('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
-        reject(error);
+         // Llamamos a "reject" cuando la promesa falla
+         reject(error);
       });
       });
     }
@@ -100,11 +101,13 @@ export class AuthService {
             resolve(actor[0]);
         }).catch(error =>  {
           this.messageService.notifyMessage('errorMessages.auth.login.failed', 'alert alert-danger');
+          // Llamamos a "reject" cuando la promesa falla
           reject(error);
         });
         // Si firebase devuelve algún error lo capturamos
         }).catch(error => {
         this.messageService.notifyMessage ('errorMessages.' + error.code.replace(/\//gi, '.').replace(/\-/gi, '.'), 'alert alert-danger');
+        // Llamamos a "reject" cuando la promesa falla
         reject(error);
         });
       });
@@ -120,10 +123,11 @@ export class AuthService {
           // Eliminamos la información enviando null al setCurrentActor
           this.setCurrentActor(null);
           this.userLoggedIn.next(false);
-          // Si todo ha ido bien hacemos el resolve
+          // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
           resolve();
       // Si firebase devuelve algún error lo capturamos
       }).catch(error => {
+        // Llamamos a "reject" cuando la promesa falla
         reject(error);
         this.messageService.notifyMessage(error.code, 'alert alert-danger');
       });

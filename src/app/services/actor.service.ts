@@ -59,8 +59,11 @@ export class ActorService {
         // Si todo va bien, actualizo los atributos que tiene el authService relacionados con el actor, que tambien tiene que enterarse
         const token = this. authService.getCurrentActor().customToken;
         this.authService.setCurrentActor(actor, token);
+        // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
         resolve(res);
-      }, err => { console.log(err); reject(err); });
+      }, err => { console.log(err);
+        // Llamamos a "reject" cuando la promesa falla
+        reject(err); });
     });
   }
 }

@@ -8,7 +8,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let application of data">
-
         <!-- Mostramos en el listado el nombre del viaje, su estado y por último el precio -->
         <!-- Al pinchar en la aplicación, llamamos a ApplicationDisplay pasandole el id del viaje en el que pinchamos -->
         <td routerLink="/applications/ApplicationDisplay/{{application.id}}">{{application.tripname}}</td>

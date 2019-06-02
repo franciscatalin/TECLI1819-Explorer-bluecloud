@@ -34,7 +34,7 @@ export class ActorRoleGuard implements CanActivate {
           // Enrutamos al usuario hacia el componente de acceso denegado
           this.router.navigate(['denied-access'], { queryParams: {previousURL: state.url }});
         }
-        // Resolvemos la promesa
+        // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
         resolve(result);
       } else {
         // Si currentActor = false, significa que no tenemos un actor logueado, es decir, el usuario es anónimo.
@@ -48,6 +48,7 @@ export class ActorRoleGuard implements CanActivate {
           // lo redirigimos a la ruta a la que quería acceder, para eso guardamos dentro de returnUrl esa dirección a la que quería acceder
           this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
         }
+        // La llamada a "resolve" cuando resolvemos la promesa en caso satisfactorio
         resolve(result);
       }
     });

@@ -40,7 +40,9 @@ export class TripService {
     return result;
   }
 
+  // Devuelve el listado de todos los viajes asociados a un determinado nombre (title)
   getTitle(title: string) {
+    // Con el parámetro "?q=" Json Server hace una búsqueda en TODOS los viajes y en TODOS los atributos de la keyword: "title"
     const url = `${this.tripUrl}/?q=${title}`;
     return this.http.get<Trip[]>(url).toPromise();
   }
@@ -83,18 +85,22 @@ export class TripService {
     
     }
   }
+
+  // Método que almacena un nuevo viaje dentro del Json Server
   registerTrip(trip: Trip) {
     return new Promise<any>((resolve, reject) => {
       const headers = new HttpHeaders();
       headers.append('Content-Type', 'application/json');
-      const url = `${environment.apiBaseUrl + '/trips'}`; // http://localhost:3000/actors
+      const url = `${environment.apiBaseUrl + '/trips'}`; // http://localhost:3000/trips
       const body = JSON.stringify(trip);
       this.http.post(url, body, httpOptions).toPromise()
         .then(res => {
           this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+          // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
           resolve(res);
         }, err => {
           this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
+          // Llamamos a "reject" cuando la promesa falla
           reject(err);
         });
 
