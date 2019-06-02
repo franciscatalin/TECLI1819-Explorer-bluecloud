@@ -5,13 +5,16 @@
     <div class="card-img">
       <img class="card-img-top" src={{trip.picture}} alt="Card image cap">
       
+        <!-- El botón "Ver detalles" del viaje nos envía al componente TripDisplay -->
         <h4 routerLink="/trips/TripDisplay/{{trip.id}}" 
         class="btn-card">Ver detalles</h4>
       
     </div>
     <div class="card-body">
+      <!-- Titulo del viaje -->
       <h5 class="card-title">{{trip.title}}</h5>
       <p class="card-text">
+        <!-- Descripción del viaje -->
         <p class="card-text">{{trip.description}}</p>
     </div>
   </div>

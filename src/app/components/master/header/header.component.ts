@@ -19,7 +19,9 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   currentActor: Actor;
   // Usaremos la variable activeRole para saber cual es el rol del usuario actual logueado en el sistema
   private activeRole = 'anonymous';
+  // Usamos esta variable para subscribirnos
   private userLoggedIn: boolean;
+  // Usamos la variable busqueda para el formulario de buscar un viaje
   private busqueda: Search = { text: null };
 
   constructor(private translateService: TranslateService,

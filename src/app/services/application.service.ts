@@ -47,8 +47,10 @@ export class ApplicationService {
         this.http.post (this.applicationUrl, body, httpOptions).toPromise()
           .then (res => {
             this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+            // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
             resolve (res);
           }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
+        // Llamamos a "reject" cuando la promesa falla
         reject (err); });
     });
   }
@@ -69,7 +71,9 @@ export class ApplicationService {
       .then(res => {
         // Si todo va bien, actualizo los atributos que tiene el authService relacionados con el actor, que tambien tiene que enterarse
         resolve(res);
-      }, err => { console.log(err); reject(err); });
+      }, err => { console.log(err);
+        // Llamamos a "reject" cuando la promesa falla
+        reject(err); });
     });
   }
 }

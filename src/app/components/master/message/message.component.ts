@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class MessageComponent extends TranslatableComponent implements OnInit, OnDestroy {
   code: string;
   cssClass: string;
+  // Usamos esta variable para subscribirnos
   subscription: Subscription;
   showMessage = true;
 
@@ -23,8 +24,7 @@ export class MessageComponent extends TranslatableComponent implements OnInit, O
   }
 
   ngOnInit() {
-    this.subscription = this.messageService.message.subscribe(
-      (data: InfoMessage) => {
+    this.subscription = this.messageService.message.subscribe((data: InfoMessage) => {
         if (data) {
           this.code = data.code;
           this.cssClass = data.cssClass;
@@ -36,6 +36,7 @@ export class MessageComponent extends TranslatableComponent implements OnInit, O
   }
 
   ngOnDestroy () {
+    // Eliminamos la subscripción
     this.subscription.unsubscribe();
   }
 }

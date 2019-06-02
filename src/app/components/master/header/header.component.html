@@ -70,57 +70,68 @@
           aria-haspopup="true" aria-expanded="false">
           {{'header.profile'|translate}}
         </a>
+        <!-- Editar perfil -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
-          <div class="dropdown-divider"></div>
-         
+        <div class="dropdown-divider"></div>
+         <!-- Crear un nuevo viaje -->
           <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>
-           <a class="dropdown-item" routerLink="/RegisterManagerComponent">{{'header.new.manager'|translate}}</a> 
+          <!-- Crear cuenta Manager -->
+           <a class="dropdown-item" routerLink="/RegisterManagerComponent">{{'header.new.manager'|translate}}</a>
+           <!-- Listar actores --> 
           <a class="dropdown-item" routerLink="/ActorListComponent">{{'header.list.actors'|translate}}</a>
-          
         </div>
       </li>
-
+      <!-- Creamos la lista 3: "PROFILE" o "PERFIL" de los actores de tipo MANAGER -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Manager')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.profile'|translate}}
         </a>
+        <!-- Editar perfil -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
+          <!-- Listar actores -->
           <a class="dropdown-item" routerLink="/ActorListComponent">{{'header.list.actors'|translate}}</a>
+          <!-- Crear un nuevo viaje -->
           <a class="dropdown-item" routerLink="/TripCreateComponent">{{'header.new.trip'|translate}}</a>
         </div>
       </li>
-
+      <!-- Creamos la lista 3: "PROFILE" o "PERFIL" de los actores de tipo EXPLORER -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Explorer')">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{'header.profile'|translate}}
         </a>
+        <!-- Editar perfil -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile">{{'header.edit.profile'|translate}}</a>
         </div>
       </li>
-
+      <!-- Creamos la lista 4: "ADMINISTRATION" o "ADMINISTRACIÓN" de los actores de tipo ADMINISTRATOR -->
       <li class="nav-item dropdown" *ngIf="this.authservice.checkRole('Administrator')">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
           aria-expanded="false">{{ 'header.administration' | translate}}</a>
         <div class="dropdown-menu">
+          <!-- Desplegar dashboard -->
           <a class="dropdown-item" routerLink="/Dashboard">{{'header.dashboard' | translate}}</a>
-          <a class="dropdown-item" routerLink="/TripList">{{'header.warehouse'|translate}}</a>
-          <a class="dropdown-item"> {{'administrator.mcap'|translate}}</a> 
-       
+          <!-- Configurar warehouse -->
+          <a class="dropdown-item">{{'header.warehouse'|translate}}</a>
+          <!-- Mostrar cubo MCAP -->
+          <a class="dropdown-item">{{'administrator.mcap'|translate}}</a> 
         </div>
       </li>
     </ul>
 
     <!-- Formulario de buscar viaje -->
     <form class="form-inline mx-auto">
+      <!-- [(ngModel)] es la directiva proporcionada por Angular para el Two way data binding -->
       <input class="form-control mr-sm-2" [(ngModel)]="busqueda.text" [ngModelOptions]="{standalone: true}"
         type="search" placeholder="{{'header.search'|translate}}" aria-label="Search">
+      <!-- Al hacer click en el Botón "buscar", nos vamos al componente search-trip con el contenido de "busqueda.text" -->
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-        routerLink="/trips/SearchTripComponent/{{busqueda.text}}">{{'header.search'|translate}}</button>
+        routerLink="/trips/SearchTripComponent/{{busqueda.text}}">{{'header.search'|translate}}
+      </button>
     </form>
 
     <!-- Elementos de la parte superior derecha -->
