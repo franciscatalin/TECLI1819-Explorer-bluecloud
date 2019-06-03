@@ -39,14 +39,14 @@ export class ApplicationService {
   }
 
   // Método que se ejecuta en "trip-display" cuando el usuario hace click en el botón "Solicitar Viaje" para crear una aplicación
-  registerapplication (application: any) {
+  registerApplication (application: any) {
     return new Promise<any>((resolve, reject) => {
         const headers = new HttpHeaders ();
         headers.append ('Content-Type', 'application/json');
         const body = JSON.stringify(application);
         this.http.post (this.applicationUrl, body, httpOptions).toPromise()
           .then (res => {
-            this.messageService.notifyMessage('messages.auth.registration.correct', 'alert alert-success');
+            this.messageService.notifyMessage('application.create.application', 'alert alert-success');
             // Llamamos a "resolve" cuando resolvemos la promesa en caso satisfactorio
             resolve (res);
           }, err => { this.messageService.notifyMessage('errorMessage.auth.registration.failed', 'alert alert-danger');
