@@ -1,6 +1,5 @@
 /// <reference path="../../../../../node_modules/@types/googlemaps/index.d.ts" />
 
-
 import { Component, OnInit, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -53,7 +52,7 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
   public searchElementRef: ElementRef;
 
   // Para poder construir el formulario necesitamos el FormBuilder
-  constructor(private fb: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
     private actorService: ActorService,
@@ -66,8 +65,8 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
 
   // Cuando se esté inicializando el componente, lo primero que vamos a hacer es crear el formulario
   ngOnInit() {
-     // photoChanged es un boleano que nos sirve para saber si el usuario ha cambiado la foto que estaba o no
-  this.photoChanged = false;
+    // photoChanged es un boleano que nos sirve para saber si el usuario ha cambiado la foto que estaba o no
+    this.photoChanged = false;
     this.createForm();
 
     this.mapsAPILoader.load().then(() => {
@@ -103,7 +102,8 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
   // Método donde creamos el formulario, es decir donde definimos los campos de los que consta el formulario creando un grupo con "group"
   // El formulario se crea inicialmente vacío hasta que cargamos el actor y se indica los validadores
   createForm() {
-    this.profileForm = this.fb.group({
+    this.profileForm = this.formBuilder.group
+    ({
       id: [''],
       name: ['', Validators.required], // valor requerido
       surname: ['', Validators.required], // valor requerido
@@ -128,6 +128,8 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
     // Con setValue establezco como valor del campo id del formulario, el id que nos ha devuelto el servidor backend
     // Esto solamente sirve para cargar los datos en el formulario, según como se defina el html, estos campos serán visibles o no
     const currentActor = this.authService.getCurrentActor();
+    // Esta validación es muy importante, si getCurrentActor devolviera null y intentamos acceder luego a la propiedad "id"
+    // obtendremos un error, por eso tenemos que comprobar antes de hacer eso que currentActor exista y sea distinto a null
     if (currentActor) {
       const idActor = this.authService.getCurrentActor().id;
       this.actorService.getActor(idActor).then((actor) => {
@@ -155,7 +157,6 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
             this.formModel.photoObject = new Picture ();
             this.formModel.photoObject.Buffer = document.getElementById('showresult').textContent;
             this.formModel.photoObject.contentType = 'image/png'; // Por ahora solo aceptamos imagenes de tipo .png
-
           }
 
           // Maps
@@ -186,7 +187,7 @@ export class ProfileComponent extends TranslatableComponent implements OnInit, C
 
     /*const result = [];
     Object.keys(this.profileForm.controls).forEach(key => {
-  
+
       const controlErrors: ValidationErrors = this.profileForm.get(key).errors;
       if (controlErrors) {
         Object.keys(controlErrors).forEach(keyError => {
@@ -295,6 +296,7 @@ goBack(): void {
     this.profileForm.value.address = $event.coords.lat + ';' + $event.coords.lng;
     this.profileForm.controls['address'].setValue(this.profileForm.value.address);
   }
+
 
 // Método para establecer la posición en el mapa
   private setCurrentPosition() {

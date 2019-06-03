@@ -11,11 +11,14 @@ import { Trip } from 'src/app/models/trip.model';
   templateUrl: './search-trip.component.html',
   styleUrls: ['./search-trip.component.css']
 })
-export class SearchTripComponent implements OnInit  { 
+export class SearchTripComponent implements OnInit {
 
+  // Array de Trips donde almacenamos el listado de viajes
   data: Trip[];
+  // Usamos la variable title para recojer lo que el usuario introdujo en el cuadro de búsqueda del formulario "buscar"
   title: string;
   navigationSubscription;
+
   constructor(private fb: FormBuilder,
     private tripservice: TripService,
     private router: Router,
@@ -33,13 +36,16 @@ export class SearchTripComponent implements OnInit  {
     this.getTrips();
   }
 
+  // Devuelve el listado de todos los viajes asociados a un determinado nombre (title)
   getTrips() {
+    // Recogemos el título del viaje introducido por el usuario en el cuadro de búsqueda
     this.title = this.route.snapshot.params['title'];
-    // alert(this.title);
+    // console.log('He recibido por parámetros: ' + this.title);
+    // El método getTitle es el que verdaderamente devuelve el listado de todos los viajes asociados a un determinado nombre (title)
     this.tripservice.getTitle(this.title)
       .then((val) => {
         this.data = val;
-        console.log('Listado de viajes: ' + JSON.stringify(this.data));
+         // console.log('Listado de viajes: ' + JSON.stringify(this.data));
       })
       .catch((err) => console.error(err.message));
   }

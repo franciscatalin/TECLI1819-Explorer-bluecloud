@@ -22,7 +22,7 @@ export class TermAndConditionsComponent implements OnInit {
       this.http.get(this.htmlFile).subscribe((html) => {
         this.myTemplate = sanitizer.bypassSecurityTrustHtml(html.text());
       });
-      
+
     // Hacemos uso de los observables de Angular
     // Nos suscribimos al evento para que nos avise cuando cambie el idioma, y nos devolverá el en, es, etc para construir el fichero html
     this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {

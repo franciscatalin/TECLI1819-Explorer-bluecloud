@@ -35,7 +35,6 @@ import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileComponent } from '../../actor/profile/profile.component';
 import { TripCreateComponent } from '../trip-create/trip-create.component';
-import { ApplicationCreateComponent } from '../../application/application-create/application-create.component';
 import { AgmCoreModule} from '@agm/core';
 import { ActorService } from 'src/app/services/actor.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -98,7 +97,6 @@ describe('TripListComponent', () => {
         DeniedAccessPageComponent,
         ProfileComponent,
         TripCreateComponent,
-        ApplicationCreateComponent,
         SearchTripComponent,
         CheckoutComponent,
         RegisterManagerComponent,
