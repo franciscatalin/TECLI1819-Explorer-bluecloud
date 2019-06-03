@@ -27,7 +27,7 @@ export class ActorService {
       const url = `${this.actorsUrl}/${id}`;
       // Devuelvo la promesa de haber hecho la petición get
       return this.http.get<Actor>(url).toPromise();
-    }
+  }
 
   // Devuelve el listado de todos los actores
   getActors () {
@@ -37,10 +37,10 @@ export class ActorService {
   // Método que nos devuelve el listado de usuarios que tienen como atributo teléfono el valor pasado como parámetro
   getUsersByPhoneNumber (phoneNum: string): Promise<Actor[]> {
      return this.http.get<Actor[]>(this.actorsUrl + '?phone=' + phoneNum).toPromise();
-   }
-   // Se podría haber resuelto más elegantemente si el backend nos devolviera únicamente el número de usuarios que tienen dicho teléfono
-   // o un booleano indicando si existe al menos alguno que lo tenga. Sin embargo, al trabajar con JSON server esa lógica 
-   // habría que implementarla en un middleware, aumentando la complejidad innecesariamente.
+  }
+  // Se podría haber resuelto más elegantemente si el backend nos devolviera únicamente el número de usuarios que tienen dicho teléfono
+  // o un booleano indicando si existe al menos alguno que lo tenga. Sin embargo, al trabajar con JSON server esa lógica 
+  // habría que implementarla en un middleware, aumentando la complejidad innecesariamente.
 
   // Este método hace un put en el Json Server de un actor que recibe como parámetro
   updateProfile (actor: Actor) {
